@@ -1,0 +1,228 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/backgroup"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <include layout="@layout/title_navigation_bar" />
+
+        <TextView
+            android:id="@+id/operator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/main_nav_radio_df"
+            android:gravity="center"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:text="操作员：嘻嘻嘻 "
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="338dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/car_record_bg"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_width="120dp"
+                    android:gravity="right|center_vertical"
+                    android:text="车牌号码："
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/car_no"
+                    style="@style/common_gray"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/car_spinner_bg"
+                    android:paddingLeft="15dp"
+                    android:text="1234"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_width="120dp"
+                    android:gravity="right|center_vertical"
+                    android:text="加油量："
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/capactiy"
+                    style="@style/common_gray"
+                    android:layout_width="76dp"
+                    android:inputType="numberDecimal"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_edit_car"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="3dp"
+                    android:hint="0"
+                    android:textSize="15sp" />
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_marginLeft="15dp"
+                    android:text="升(L)"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_width="120dp"
+                    android:gravity="right|center_vertical"
+                    android:text="花费："
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/spend"
+                    style="@style/common_gray"
+                    android:inputType="numberDecimal"
+                    android:layout_width="76dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_edit_car"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="3dp"
+                    android:hint="0"
+                    android:textSize="15sp" />
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_marginLeft="15dp"
+                    android:text="元"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_width="120dp"
+                    android:gravity="right|center_vertical"
+                    android:text="时间："
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/year"
+                    style="@style/common_gray"
+                    android:layout_width="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_edit_car"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="3dp"
+                    android:text="1234"
+                    android:textCursorDrawable="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    style="@style/common_gray"
+                    android:text="年"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/month"
+                    style="@style/common_gray"
+                    android:layout_width="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_edit_car"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="3dp"
+                    android:text="09"
+                    android:textSize="15sp" />
+
+                <TextView
+                    style="@style/common_gray"
+                    android:text="月"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/day"
+                    style="@style/common_gray"
+                    android:layout_width="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_edit_car"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="3dp"
+                    android:text="09"
+                    android:textSize="15sp" />
+
+                <TextView
+                    style="@style/common_gray"
+                    android:text="日"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View style="@style/hweight_wfill" />
+
+        <LinearLayout
+            android:id="@+id/ly_unaccept_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarStyle"
+            android:orientation="horizontal">
+
+            <Button
+                style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/submit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/order_accept" />
+
+            <Button  style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/cancle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/order_reject" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/layout_loading" />
+</RelativeLayout>

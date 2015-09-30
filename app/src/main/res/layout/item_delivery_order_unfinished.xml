@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="42dip"
+    android:gravity="center_vertical"
+    android:background="#fffeef"
+    android:orientation="horizontal"
+    >
+    <TextView
+        android:text="sklsnvslienlsvsldiosnzlsklsnvslienlsvsldiosnzlsklsnvslienlsvsldiosnzlsklsnvslienlsvsldiosnzlsklsnvslienlsvsldiosnzlsklsnvslienlsvsldiosnzlsklsnvslienlsvsldiosnzl"
+        android:maxLines="2"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+    <TextView
+        android:textSize="12sp"
+        android:text="东子"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+    <Button
+        android:text="接单确认"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+
+    <Button
+        android:text="拒单申请"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+</LinearLayout>

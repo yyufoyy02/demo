@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <include layout="@layout/title_navigation_bar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/main_nav_radio_df"
+            android:gravity="center"
+            android:text="油耗记录"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            style="@style/hweight_wfill"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/backgroup_opacity"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="车牌号" />
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="加油量" />
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="花费" />
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="时间" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f4753b" />
+
+            <ListView
+                android:id="@+id/log_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/add_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/car_oil_add" />
+    </LinearLayout>
+
+    <include layout="@layout/layout_loading" />
+</RelativeLayout>

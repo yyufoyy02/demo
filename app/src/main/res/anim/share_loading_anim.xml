@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item
+        android:drawable="@mipmap/pull_ref_pb_1"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_2"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_3"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_4"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_5"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_6"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_7"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_8"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_9"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_10"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_11"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/pull_ref_pb_12"
+        android:duration="100" />
+</animation-list>
+

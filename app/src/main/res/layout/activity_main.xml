@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/bg_color"
+        android:orientation="vertical">
+
+        <include layout="@layout/title_navigation_bar" />
+
+        <fragment
+            android:id="@+id/personal_fragment"
+            android:name="com.gas.ui.fragment.PersonalFrament"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <fragment
+            android:id="@+id/attendance_fragment"
+            android:name="com.gas.ui.fragment.AttendanceFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <fragment
+            android:id="@+id/delivery_fragment"
+            android:name="com.gas.ui.fragment.DeliveryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <fragment
+            android:id="@+id/repair_fragment"
+            android:name="com.gas.ui.fragment.RepairFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+        <fragment
+            android:id="@+id/gas_fragment"
+            android:name="com.gas.ui.fragment.BottleFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nav_bg"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/layout_foot_navigation_bars"
+                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <View style="@style/wweight_hwarp" />
+
+                <View style="@style/wweight_hwarp" />
+
+
+                <FrameLayout style="@style/wweight_hwarp">
+
+                    <TextView
+                        android:id="@+id/unread_delivery"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="right"
+                        android:layout_margin="3dp"
+                        android:background="@mipmap/bg_unread"
+                       android:gravity="center"
+                        android:text="10"
+                        android:textColor="@color/white" />
+                </FrameLayout>
+
+                <FrameLayout style="@style/wweight_hwarp">
+
+                    <TextView
+                        android:id="@+id/unread_repair"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="right"
+                        android:layout_margin="3dp"
+                        android:background="@mipmap/bg_unread"
+                        android:gravity="center"
+                        android:text="10"
+                        android:textColor="@color/white" />
+                </FrameLayout>
+
+                <View style="@style/wweight_hwarp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <include layout="@layout/layout_loading" />
+</RelativeLayout>

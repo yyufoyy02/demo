@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">林田燃气</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="loading">加载中...</string>
+    <string translatable="false" name="sans_serif">sans-serif</string>
+    <string name="scan_tips">将二维码图片对准扫描框即可自动扫描</string>
+</resources>
