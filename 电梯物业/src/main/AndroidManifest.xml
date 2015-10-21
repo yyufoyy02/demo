@@ -5,11 +5,7 @@
     android:versionCode="1"
     android:versionName="1.0">
 
-    <permission
-        android:name="com.meijialove.activity.permission.JPUSH_MESSAGE"
-        android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.meijialove.activity.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <!-- 允许应用程序联网 -->
@@ -27,12 +23,6 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <!-- 拨出电话的权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <!--
-    使用定位功能所需权限
-
-    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
-    </permission>
-    -->
 
     <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -71,6 +61,15 @@
         android:icon="@mipmap/icon_lt"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 </manifest>

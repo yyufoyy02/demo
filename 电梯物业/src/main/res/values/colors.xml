@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="main_color">#ff5577</color>
+    <color name="line">#dddddd</color>
+    <color name="text_color_555">#555555</color>
+    <color name="text_color_999">#999999</color>
+    <color name="text_color_333">#333333</color>
+    <color name="hint_color">#cccccc</color>
 </resources>

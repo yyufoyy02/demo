@@ -11,4 +11,11 @@
         <!-- Used for the title and text   <item name="android:textColorPrimary">#FFFFFF</item>-->
         <!-- Used for the background   <item name="android:background">#4CAF50</item>-->
     </style>
+
+    <style name="line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@color/line</item>
+    </style>
 </resources>
