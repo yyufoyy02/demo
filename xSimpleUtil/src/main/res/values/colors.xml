@@ -1,0 +1,15 @@
+<resources>
+
+    <color name="simple_black">#333333</color>
+    <color name="simple_bg">#eeeeee</color>
+    <color name="simple_white_bg">#ffffff</color>
+    <color name="simple_text_color">#555555</color>
+    <color name="simple_dailog_button_normal_light">@android:color/transparent</color>
+    <color name="simple_dailog_button_pressed_light">#99ff6699</color>
+    <!-- 60 % opacity -->
+    <color name="simple_dailog_button_focused_light">#4Cff6699</color>
+
+    <drawable name="transparent">#00000000
+    </drawable>
+
+</resources>

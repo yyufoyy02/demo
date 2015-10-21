@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ly_dialog"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/main_nav_radio_df"
+        android:text="操作日志"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d8ffffff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/common_gray"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="处理时间" />
+
+            <TextView
+                style="@style/common_gray"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="处理信息" />
+
+            <TextView
+                style="@style/common_gray"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="操作人" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4753b"/>
+        <ListView
+            android:id="@+id/log_list"
+            android:divider="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>

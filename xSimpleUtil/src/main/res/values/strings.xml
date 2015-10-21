@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recycler_key">recycler_key</string>
+    <string name="simple_dialog_cencal">取消</string>
+    <string name="ptr_pull_to_refresh">下拉刷新</string>
+    <string name="ptr_release_to_refresh">松手刷新...</string>
+    <string name="ptr_loading">加载中..</string>
+    <string name="ptr_last_updated">Updated: %1$s</string>
+    <string name="footer_Refresh_stata">加载更多</string>
+    <string name="footer_Refresh_before">上拉加载</string>
+    <string name="Refresh_ing">玩命加载中...</string>
+    <string name="Pull_ing">加载中...</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_nodata">没有更多数据</string>
+    <string name="no_SD">SD不可用</string>
+    <string name="cenal_upload">取消上传</string>
+    <string name="no_photo">照片获取失败</string>
+    <string-array name="topicdetail">
+        <item >全部回复</item>
+        <item >最新回复</item>
+    </string-array>
+</resources>

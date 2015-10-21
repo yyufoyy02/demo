@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_color"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ly_mark"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:text="你需要，我送到"
+        android:textColor="#cac5be"
+        android:textSize="12sp" />
+
+    <RelativeLayout
+        android:id="@+id/ly_mark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/bottle_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/bottle_empty" />
+
+        <Button
+            android:id="@+id/bottle_full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@+id/bottle_empty"
+            android:background="@drawable/bottle_full" />
+
+        <Button
+            android:id="@+id/bottle_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bottle_empty"
+            android:background="@drawable/bottle_msg" />
+
+        <Button
+            android:id="@+id/bottle_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bottle_full"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@+id/bottle_msg"
+            android:background="@drawable/bottle_log"
+            android:translationZ="1dp" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ly_mark"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/bg_marking" />
+
+</RelativeLayout>

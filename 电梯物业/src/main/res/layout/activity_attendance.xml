@@ -1,0 +1,198 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color"
+        android:orientation="vertical">
+
+        <include layout="@layout/title_navigation_bar" />
+
+        <RadioGroup
+            android:id="@+id/group_status_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="12dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_year"
+                style="@style/delivery_order_radiobutton"
+                android:checked="true"
+                android:text="一年内" />
+
+            <RadioButton
+                android:id="@+id/radio_month"
+                style="@style/delivery_order_radiobutton"
+                android:text="一个月内" />
+
+            <RadioButton
+                android:id="@+id/radio_all"
+                style="@style/delivery_order_radiobutton"
+                android:checked="true"
+                android:text="全部" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/backgroup_opacity"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="1" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/attendance_late">
+
+                    <TextView
+                        android:id="@+id/check_later"
+                        style="@style/common_orange"
+                        android:layout_gravity="start|bottom"
+                        android:layout_marginBottom="25dp"
+                        android:layout_marginLeft="40dp"
+                        android:text="12"
+                        android:textSize="15sp" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="1" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/attendance_early">
+
+                    <TextView
+                        android:id="@+id/check_early"
+                        style="@style/common_orange"
+                        android:layout_gravity="start|bottom"
+                        android:layout_marginBottom="25dp"
+                        android:layout_marginLeft="40dp"
+                        android:text="12"
+                        android:textSize="15sp" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="1" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/attendance_working">
+
+                    <TextView
+                        android:id="@+id/check_working"
+                        style="@style/common_orange"
+                        android:layout_gravity="start|bottom"
+                        android:layout_marginBottom="25dp"
+                        android:layout_marginLeft="40dp"
+                        android:text="12"
+                        android:textSize="15sp" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="1" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/attendance_off">
+
+                    <TextView
+                        android:id="@+id/check_off"
+                        style="@style/common_orange"
+                        android:layout_gravity="start|bottom"
+                        android:layout_marginBottom="25dp"
+                        android:layout_marginLeft="40dp"
+                        android:text="12"
+                        android:textSize="15sp" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="1" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/attendance_leave">
+
+                    <TextView
+                        android:id="@+id/check_vacation"
+                        style="@style/common_orange"
+                        android:layout_gravity="start|bottom"
+                        android:layout_marginBottom="25dp"
+                        android:layout_marginLeft="40dp"
+                        android:text="12"
+                        android:textSize="15sp" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/layout_loading" />
+</merge>

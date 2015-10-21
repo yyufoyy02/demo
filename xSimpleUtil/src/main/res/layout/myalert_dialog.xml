@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp40"
+    android:layout_marginRight="@dimen/dp40"
+    android:background="@drawable/sdl_background_light"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp16"
+        android:paddingLeft="@dimen/dp16"
+        android:paddingRight="@dimen/dp16"
+        android:paddingTop="@dimen/dp16"
+        android:text=""
+        android:textSize="@dimen/sp22" />
+
+    <View
+        android:id="@+id/tv_titleDivider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/dp12"
+            android:paddingLeft="@dimen/dp16"
+            android:paddingRight="@dimen/dp16"
+            android:paddingTop="@dimen/dp12"
+            android:text=""
+            android:textColor="@color/simple_text_color"
+            android:textSize="@dimen/sp16" />
+
+        <EditText
+            android:id="@+id/edt_oldpw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/simple_text_color"
+            android:textSize="@dimen/sp16"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="#25000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/bt_left"
+            style="@style/SimpleMyalertDialogButton" />
+
+        <View
+            android:id="@+id/bt_Divider"
+            android:layout_width="@dimen/dp1"
+            android:layout_height="fill_parent"
+            android:background="#25000000" />
+
+        <Button
+            android:id="@+id/bt_right"
+            style="@style/SimpleMyalertDialogButton" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="#25000000" />
+
+</LinearLayout>

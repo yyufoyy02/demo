@@ -1,0 +1,115 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <include layout="@layout/title_navigation_bar" />
+
+        <TextView
+            android:id="@+id/operator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/main_nav_radio_df"
+            android:gravity="center"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:text="操作员：嘻嘻嘻 "
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="338dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/car_record_bg">
+
+
+            <LinearLayout
+                android:id="@+id/ly_license_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+
+                    style="@style/common_gray"
+                    android:text="已绑定的车牌号码"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/license_number"
+                    style="@style/common_orange"
+                    android:layout_gravity="center_horizontal"
+                    android:text="粤L9025"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/common_gray"
+                    android:layout_gravity="center_horizontal"
+                    android:text="车牌号码"
+                    android:textSize="24sp" />
+
+                <LinearLayout
+
+
+                    android:id="@+id/ly_select_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_license_number"
+                        style="@style/common_orange"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/car_spinner_bg"
+                        android:paddingLeft="15dp"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/car_arrow_down" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <View style="@style/hweight_wfill" />
+
+        <Button
+            android:id="@+id/button_unwrap_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/unwrap_car" />
+
+        <Button
+            android:id="@+id/button_wrap_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/wrap_car" />
+    </LinearLayout>
+
+
+    <include layout="@layout/layout_loading" />
+</merge>

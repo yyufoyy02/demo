@@ -10,8 +10,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/pullToRefreshLibrary" />
+            <option value="$PROJECT_DIR$/xSimpleUtil" />
+            <option value="$PROJECT_DIR$/电梯物业" />
           </set>
         </option>
       </GradleProjectSettings>

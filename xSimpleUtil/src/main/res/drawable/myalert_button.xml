@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/simple_dailog_button_pressed_light" android:state_pressed="true"/>
+    <item android:drawable="@color/simple_dailog_button_focused_light" android:state_focused="true"/>
+    <item android:drawable="@color/simple_dailog_button_normal_light" android:state_enabled="true" android:state_focused="false" android:state_pressed="false"/>
+
+</selector>

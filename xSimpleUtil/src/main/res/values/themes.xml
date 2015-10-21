@@ -1,0 +1,21 @@
+<resources>
+
+    <style name="SimpleAppTheme" parent="@android:Theme.Holo.Light">
+
+        <!-- <item name="android:windowAnimationStyle">@style/AnimationActivity</item> -->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/simple_bg</item>
+    </style>
+
+    <style name="SimpleDrakTheme" parent="android:Theme.Holo">
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AnimationActivity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+</resources>

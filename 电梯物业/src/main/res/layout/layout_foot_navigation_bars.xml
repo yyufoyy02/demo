@@ -1,0 +1,38 @@
+<com.gas.ui.view.NestRadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#f0f0f0"
+    android:paddingTop="3dp"
+    android:id="@+id/nav_radio_group">
+
+    <RadioButton
+        android:id="@+id/radio_personal"
+        style="@style/wweight_hwrap"
+        android:button="@null"
+        android:background="@drawable/nav_personal"/>
+
+    <RadioButton
+        android:id="@+id/radio_attendance"
+        style="@style/wweight_hwrap"
+        android:button="@null"
+        android:background="@drawable/nav_attendance" />
+
+    <RadioButton
+        android:id="@+id/radio_delivery"
+        style="@style/wweight_hwrap"
+        android:button="@null"
+        android:background="@drawable/nav_delivery_order"/>
+
+    <RadioButton
+        android:id="@+id/radio_repair"
+        style="@style/wweight_hmatch"
+        android:button="@null"
+        android:background="@drawable/nav_repair_order" />
+
+    <RadioButton
+        android:id="@+id/radio_gas"
+        style="@style/wweight_hwrap"
+        android:button="@null"
+        android:background="@drawable/nav_gas"/>
+</com.gas.ui.view.NestRadioGroup>

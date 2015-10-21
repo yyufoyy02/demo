@@ -1,0 +1,49 @@
+<resources>
+
+    <style name="SimpleMyDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="SimpleMyalertDialogButton" parent="@android:style/Widget.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/dp12</item>
+        <item name="android:paddingBottom">@dimen/dp12</item>
+        <item name="android:minHeight">@dimen/dp48</item>
+        <item name="android:minWidth">@dimen/dp64</item>
+        <item name="android:paddingLeft">@dimen/dp4</item>
+        <item name="android:paddingRight">@dimen/dp4</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/sp15</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@drawable/myalert_button</item>
+    </style>
+    <!-- refresh -->
+    <style name="RefreshStyle">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">#999</item>
+        <item name="android:textSize">@dimen/sp12</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="SwipeBackLayout">
+        <item name="edge_size">50dip</item>
+        <item name="shadow_left">@drawable/shadow_left</item>
+        <item name="shadow_right">@drawable/shadow_right</item>
+        <item name="shadow_bottom">@drawable/shadow_bottom</item>
+    </style>
+
+</resources>
