@@ -1,4 +1,4 @@
-package com.gas.database;
+package com.property.database;
 
 import android.content.Context;
 import android.content.SharedPreferences;

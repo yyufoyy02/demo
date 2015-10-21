@@ -1,4 +1,4 @@
-package com.gas.connector;
+package com.property.connector;
 
 /**
  * Created by Heart on 2015/7/19.

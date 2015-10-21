@@ -1,4 +1,4 @@
-package com.gas.ui.view;
+package com.property.ui.view;
 
 
 import android.content.Context;
@@ -18,7 +18,7 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.gas.epiboly.R;
+import com.property.epiboly.R;
 
 public class CircleImageView extends ImageView {
 

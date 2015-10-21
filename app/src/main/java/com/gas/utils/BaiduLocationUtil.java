@@ -1,4 +1,4 @@
-package com.gas.utils;
+package com.property.utils;
 
 import android.content.Context;
 
@@ -7,7 +7,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.LocationClientOption.LocationMode;
-import com.gas.database.SharedPreferenceUtil;
+import com.property.database.SharedPreferenceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

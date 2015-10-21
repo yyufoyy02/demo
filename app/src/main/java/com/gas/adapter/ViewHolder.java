@@ -1,4 +1,4 @@
-package com.gas.adapter;
+package com.property.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;

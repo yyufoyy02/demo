@@ -1,4 +1,4 @@
-package com.gas.ui.fragment;
+package com.property.ui.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,15 +10,15 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.gas.conf.Common;
-import com.gas.connector.HttpCallBack;
-import com.gas.connector.protocol.BusinessHttpProtocol;
-import com.gas.database.SharedPreferenceUtil;
-import com.gas.entity.User;
-import com.gas.epiboly.R;
-import com.gas.ui.common.BaseFragment;
-import com.gas.utils.Utils;
-import com.gas.utils.wrapCarUtil;
+import com.property.conf.Common;
+import com.property.connector.HttpCallBack;
+import com.property.connector.protocol.BusinessHttpProtocol;
+import com.property.database.SharedPreferenceUtil;
+import com.property.entity.User;
+import com.property.epiboly.R;
+import com.property.ui.common.BaseFragment;
+import com.property.utils.Utils;
+import com.property.utils.wrapCarUtil;
 
 import org.json.JSONObject;
 

@@ -1,4 +1,4 @@
-package com.gas.utils;
+package com.property.utils;
 
 import android.util.Log;
 

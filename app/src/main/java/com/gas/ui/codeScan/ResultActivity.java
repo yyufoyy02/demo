@@ -1,4 +1,4 @@
-package com.gas.ui.codeScan;
+package com.property.ui.codeScan;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
-import com.gas.epiboly.R;
+import com.property.epiboly.R;
 
 
 public class ResultActivity extends Activity {

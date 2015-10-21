@@ -1,4 +1,4 @@
-package com.gas.utils;
+package com.property.utils;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,10 +14,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.gas.conf.Common;
-import com.gas.conf.Config;
-import com.gas.database.SharedPreferenceUtil;
-import com.gas.entity.User;
+import com.property.conf.Common;
+import com.property.conf.Config;
+import com.property.database.SharedPreferenceUtil;
+import com.property.entity.User;
 
 import java.io.File;
 import java.net.URISyntaxException;

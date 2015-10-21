@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.gas.ui.codeScan;
+package com.property.ui.codeScan;
 
 import android.app.Activity;
 import android.content.Context;
@@ -26,7 +26,7 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.gas.epiboly.R;
+import com.property.epiboly.R;
 
 import java.io.Closeable;
 import java.io.IOException;

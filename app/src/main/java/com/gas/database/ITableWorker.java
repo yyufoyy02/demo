@@ -1,11 +1,11 @@
-package com.gas.database;
+package com.property.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import com.gas.utils.Utils;
+import com.property.utils.Utils;
 import java.util.ArrayList;
 
 /**

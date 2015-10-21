@@ -1,4 +1,4 @@
-package com.gas.ui.fragment.Delivery;
+package com.property.ui.fragment.Delivery;
 
 /**
  * Created by Heart on 2015/8/3.

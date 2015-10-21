@@ -1,4 +1,4 @@
-package com.gas.ui.common;
+package com.property.ui.common;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.gas.connector.ConnectorManage;
-import com.gas.epiboly.R;
-import com.gas.utils.Utils;
+import com.property.connector.ConnectorManage;
+import com.property.epiboly.R;
+import com.property.utils.Utils;
 import com.google.gson.Gson;
 
 /**

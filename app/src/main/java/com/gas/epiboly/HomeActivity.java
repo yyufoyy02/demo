@@ -1,4 +1,4 @@
-package com.gas.epiboly;
+package com.property.epiboly;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,15 +15,15 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.gas.conf.Common;
-import com.gas.connector.protocol.BusinessHttpProtocol;
-import com.gas.database.UserWorker;
-import com.gas.entity.User;
-import com.gas.ui.activity.carManagerActivity;
-import com.gas.ui.codeScan.CaptureActivity;
-import com.gas.ui.common.SuperActivity;
-import com.gas.utils.CommonUtil;
-import com.gas.utils.Utils;
+import com.property.conf.Common;
+import com.property.connector.protocol.BusinessHttpProtocol;
+import com.property.database.UserWorker;
+import com.property.entity.User;
+import com.property.ui.activity.carManagerActivity;
+import com.property.ui.codeScan.CaptureActivity;
+import com.property.ui.common.SuperActivity;
+import com.property.utils.CommonUtil;
+import com.property.utils.Utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

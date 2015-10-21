@@ -1,9 +1,9 @@
-package com.gas.connector.protocol;
+package com.property.connector.protocol;
 
-import com.gas.conf.Config;
-import com.gas.connector.ConnectorManage;
-import com.gas.connector.HttpCallBack;
-import com.gas.entity.User;
+import com.property.conf.Config;
+import com.property.connector.ConnectorManage;
+import com.property.connector.HttpCallBack;
+import com.property.entity.User;
 
 import java.util.LinkedHashMap;
 

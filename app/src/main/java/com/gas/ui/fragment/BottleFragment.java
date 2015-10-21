@@ -1,4 +1,4 @@
-package com.gas.ui.fragment;
+package com.property.ui.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,20 +16,20 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.gas.adapter.CommonAdapter;
-import com.gas.adapter.ViewHolder;
-import com.gas.conf.Common;
-import com.gas.connector.HttpCallBack;
-import com.gas.connector.protocol.BusinessHttpProtocol;
-import com.gas.entity.Bottle;
-import com.gas.entity.BottleBean;
-import com.gas.entity.BottleBean.BottleLog;
-import com.gas.entity.User;
-import com.gas.epiboly.R;
-import com.gas.ui.codeScan.CaptureActivity;
-import com.gas.ui.common.BaseFragment;
-import com.gas.utils.TimeFormat;
-import com.gas.utils.Utils;
+import com.property.adapter.CommonAdapter;
+import com.property.adapter.ViewHolder;
+import com.property.conf.Common;
+import com.property.connector.HttpCallBack;
+import com.property.connector.protocol.BusinessHttpProtocol;
+import com.property.entity.Bottle;
+import com.property.entity.BottleBean;
+import com.property.entity.BottleBean.BottleLog;
+import com.property.entity.User;
+import com.property.epiboly.R;
+import com.property.ui.codeScan.CaptureActivity;
+import com.property.ui.common.BaseFragment;
+import com.property.utils.TimeFormat;
+import com.property.utils.Utils;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;

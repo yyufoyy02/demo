@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.gas.ui.codeScan;
+package com.property.ui.codeScan;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -33,7 +33,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.gas.epiboly.R;
+import com.property.epiboly.R;
 import com.google.zxing.Result;
 
 import java.io.IOException;

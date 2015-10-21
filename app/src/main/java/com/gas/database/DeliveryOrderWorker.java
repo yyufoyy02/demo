@@ -1,4 +1,4 @@
-package com.gas.database;
+package com.property.database;
 
 /**
  * Created by Heart on 2015/8/9.

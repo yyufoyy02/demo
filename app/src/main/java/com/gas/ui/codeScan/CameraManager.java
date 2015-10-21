@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.gas.ui.codeScan;
+package com.property.ui.codeScan;
 
 import android.content.Context;
 import android.graphics.Point;

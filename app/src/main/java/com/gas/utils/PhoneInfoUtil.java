@@ -1,4 +1,4 @@
-package com.gas.utils;
+package com.property.utils;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -10,8 +10,8 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
-import com.gas.conf.Config;
-import com.gas.database.SharedPreferenceUtil;
+import com.property.conf.Config;
+import com.property.database.SharedPreferenceUtil;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

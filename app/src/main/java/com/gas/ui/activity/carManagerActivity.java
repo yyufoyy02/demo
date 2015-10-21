@@ -1,18 +1,18 @@
-package com.gas.ui.activity;
+package com.property.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.gas.conf.Common;
-import com.gas.connector.protocol.BusinessHttpProtocol;
-import com.gas.entity.CarBean;
-import com.gas.entity.CarList;
-import com.gas.entity.User;
-import com.gas.epiboly.R;
-import com.gas.ui.common.SuperActivity;
-import com.gas.utils.Utils;
+import com.property.conf.Common;
+import com.property.connector.protocol.BusinessHttpProtocol;
+import com.property.entity.CarBean;
+import com.property.entity.CarList;
+import com.property.entity.User;
+import com.property.epiboly.R;
+import com.property.ui.common.SuperActivity;
+import com.property.utils.Utils;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;

@@ -1,10 +1,10 @@
-package com.gas.conf;
+package com.property.conf;
 
 import android.content.Context;
 
-import com.gas.BaseApplication;
-import com.gas.CloseAllActivity;
-import com.gas.epiboly.R;
+import com.property.BaseApplication;
+import com.property.CloseAllActivity;
+import com.property.epiboly.R;
 
 import java.util.HashMap;
 import java.util.Map;

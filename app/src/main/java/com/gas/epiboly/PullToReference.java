@@ -1,4 +1,4 @@
-package com.gas.epiboly;
+package com.property.epiboly;
 
 import android.app.Activity;
 import android.os.AsyncTask;

@@ -1,4 +1,4 @@
-package com.gas.ui.calendar;
+package com.property.ui.calendar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.gas.epiboly.R;
+import com.property.epiboly.R;
 
 import java.util.Calendar;
 import java.util.HashMap;

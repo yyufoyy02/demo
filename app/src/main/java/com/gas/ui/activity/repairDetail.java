@@ -1,4 +1,4 @@
-package com.gas.ui.activity;
+package com.property.ui.activity;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -17,14 +17,14 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.gas.conf.Common;
-import com.gas.connector.protocol.BusinessHttpProtocol;
-import com.gas.entity.RepairOrder;
-import com.gas.entity.User;
-import com.gas.epiboly.R;
-import com.gas.ui.common.SuperActivity;
-import com.gas.utils.TimeFormat;
-import com.gas.utils.Utils;
+import com.property.conf.Common;
+import com.property.connector.protocol.BusinessHttpProtocol;
+import com.property.entity.RepairOrder;
+import com.property.entity.User;
+import com.property.epiboly.R;
+import com.property.ui.common.SuperActivity;
+import com.property.utils.TimeFormat;
+import com.property.utils.Utils;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;

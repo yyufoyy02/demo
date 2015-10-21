@@ -1,4 +1,4 @@
-package com.gas.epiboly;
+package com.property.epiboly;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

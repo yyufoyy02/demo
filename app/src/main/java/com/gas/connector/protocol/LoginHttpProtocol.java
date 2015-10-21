@@ -1,12 +1,12 @@
-package com.gas.connector.protocol;
+package com.property.connector.protocol;
 
-import com.gas.BaseApplication;
-import com.gas.conf.Common;
-import com.gas.conf.Config;
-import com.gas.connector.ConnectorManage;
-import com.gas.connector.HttpCallBack;
-import com.gas.database.SharedPreferenceUtil;
-import com.gas.utils.Utils;
+import com.property.BaseApplication;
+import com.property.conf.Common;
+import com.property.conf.Config;
+import com.property.connector.ConnectorManage;
+import com.property.connector.HttpCallBack;
+import com.property.database.SharedPreferenceUtil;
+import com.property.utils.Utils;
 
 import org.json.JSONObject;
 

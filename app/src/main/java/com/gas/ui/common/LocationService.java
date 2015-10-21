@@ -1,17 +1,17 @@
-package com.gas.ui.common;
+package com.property.ui.common;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.gas.conf.Common;
-import com.gas.connector.HttpCallBack;
-import com.gas.connector.protocol.BusinessHttpProtocol;
-import com.gas.database.SharedPreferenceUtil;
-import com.gas.entity.User;
-import com.gas.utils.BaiduLocationUtil;
-import com.gas.utils.LightTimer;
+import com.property.conf.Common;
+import com.property.connector.HttpCallBack;
+import com.property.connector.protocol.BusinessHttpProtocol;
+import com.property.database.SharedPreferenceUtil;
+import com.property.entity.User;
+import com.property.utils.BaiduLocationUtil;
+import com.property.utils.LightTimer;
 
 /**
  * Created by Heart on 2015/8/22.

@@ -1,4 +1,4 @@
-package com.gas.ui.fragment;
+package com.property.ui.fragment;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -11,17 +11,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
-import com.gas.conf.Common;
-import com.gas.connector.HttpCallBack;
-import com.gas.connector.protocol.BusinessHttpProtocol;
-import com.gas.database.SharedPreferenceUtil;
-import com.gas.entity.User;
-import com.gas.epiboly.MainActivity;
-import com.gas.epiboly.R;
-import com.gas.ui.activity.checkActivity;
-import com.gas.ui.common.BaseFragment;
-import com.gas.utils.BaiduLocationUtil;
-import com.gas.utils.Utils;
+import com.property.conf.Common;
+import com.property.connector.HttpCallBack;
+import com.property.connector.protocol.BusinessHttpProtocol;
+import com.property.database.SharedPreferenceUtil;
+import com.property.entity.User;
+import com.property.epiboly.MainActivity;
+import com.property.epiboly.R;
+import com.property.ui.activity.checkActivity;
+import com.property.ui.common.BaseFragment;
+import com.property.utils.BaiduLocationUtil;
+import com.property.utils.Utils;
 
 /**
  * Created by Heart on 2015/7/21.

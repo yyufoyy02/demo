@@ -1,10 +1,10 @@
-package com.gas.database;
+package com.property.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
-import com.gas.entity.User;
+import com.property.entity.User;
 
 /**
  * Created by Heart on 2015/8/8.

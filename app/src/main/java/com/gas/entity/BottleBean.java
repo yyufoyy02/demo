@@ -1,4 +1,4 @@
-package com.gas.entity;
+package com.property.entity;
 
 import java.util.ArrayList;
 import java.util.List;

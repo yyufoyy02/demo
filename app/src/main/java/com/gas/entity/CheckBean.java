@@ -1,4 +1,4 @@
-package com.gas.entity;
+package com.property.entity;
 
 /**
  * Created by Heart on 2015/8/22.

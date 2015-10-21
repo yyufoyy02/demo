@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.gas.ui.codeScan;
+package com.property.ui.codeScan;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import com.gas.epiboly.R;
+import com.property.epiboly.R;
 import com.google.zxing.Result;
 
 /**

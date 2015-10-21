@@ -12,35 +12,35 @@
 
         <fragment
             android:id="@+id/personal_fragment"
-            android:name="com.gas.ui.fragment.PersonalFrament"
+            android:name="com.property.ui.fragment.PersonalFrament"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1" />
 
         <fragment
             android:id="@+id/attendance_fragment"
-            android:name="com.gas.ui.fragment.AttendanceFragment"
+            android:name="com.property.ui.fragment.AttendanceFragment"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1" />
 
         <fragment
             android:id="@+id/delivery_fragment"
-            android:name="com.gas.ui.fragment.DeliveryFragment"
+            android:name="com.property.ui.fragment.DeliveryFragment"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1" />
 
         <fragment
             android:id="@+id/repair_fragment"
-            android:name="com.gas.ui.fragment.RepairFragment"
+            android:name="com.property.ui.fragment.RepairFragment"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1" />
 
         <fragment
             android:id="@+id/gas_fragment"
-            android:name="com.gas.ui.fragment.BottleFragment"
+            android:name="com.property.ui.fragment.BottleFragment"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1" />

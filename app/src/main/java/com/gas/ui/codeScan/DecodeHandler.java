@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.gas.ui.codeScan;
+package com.property.ui.codeScan;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;
@@ -23,7 +23,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.gas.epiboly.R;
+import com.property.epiboly.R;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;

@@ -1,7 +1,7 @@
-package com.gas.connector.protocol;
+package com.property.connector.protocol;
 
-import com.gas.connector.ConnectorManage;
-import com.gas.connector.HttpCallBack;
+import com.property.connector.ConnectorManage;
+import com.property.connector.HttpCallBack;
 
 import java.util.LinkedHashMap;
 

@@ -1,13 +1,13 @@
-package com.gas;
+package com.property;
 
 import android.app.Application;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 
-import com.gas.entity.User;
-import com.gas.utils.BaiduLocationUtil;
-import com.gas.utils.ImageViewUtil;
-import com.gas.utils.StringEncrypt;
+import com.property.entity.User;
+import com.property.utils.BaiduLocationUtil;
+import com.property.utils.ImageViewUtil;
+import com.property.utils.StringEncrypt;
 import com.pgyersdk.crash.PgyCrashManager;
 
 import cn.jpush.android.api.JPushInterface;

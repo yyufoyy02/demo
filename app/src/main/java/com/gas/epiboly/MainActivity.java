@@ -1,4 +1,4 @@
-package com.gas.epiboly;
+package com.property.epiboly;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -22,22 +22,22 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.gas.conf.Common;
-import com.gas.connector.HttpCallBack;
-import com.gas.connector.protocol.BusinessHttpProtocol;
-import com.gas.database.UserWorker;
-import com.gas.ui.codeScan.CaptureActivity;
-import com.gas.ui.common.SuperActivity;
-import com.gas.ui.fragment.AttendanceFragment;
-import com.gas.ui.fragment.BottleFragment;
-import com.gas.ui.fragment.DeliveryFragment;
-import com.gas.ui.fragment.PersonalFrament;
-import com.gas.ui.fragment.RepairFragment;
-import com.gas.ui.view.NestRadioGroup;
-import com.gas.utils.BaiduLocationUtil;
-import com.gas.utils.CommonUtil;
-import com.gas.utils.EventBus;
-import com.gas.utils.Utils;
+import com.property.conf.Common;
+import com.property.connector.HttpCallBack;
+import com.property.connector.protocol.BusinessHttpProtocol;
+import com.property.database.UserWorker;
+import com.property.ui.codeScan.CaptureActivity;
+import com.property.ui.common.SuperActivity;
+import com.property.ui.fragment.AttendanceFragment;
+import com.property.ui.fragment.BottleFragment;
+import com.property.ui.fragment.DeliveryFragment;
+import com.property.ui.fragment.PersonalFrament;
+import com.property.ui.fragment.RepairFragment;
+import com.property.ui.view.NestRadioGroup;
+import com.property.utils.BaiduLocationUtil;
+import com.property.utils.CommonUtil;
+import com.property.utils.EventBus;
+import com.property.utils.Utils;
 
 import java.util.Set;
 

@@ -1,4 +1,4 @@
-package com.gas.utils;
+package com.property.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

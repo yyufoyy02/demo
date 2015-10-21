@@ -1,4 +1,4 @@
-package com.gas.ui.calendar;
+package com.property.ui.calendar;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -15,7 +15,7 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.gas.epiboly.R;
+import com.property.epiboly.R;
 
 import java.security.InvalidParameterException;
 import java.text.DateFormatSymbols;

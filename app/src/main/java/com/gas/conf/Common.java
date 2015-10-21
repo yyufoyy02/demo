@@ -1,6 +1,6 @@
-package com.gas.conf;
+package com.property.conf;
 
-import com.gas.entity.User;
+import com.property.entity.User;
 
 /**
  * Created by Heart on 2015/8/1

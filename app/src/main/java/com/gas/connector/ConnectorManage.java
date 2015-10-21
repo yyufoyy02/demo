@@ -1,4 +1,4 @@
-package com.gas.connector;
+package com.property.connector;
 
 import android.content.Context;
 
@@ -9,9 +9,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.gas.BaseApplication;
-import com.gas.utils.CommonUtil;
-import com.gas.utils.Utils;
+import com.property.BaseApplication;
+import com.property.utils.CommonUtil;
+import com.property.utils.Utils;
 import com.google.gson.Gson;
 
 import org.json.JSONException;

@@ -1,4 +1,4 @@
-package com.gas.ui.common;
+package com.property.ui.common;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
-import com.gas.CloseAllActivity;
-import com.gas.connector.ConnectorManage;
-import com.gas.connector.HttpCallBack;
-import com.gas.utils.Utils;
+import com.property.CloseAllActivity;
+import com.property.connector.ConnectorManage;
+import com.property.connector.HttpCallBack;
+import com.property.utils.Utils;
 
 import cn.jpush.android.api.JPushInterface;
 

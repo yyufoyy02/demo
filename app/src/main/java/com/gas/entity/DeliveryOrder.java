@@ -1,4 +1,4 @@
-package com.gas.entity;
+package com.property.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;

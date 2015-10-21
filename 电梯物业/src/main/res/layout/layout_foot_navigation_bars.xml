@@ -1,4 +1,4 @@
-<com.gas.ui.view.NestRadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+<com.property.ui.view.NestRadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -35,4 +35,4 @@
         style="@style/wweight_hwrap"
         android:button="@null"
         android:background="@drawable/nav_gas"/>
-</com.gas.ui.view.NestRadioGroup>
+</com.property.ui.view.NestRadioGroup>

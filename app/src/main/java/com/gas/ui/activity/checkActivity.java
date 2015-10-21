@@ -1,4 +1,4 @@
-package com.gas.ui.activity;
+package com.property.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,13 +8,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.gas.conf.Common;
-import com.gas.connector.protocol.BusinessHttpProtocol;
-import com.gas.entity.CheckBean;
-import com.gas.entity.User;
-import com.gas.epiboly.R;
-import com.gas.ui.common.SuperActivity;
-import com.gas.utils.Utils;
+import com.property.conf.Common;
+import com.property.connector.protocol.BusinessHttpProtocol;
+import com.property.entity.CheckBean;
+import com.property.entity.User;
+import com.property.epiboly.R;
+import com.property.ui.common.SuperActivity;
+import com.property.utils.Utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 

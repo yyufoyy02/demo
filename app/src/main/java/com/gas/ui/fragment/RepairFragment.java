@@ -1,4 +1,4 @@
-package com.gas.ui.fragment;
+package com.property.ui.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,19 +11,19 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 
-import com.gas.adapter.CommonAdapter;
-import com.gas.adapter.ViewHolder;
-import com.gas.conf.Common;
-import com.gas.connector.HttpCallBack;
-import com.gas.connector.protocol.BusinessHttpProtocol;
-import com.gas.database.SharedPreferenceUtil;
-import com.gas.entity.RepairOrder;
-import com.gas.epiboly.MainActivity;
-import com.gas.epiboly.R;
-import com.gas.ui.activity.repairDetail;
-import com.gas.ui.common.BaseFragment;
-import com.gas.utils.TimeFormat;
-import com.gas.utils.Utils;
+import com.property.adapter.CommonAdapter;
+import com.property.adapter.ViewHolder;
+import com.property.conf.Common;
+import com.property.connector.HttpCallBack;
+import com.property.connector.protocol.BusinessHttpProtocol;
+import com.property.database.SharedPreferenceUtil;
+import com.property.entity.RepairOrder;
+import com.property.epiboly.MainActivity;
+import com.property.epiboly.R;
+import com.property.ui.activity.repairDetail;
+import com.property.ui.common.BaseFragment;
+import com.property.utils.TimeFormat;
+import com.property.utils.Utils;
 import com.google.gson.reflect.TypeToken;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;

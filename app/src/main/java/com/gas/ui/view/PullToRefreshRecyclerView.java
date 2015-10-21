@@ -1,4 +1,4 @@
-package com.gas.ui.view;
+package com.property.ui.view;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

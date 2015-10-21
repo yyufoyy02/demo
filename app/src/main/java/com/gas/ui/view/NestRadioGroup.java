@@ -1,4 +1,4 @@
-package com.gas.ui.view;
+package com.property.ui.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;

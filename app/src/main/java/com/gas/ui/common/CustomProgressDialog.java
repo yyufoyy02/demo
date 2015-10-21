@@ -1,4 +1,4 @@
-package com.gas.ui.common;
+package com.property.ui.common;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.gas.epiboly.R;
+import com.property.epiboly.R;
 
 
 public class CustomProgressDialog extends Dialog {

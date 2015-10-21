@@ -1,4 +1,4 @@
-package com.gas.conf;
+package com.property.conf;
 
 /**
  * 系统配置

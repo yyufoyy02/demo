@@ -41,7 +41,7 @@
     <uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
     <!-- Required -->
     <permission
-        android:name="com.gas.epiboly.permission.JPUSH_MESSAGE"
+        android:name="com.property.epiboly.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
     <!-- Required -->
     <uses-permission android:name="com.gas.epiboly.permission.JPUSH_MESSAGE" />
@@ -55,7 +55,7 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <application
-        android:name="com.gas.BaseApplication"
+        android:name="com.property.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon_lt"
         android:label="@string/app_name"
@@ -72,7 +72,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.gas.ui.common.LocationService">
+        <service android:name="com.property.ui.common.LocationService">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -87,8 +87,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
-        <activity android:name="com.gas.ui.activity.checkActivity" />
-        <activity android:name="com.gas.ui.activity.carManagerActivity" />
+        <activity android:name="com.property.ui.activity.checkActivity" />
+        <activity android:name="com.property.ui.activity.carManagerActivity" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask"
@@ -99,18 +99,18 @@
             android:name=".PullToReference"
             android:label="@string/app_name"></activity>
 
-        <activity android:name="com.gas.ui.codeScan.CaptureActivity" />
-        <activity android:name="com.gas.ui.codeScan.ResultActivity" />
-        <activity android:name="com.gas.ui.activity.AddoilActivity" />
+        <activity android:name="com.property.ui.codeScan.CaptureActivity" />
+        <activity android:name="com.property.ui.codeScan.ResultActivity" />
+        <activity android:name="com.property.ui.activity.AddoilActivity" />
         <activity
-            android:name="com.gas.ui.activity.orderDetail"
+            android:name="com.property.ui.activity.orderDetail"
             android:label="@string/app_name"></activity>
         <activity
-            android:name="com.gas.ui.activity.repairDetail"
+            android:name="com.property.ui.activity.repairDetail"
             android:label="@string/app_name"></activity>
 
-        <activity android:name="com.gas.ui.activity.OilActivity" />
-        <activity android:name="com.gas.ui.activity.WrapActivity" />
+        <activity android:name="com.property.ui.activity.OilActivity" />
+        <activity android:name="com.property.ui.activity.WrapActivity" />
 
         <service
             android:name="com.baidu.location.f"
@@ -173,7 +173,7 @@
         <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
         <!-- User defined.  For test only  用户自定义的广播接收器-->
         <receiver
-            android:name="com.gas.ui.common.JGReceiver"
+            android:name="com.property.ui.common.JGReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.REGISTRATION" />

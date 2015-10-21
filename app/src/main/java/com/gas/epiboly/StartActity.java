@@ -1,4 +1,4 @@
-package com.gas.epiboly;
+package com.property.epiboly;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,14 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.gas.conf.Common;
-import com.gas.conf.Config;
-import com.gas.connector.protocol.LoginHttpProtocol;
-import com.gas.database.UserWorker;
-import com.gas.entity.User;
-import com.gas.ui.common.SuperActivity;
-import com.gas.utils.Utils;
-import com.gas.utils.wrapCarUtil;
+import com.property.conf.Common;
+import com.property.conf.Config;
+import com.property.connector.protocol.LoginHttpProtocol;
+import com.property.database.UserWorker;
+import com.property.entity.User;
+import com.property.ui.common.SuperActivity;
+import com.property.utils.Utils;
+import com.property.utils.wrapCarUtil;
 import com.google.gson.Gson;
 
 /**

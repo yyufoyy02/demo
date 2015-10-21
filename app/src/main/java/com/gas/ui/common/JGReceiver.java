@@ -1,4 +1,4 @@
-package com.gas.ui.common;
+package com.property.ui.common;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -10,10 +10,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.gas.conf.Common;
-import com.gas.epiboly.MainActivity;
-import com.gas.epiboly.R;
-import com.gas.utils.Utils;
+import com.property.conf.Common;
+import com.property.epiboly.MainActivity;
+import com.property.epiboly.R;
+import com.property.utils.Utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

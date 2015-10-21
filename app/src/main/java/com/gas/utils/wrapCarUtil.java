@@ -1,10 +1,10 @@
-package com.gas.utils;
+package com.property.utils;
 
 import android.content.Context;
 import android.content.Intent;
 
-import com.gas.database.SharedPreferenceUtil;
-import com.gas.ui.common.LocationService;
+import com.property.database.SharedPreferenceUtil;
+import com.property.ui.common.LocationService;
 
 /**
  * Created by Heart on 2015/8/22.

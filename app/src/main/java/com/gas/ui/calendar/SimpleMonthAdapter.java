@@ -1,4 +1,4 @@
-package com.gas.ui.calendar;
+package com.property.ui.calendar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsListView;
 
-import com.gas.epiboly.R;
+import com.property.epiboly.R;
 
 import java.io.Serializable;
 import java.util.Calendar;

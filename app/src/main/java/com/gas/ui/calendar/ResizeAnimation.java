@@ -1,11 +1,11 @@
-package com.gas.ui.calendar;
+package com.property.ui.calendar;
 
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-import com.gas.BaseApplication;
-import com.gas.utils.Utils;
+import com.property.BaseApplication;
+import com.property.utils.Utils;
 
 public class ResizeAnimation extends Animation {
     final int startHeight;

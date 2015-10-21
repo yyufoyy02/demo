@@ -1,9 +1,9 @@
-package com.gas;
+package com.property;
 
 import android.app.Activity;
 
-import com.gas.epiboly.MainActivity;
-import com.gas.utils.Utils;
+import com.property.epiboly.MainActivity;
+import com.property.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Iterator;
