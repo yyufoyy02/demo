@@ -1,6 +1,7 @@
 package com.property.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,7 +36,7 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.iv_login_login)
     void login(View v) {
-
+        startActivity(new Intent(mContext, IndexActivity.class));
     }
 
     @Override
