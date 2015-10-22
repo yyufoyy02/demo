@@ -74,6 +74,9 @@
             android:name=".IndexActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".SettingModifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".SettingActivity"
             android:screenOrientation="portrait" />
     </application>

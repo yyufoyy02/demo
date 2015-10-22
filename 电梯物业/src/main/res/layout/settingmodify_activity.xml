@@ -15,26 +15,26 @@
         android:background="@color/bg_color"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/rl_setting_modify"
-            style="@style/SettingRelativeLayoutStyle">
+        <EditText
+            android:id="@+id/edt_settingmodify_oldpassword"
+            style="@style/SettingEditStyle.MarginTop10"
+            android:hint="旧密码" />
 
-            <TextView
-                style="@style/SettingEditStyle"
-                android:hint="修改密码" />
+        <EditText
+            android:id="@+id/edt_settingmodify_newpassword"
+            style="@style/SettingEditStyle.MarginTop10"
+            android:hint="新密码" />
 
-            <ImageView
-                style="@style/ArrowImageStylePadding15"
-                android:layout_centerVertical="true" />
-        </RelativeLayout>
-
+        <EditText
+            android:id="@+id/edt_settingmodify_newpassword2"
+            style="@style/SettingEditStyle.MarginTop10"
+            android:hint="确认密码" />
 
         <TextView
-            android:id="@+id/tv_setting_submit"
+            android:id="@+id/tv_settingmodify_submit"
             style="@style/SubmitStyle"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/dp110"
-            android:background="@drawable/corners_red_radius6"
-            android:text="点击退出" />
+            android:layout_marginTop="@dimen/dp30"
+            android:text="确认修改" />
     </LinearLayout>
 </LinearLayout>

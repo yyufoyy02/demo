@@ -1,6 +1,7 @@
 package com.property.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -36,6 +37,7 @@ public class IndexActivity extends BaseActivity {
     void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_index_settring:
+                startActivity(new Intent(mContext, SettingActivity.class));
                 break;
             case R.id.iv_index_message:
                 break;
