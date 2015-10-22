@@ -27,11 +27,15 @@
         <item name="android:layout_height">@dimen/dp40</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:layout_marginTop">@dimen/dp10</item>
+
         <item name="android:background">@android:color/white</item>
         <item name="android:textColorHint">@color/text_color_999</item>
     </style>
+    <style name="SettingRelativeLayoutStyle.MarginTop10">
 
+        <item name="android:layout_marginTop">@dimen/dp10</item>
+
+    </style>
     <style name="SettingEditStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp40</item>
@@ -40,6 +44,7 @@
         <item name="android:background">@android:color/white</item>
         <item name="android:singleLine">true</item>
         <item name="android:paddingLeft">@dimen/dp25</item>
+        <item name="android:paddingRight">@dimen/dp25</item>
         <item name="android:textColorHint">@color/text_color_999</item>
     </style>
 

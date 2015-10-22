@@ -48,6 +48,7 @@ public class IndexActivity extends BaseActivity {
             case R.id.iv_index_statistics:
                 break;
             case R.id.iv_index_user:
+                startActivity(new Intent(mContext, UserActivity.class));
                 break;
             default:
                 break;
