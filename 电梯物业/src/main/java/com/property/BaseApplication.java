@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.property.activity.R;
+import com.property.utils.UserDataUtil;
 import com.vk.simpleutil.XSimpleBaseUtil;
 import com.vk.simpleutil.XSimpleBaseUtil.Builder;
 import com.vk.simpleutil.library.XSimpleImage;
@@ -55,7 +56,7 @@ public class BaseApplication extends Application {
                 .isDebug(debug).isPad(isPad).alertDialogTheme(R.style.MyAlertDialogStyle)
                 .initDefaultRequestParams(null).build());
         XSimpleImage.initDefaultImageLoaderConfig(getApplicationContext());
-
+        UserDataUtil.getInstance().initData(mContext);
     }
 
 

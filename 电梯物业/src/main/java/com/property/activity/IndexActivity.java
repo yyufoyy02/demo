@@ -4,10 +4,10 @@ package com.property.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.property.base.BaseActivity;
+import com.property.utils.UserDataUtil;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -15,8 +15,6 @@ import butterknife.annotation.event.OnClick;
 
 public class IndexActivity extends BaseActivity {
 
-    @InjectView(R.id.iv_index_avatar)
-    ImageView ivIndexAvatar;
     @InjectView(R.id.tv_index_username)
     TextView tvIndexUsername;
     @InjectView(R.id.tv_index_desc)
@@ -30,7 +28,8 @@ public class IndexActivity extends BaseActivity {
 
     @Override
     public void initAllData() {
-
+        tvIndexUsername.setText(UserDataUtil.getInstance().getUserData().getName());
+        tvIndexDesc.setText(UserDataUtil.getInstance().getUserData().getDepartment());
     }
 
     @OnClick({R.id.iv_index_settring, R.id.iv_index_message, R.id.iv_index_maintenance, R.id.iv_index_repair, R.id.iv_index_statistics, R.id.iv_index_user})

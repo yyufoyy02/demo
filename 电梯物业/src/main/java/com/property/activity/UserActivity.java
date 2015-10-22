@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.property.base.BaseActivity;
+import com.property.utils.UserDataUtil;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -28,6 +29,8 @@ public class UserActivity extends BaseActivity {
     @Override
     public void initAllData() {
         setTitle("个人信息");
+        edtUserName.setText(UserDataUtil.getInstance().getUserData().getName());
+        edtUserCompany.setText(UserDataUtil.getInstance().getUserData().getDepartment());
     }
 
     @Override
