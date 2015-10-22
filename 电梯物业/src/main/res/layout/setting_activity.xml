@@ -17,7 +17,7 @@
 
         <RelativeLayout
             android:id="@+id/rl_setting_modify"
-            style="@style/SettingRelativeLayoutStyle">
+            style="@style/SettingRelativeLayoutStyle.MarginTop10">
 
             <TextView
                 style="@style/SettingEditStyle"

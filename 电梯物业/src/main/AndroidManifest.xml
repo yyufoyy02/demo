@@ -82,5 +82,11 @@
         <activity
             android:name=".UserActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatisticsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MessageActivity"
+            android:screenOrientation="portrait" />
     </application>
 </manifest>
