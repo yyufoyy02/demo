@@ -7,7 +7,7 @@
 
     <include
         android:id="@id/toolbar"
-        layout="@layout/normal_title_layout" />
+        layout="@layout/search_title_layout" />
 
     <com.vk.simpleutil.view.PullToRefreshRecyclerView
         android:layout_width="match_parent"

@@ -29,7 +29,8 @@
                 android:id="@+id/tv_user_name"
                 style="@style/SettingEditStyle"
                 android:layout_width="wrap_content"
-                android:hint="姓名" />
+                android:text="姓名"
+                android:textColor="@color/text_color_999" />
 
             <TextView
                 android:id="@+id/edt_user_name"
@@ -48,7 +49,8 @@
                 android:id="@+id/tv_user_job"
                 style="@style/SettingEditStyle"
                 android:layout_width="wrap_content"
-                android:hint="职位" />
+                android:text="职位"
+                android:textColor="@color/text_color_999" />
 
             <TextView
                 android:id="@+id/edt_user_job"
@@ -66,7 +68,8 @@
                 android:id="@+id/tv_user_sex"
                 style="@style/SettingEditStyle"
                 android:layout_width="wrap_content"
-                android:hint="性别" />
+                android:text="性别"
+                android:textColor="@color/text_color_999" />
 
             <TextView
                 android:id="@+id/edt_user_sex"
@@ -84,7 +87,8 @@
                 android:id="@+id/tv_user_company"
                 style="@style/SettingEditStyle"
                 android:layout_width="wrap_content"
-                android:hint="维保公司" />
+                android:text="维保公司"
+                android:textColor="@color/text_color_999" />
 
             <TextView
                 android:id="@+id/edt_user_company"
@@ -102,7 +106,8 @@
                 android:id="@+id/tv_user_phone"
                 style="@style/SettingEditStyle"
                 android:layout_width="wrap_content"
-                android:hint="电话" />
+                android:text="电话"
+                android:textColor="@color/text_color_999" />
 
             <TextView
                 android:id="@+id/edt_user_phone"

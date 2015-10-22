@@ -88,5 +88,11 @@
         <activity
             android:name=".MessageActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetailEditActivity"
+            android:screenOrientation="portrait" />
     </application>
 </manifest>
