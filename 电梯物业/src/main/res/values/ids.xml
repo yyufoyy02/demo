@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="auto_focus" type="id"/>
+    <item name="decode" type="id"/>
+    <item name="decode_failed" type="id"/>
+    <item name="decode_succeeded" type="id"/>
+    <item name="restart_preview" type="id"/>
+    <item name="quit" type="id"/>
+    <item type="id" name="return_scan_result"/>
     <item name="toolbar" type="id" />
     <item name="back" type="id" />
     <item name="title" type="id" />
