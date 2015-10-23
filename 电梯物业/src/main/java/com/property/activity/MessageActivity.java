@@ -4,11 +4,10 @@ import android.content.Intent;
 import android.view.View;
 
 import com.property.base.BaseActivity;
-import com.property.ui.codeScan.CaptureActivity;
 import com.vk.simpleutil.library.XSimpleLogger;
 
 public class MessageActivity extends BaseActivity {
-    private final int REQUEST_CODE_SCANLE = 99;
+    public static final int REQUEST_CODE_SCANLE = 99;
     MessageType type;
 
     @Override
@@ -38,7 +37,7 @@ public class MessageActivity extends BaseActivity {
         findViewById(R.id.toolbar).findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CaptureActivity.launchActivity(mActivity, REQUEST_CODE_SCANLE);
+
             }
         });
     }
