@@ -9,7 +9,7 @@ public class MessageModel extends BaseModel {
     String address;
     String name;
     double time;
-    int messageType;
+    int message_type;
 
     /**
      * 状态: （正在处理：0  完成：1）
@@ -71,11 +71,11 @@ public class MessageModel extends BaseModel {
     /**
      * 消息类型(抢修：0  ，维保：1)
      */
-    public int getMessageType() {
-        return messageType;
+    public int getMessage_type() {
+        return message_type;
     }
 
-    public void setMessageType(int messageType) {
-        this.messageType = messageType;
+    public void setMessage_type(int message_type) {
+        this.message_type = message_type;
     }
 }
