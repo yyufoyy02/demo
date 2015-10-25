@@ -30,7 +30,14 @@ public class UserActivity extends BaseActivity {
     public void initAllData() {
         setTitle("个人信息");
         edtUserName.setText(UserDataUtil.getInstance().getUserData().getName());
-        edtUserCompany.setText(UserDataUtil.getInstance().getUserData().getDepartment());
+        edtUserCompany.setText(UserDataUtil.getInstance().getUserData().getCompany());
+        edtUserPhone.setText(UserDataUtil.getInstance().getUserData().getPhone());
+        edtUserJob.setText(UserDataUtil.getInstance().getUserData().getJob());
+        if (UserDataUtil.getInstance().getUserData().getSex() == 0) {
+            edtUserSex.setText("男");
+        } else {
+            edtUserSex.setText("女");
+        }
     }
 
     @Override

@@ -12,6 +12,39 @@ public class UserModel extends BaseModel {
     String name;
     String phone;
     String department;
+    String company;
+    int sex;
+    String job;
+/**职业*/
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    /**
+     * 公司
+     */
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    /**
+     * 0男 1女
+     */
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
 
     /**
      * 员工id

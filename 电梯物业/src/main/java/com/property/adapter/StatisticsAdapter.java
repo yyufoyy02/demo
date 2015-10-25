@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.property.activity.R;
 import com.property.model.StatisticsModel;
-import com.vk.simpleutil.adapter.XSimpleAdapter;
+import com.vk.simpleutil.adapter.XSimpleRecyclerAdapter;
 import com.vk.simpleutil.adapter.XSimpleViewHolder;
 import com.vk.simpleutil.library.XSimpleImage;
 import com.vk.simpleutil.library.XSimpleText;
@@ -18,13 +18,13 @@ import java.util.List;
 /**
  * Created by Administrator on 2015/10/25.
  */
-public class StatisticsAdapter extends XSimpleAdapter<StatisticsModel> {
+public class StatisticsAdapter extends XSimpleRecyclerAdapter<StatisticsModel> {
     public StatisticsAdapter(Context context, List<StatisticsModel> mData) {
         super(context, mData, R.layout.statistics_item);
     }
 
     @Override
-    public View convert(View convertView, StatisticsModel item, int position) {
+    public void convert(View convertView, StatisticsModel item, int position) {
         TextView title = XSimpleViewHolder.get(convertView, R.id.tv_statistics_title);
         ImageView icon = XSimpleViewHolder.get(convertView, R.id.iv_statistics_icon);
         TextView tvOnemonth = XSimpleViewHolder.get(convertView, R.id.tv_statistics_onemonth);
@@ -40,6 +40,5 @@ public class StatisticsAdapter extends XSimpleAdapter<StatisticsModel> {
             tvThreemonth.setTextColor(Color.parseColor(item.getColor()));
             tvOneyear.setTextColor(Color.parseColor(item.getColor()));
         }
-        return convertView;
     }
 }
