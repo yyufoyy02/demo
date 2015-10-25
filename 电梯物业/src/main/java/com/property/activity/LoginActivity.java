@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.property.base.BaseActivity;
+import com.property.model.UserModel;
+import com.property.utils.UserDataUtil;
 import com.vk.simpleutil.library.XSimpleImage;
 
 import butterknife.ButterKnife;
@@ -32,10 +34,17 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void initAllData() {
         ivLoginBg.setImageBitmap(XSimpleImage.getResourceToBitmap(R.drawable.login_bg));
+        UserDataUtil.getInstance().loginOut();
     }
 
     @OnClick(R.id.iv_login_login)
     void login(View v) {
+        UserModel userModel=new UserModel();
+        userModel.setDepartment("惠州维保公司");
+        userModel.setName("张三");
+        userModel.setStaff_id("1");
+        userModel.setPhone("1111111111111");
+        UserDataUtil.getInstance().login(userModel);
         startActivity(new Intent(mContext, IndexActivity.class));
     }
 

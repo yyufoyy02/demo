@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.property.activity.R;
 import com.vk.simpleutil.http.XSimpleHttpUtil;
 import com.vk.simpleutil.library.XSimpleAlertDialog;
 import com.vk.simpleutil.library.XSimpleAppManager;
@@ -38,6 +41,9 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public abstract void initAllData();
 
+    ImageView back;
+    TextView title;
+
     /**
      * 设置监听器
      */
@@ -51,19 +57,45 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
+    public void setTitle(String titles) {
+        if (title == null)
+            return;
+        title.setText(titles);
+    }
+
+    public void setBackOnClickListener(View.OnClickListener l) {
+        if (back == null)
+            return;
+        back.setOnClickListener(l);
+    }
+
+    private void initOnClickListener() {
+        if (back == null)
+            return;
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (onCreateViewLayouId() != 0) {
             setContentView(onCreateViewLayouId());
         }
         if (onCreateViewLayouView() != null) {
             setContentView(onCreateViewLayouView());
         }
-
         XSimpleAppManager.getInstance().addActivity(this);
+        if (findViewById(R.id.toolbar) != null) {
+            title = (TextView) findViewById(R.id.toolbar).findViewById(R.id.title);
+            back = (ImageView) findViewById(R.id.toolbar).findViewById(R.id.back);
+        }
         ButterKnife.inject(this);
+        initOnClickListener();
         initAllData();
         initListener();
     }

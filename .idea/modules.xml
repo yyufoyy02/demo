@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/pullToRefreshLibrary/pullToRefreshLibrary.iml" filepath="$PROJECT_DIR$/pullToRefreshLibrary/pullToRefreshLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/waibao_demo.iml" filepath="$PROJECT_DIR$/waibao_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/xSimpleUtil/xSimpleUtil.iml" filepath="$PROJECT_DIR$/xSimpleUtil/xSimpleUtil.iml" />

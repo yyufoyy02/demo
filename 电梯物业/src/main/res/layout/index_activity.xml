@@ -46,7 +46,7 @@
         android:layout_below="@+id/iv_index_avatar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="New Text"
+        tools:text="New Text"
         android:textColor="@color/text_color_333"
         android:textSize="18sp" />
 
@@ -57,7 +57,7 @@
         android:layout_below="@+id/tv_index_username"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="2dp"
-        android:text="New Text"
+        tools:text="New Text"
         android:textColor="@color/text_color_999"
         android:textSize="15sp" />
 

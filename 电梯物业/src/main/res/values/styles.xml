@@ -17,8 +17,67 @@
 
     <style name="line">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0.5dp</item>
+        <item name="android:layout_height">@dimen/dp0.5</item>
         <item name="android:singleLine">true</item>
         <item name="android:background">@color/line</item>
+    </style>
+
+    <style name="SettingRelativeLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp40</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColorHint">@color/text_color_999</item>
+    </style>
+    <style name="SettingRelativeLayoutStyle.MarginTop10">
+
+        <item name="android:layout_marginTop">@dimen/dp10</item>
+
+    </style>
+    <style name="SettingEditStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp40</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">@dimen/dp25</item>
+        <item name="android:paddingRight">@dimen/dp25</item>
+        <item name="android:textColorHint">@color/text_color_999</item>
+    </style>
+
+    <style name="SettingEditStyle.MarginTop10">
+
+        <item name="android:layout_marginTop">@dimen/dp10</item>
+
+    </style>
+
+    <style name="SubmitStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp45</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/sp17</item>
+        <item name="android:layout_marginLeft">@dimen/dp10</item>
+        <item name="android:layout_marginRight">@dimen/dp10</item>
+        <item name="android:background">@drawable/corners_green_radius6</item>
+    </style>
+    <!-- 右箭头 -->
+    <style name="ArrowImageStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingRight">@dimen/dp10</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:src">@drawable/icon_arrow</item>
+    </style>
+
+    <style name="ArrowImageStylePadding15" parent="ArrowImageStyle">
+        <item name="android:layout_width">@dimen/dp25</item>
+        <item name="android:paddingRight">@dimen/dp15</item>
     </style>
 </resources>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/normal_title_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/bg_color"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/dp30"
+            android:src="@drawable/icon_index_avatar" />
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="姓名"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_user_name"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_user_name"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+
+            <TextView
+                android:id="@+id/tv_user_job"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="职位"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_user_job"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_user_job"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+
+            <TextView
+                android:id="@+id/tv_user_sex"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="性别"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_user_sex"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_user_sex"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle.MarginTop10">
+
+            <TextView
+                android:id="@+id/tv_user_company"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="维保公司"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_user_company"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_user_company"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+
+            <TextView
+                android:id="@+id/tv_user_phone"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="电话"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_user_phone"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_user_phone"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

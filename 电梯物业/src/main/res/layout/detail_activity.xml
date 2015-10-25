@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/normal_title_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/bg_color"
+        android:orientation="vertical">
+
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle.MarginTop10">
+
+            <TextView
+                android:id="@+id/tv_detail_id"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="电梯ID"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_detail_id"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_detail_id"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+
+            <TextView
+                android:id="@+id/tv_detail_address"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="地址"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_detail_address"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_detail_address"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+
+            <TextView
+                android:id="@+id/tv_detail_brand"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="品牌"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_detail_brand"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_detail_brand"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+
+            <TextView
+                android:id="@+id/tv_detail_property_company"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="物业公司"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_detail_property_company"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_detail_property_company"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+
+            <TextView
+                android:id="@+id/tv_detail_maintenance_company"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="维保公司"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_detail_maintenance_company"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_detail_maintenance_company"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+
+            <TextView
+                android:id="@+id/tv_detail_phone"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="电话"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_detail_phone"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_detail_phone"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle.MarginTop10">
+
+            <TextView
+                android:id="@+id/tv_detail_lasttime"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="上次维保时间"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_detail_lasttime"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_detail_lasttime"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+
+            <TextView
+                android:id="@+id/tv_detail_company"
+                style="@style/SettingEditStyle"
+                android:layout_width="wrap_content"
+                android:text="本次维保时间"
+                android:textColor="@color/text_color_999" />
+
+            <TextView
+                android:id="@+id/edt_detail_company"
+                style="@style/SettingEditStyle"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_detail_company"
+                android:gravity="right|center_vertical"
+                tools:text="张三" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_detail_submit"
+            style="@style/SubmitStyle"
+            android:text="开始维保"
+            android:layout_marginTop="@dimen/dp50"
+            android:background="@drawable/corners_blue_radius6" />
+    </LinearLayout>
+</LinearLayout>

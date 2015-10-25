@@ -74,7 +74,27 @@
             android:name=".IndexActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".SettingModifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".SettingActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatisticsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetailEditActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.property.ui.codeScan.CaptureActivity"     android:screenOrientation="portrait" />/>
+        <activity android:name="com.property.ui.codeScan.ResultActivity"     android:screenOrientation="portrait" />/>
     </application>
 </manifest>
