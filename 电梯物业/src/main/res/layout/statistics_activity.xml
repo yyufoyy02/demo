@@ -10,6 +10,7 @@
         layout="@layout/normal_title_layout" />
 
     <com.vk.simpleutil.view.PullToRefreshRecyclerView
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:cacheColorHint="#00000000"

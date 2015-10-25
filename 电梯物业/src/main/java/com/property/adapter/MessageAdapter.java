@@ -10,7 +10,7 @@ import com.property.activity.MessageActivity;
 import com.property.activity.R;
 import com.property.model.MessageModel;
 import com.property.ui.codeScan.CaptureActivity;
-import com.vk.simpleutil.adapter.XSimpleAdapter;
+import com.vk.simpleutil.adapter.XSimpleRecyclerAdapter;
 import com.vk.simpleutil.adapter.XSimpleViewHolder;
 import com.vk.simpleutil.library.XSimpleImage;
 import com.vk.simpleutil.library.XSimpleResources;
@@ -18,13 +18,13 @@ import com.vk.simpleutil.library.XSimpleTime;
 
 import java.util.List;
 
-public class MessageAdapter extends XSimpleAdapter<MessageModel> {
+public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
     public MessageAdapter(Context context, List<MessageModel> mData) {
         super(context, mData, R.layout.message_item);
     }
 
     @Override
-    public View convert(View convertView, MessageModel item, int position) {
+    public void convert(View convertView, MessageModel item, int position) {
         TextView status = XSimpleViewHolder.get(convertView, R.id.tv_messageitem_status);
         TextView address = XSimpleViewHolder.get(convertView, R.id.tv_messageitem_address);
         ImageView icon = XSimpleViewHolder.get(convertView, R.id.iv_messageitem_icon);
@@ -42,7 +42,7 @@ public class MessageAdapter extends XSimpleAdapter<MessageModel> {
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CaptureActivity.launchActivity((Activity) mContext, MessageActivity.REQUEST_CODE_SCANLE);
+                    CaptureActivity.launchActivity((Activity) getContext(), MessageActivity.REQUEST_CODE_SCANLE);
                 }
             });
             timeTitle.setText("抢修");
@@ -51,7 +51,7 @@ public class MessageAdapter extends XSimpleAdapter<MessageModel> {
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CaptureActivity.launchActivity((Activity) mContext, MessageActivity.REQUEST_CODE_SCANLE);
+                    CaptureActivity.launchActivity((Activity) getContext(), MessageActivity.REQUEST_CODE_SCANLE);
                 }
             });
             timeTitle.setText("维保时间");
@@ -70,6 +70,5 @@ public class MessageAdapter extends XSimpleAdapter<MessageModel> {
             time.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
             timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
         }
-        return convertView;
     }
 }
