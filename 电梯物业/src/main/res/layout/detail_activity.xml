@@ -155,18 +155,18 @@
         <RelativeLayout style="@style/SettingRelativeLayoutStyle">
 
             <TextView
-                android:id="@+id/tv_detail_company"
+                android:id="@+id/tv_detail_thistime"
                 style="@style/SettingEditStyle"
                 android:layout_width="wrap_content"
                 android:text="本次维保时间"
                 android:textColor="@color/text_color_999" />
 
             <TextView
-                android:id="@+id/edt_detail_company"
+                android:id="@+id/edt_detail_thistime"
                 style="@style/SettingEditStyle"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_toRightOf="@+id/tv_detail_company"
+                android:layout_toRightOf="@+id/tv_detail_thistime"
                 android:gravity="right|center_vertical"
                 tools:text="张三" />
         </RelativeLayout>
