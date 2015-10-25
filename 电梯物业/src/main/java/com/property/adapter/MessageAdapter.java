@@ -37,7 +37,7 @@ public class MessageAdapter extends XSimpleAdapter<MessageModel> {
         XSimpleImage.getInstance().displayImage(item.getIcon().getUrl(), icon);
         name.setText(item.getName());
         time.setText(XSimpleTime.getFormatTimeFromTimestamp((long) item.getTime(), "yyyy-MM-dd"));
-        if (item.getMessageType() == 0) {
+        if (item.getMessage_type() == 0) {
             submit.setText("抢修");
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -46,7 +46,7 @@ public class MessageAdapter extends XSimpleAdapter<MessageModel> {
                 }
             });
             timeTitle.setText("抢修");
-        } else if (item.getMessageType() == 1) {
+        } else if (item.getMessage_type() == 1) {
             submit.setText("维保");
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override

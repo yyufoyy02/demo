@@ -38,7 +38,6 @@ public class StatisticsModel extends BaseModel {
     public int getThree_month() {
         return three_month;
     }
-
     public void setThree_month(int three_month) {
         this.three_month = three_month;
     }
