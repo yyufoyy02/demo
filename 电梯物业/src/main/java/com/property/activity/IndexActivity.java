@@ -48,7 +48,7 @@ public class IndexActivity extends BaseActivity {
                 startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageActivity.MessageType.repair));
                 break;
             case R.id.iv_index_statistics:
-                startActivity(new Intent(mContext, SettingActivity.class));
+                startActivity(new Intent(mContext, StatisticsActivity.class));
                 break;
             case R.id.iv_index_user:
                 startActivity(new Intent(mContext, UserActivity.class));

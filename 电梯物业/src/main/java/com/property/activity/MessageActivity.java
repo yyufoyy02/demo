@@ -38,7 +38,7 @@ public class MessageActivity extends BaseActivity {
                 setTitle("消息");
                 MessageModel messageModel1 = new MessageModel();
                 messageModel1.setAddress("惠州市江北市政府");
-                messageModel1.setIcon(new ImageModel(""));
+                messageModel1.setIcon(new ImageModel("drawable://" + R.drawable.icon_book));
                 messageModel1.setName("市政府电梯108号维保");
                 messageModel1.setTime(1444492800);
                 messageModel1.setStatus(0);
@@ -46,7 +46,7 @@ public class MessageActivity extends BaseActivity {
                 list.add(messageModel1);
                 MessageModel messageModel2 = new MessageModel();
                 messageModel2.setAddress("惠州市江北市政府");
-                messageModel2.setIcon(new ImageModel(""));
+                messageModel2.setIcon(new ImageModel("drawable://" + R.drawable.icon_setting));
                 messageModel2.setName("市政府电梯108号维保");
                 messageModel2.setTime(1444492800);
                 messageModel2.setStatus(0);
@@ -57,7 +57,7 @@ public class MessageActivity extends BaseActivity {
                 setTitle("维保单");
                 MessageModel messageModel3 = new MessageModel();
                 messageModel3.setAddress("惠州市江北市政府");
-                messageModel3.setIcon(new ImageModel(""));
+                messageModel3.setIcon(new ImageModel("drawable://" + R.drawable.icon_book));
                 messageModel3.setName("市政府电梯108号维保");
                 messageModel3.setTime(1444492800);
                 messageModel3.setStatus(0);
@@ -65,7 +65,7 @@ public class MessageActivity extends BaseActivity {
                 list.add(messageModel3);
                 MessageModel messageModel4 = new MessageModel();
                 messageModel4.setAddress("惠州市江北市政府");
-                messageModel4.setIcon(new ImageModel(""));
+                messageModel4.setIcon(new ImageModel("drawable://" + R.drawable.icon_book));
                 messageModel4.setName("市政府电梯108号维保");
                 messageModel4.setTime(1444492800);
                 messageModel4.setStatus(1);
@@ -76,7 +76,7 @@ public class MessageActivity extends BaseActivity {
                 setTitle("抢修单");
                 MessageModel messageModel5 = new MessageModel();
                 messageModel5.setAddress("惠州市江北市政府");
-                messageModel5.setIcon(new ImageModel(""));
+                messageModel5.setIcon(new ImageModel("drawable://"+R.drawable.icon_setting));
                 messageModel5.setName("市政府电梯108号维保");
                 messageModel5.setTime(1444492800);
                 messageModel5.setStatus(0);
@@ -84,7 +84,7 @@ public class MessageActivity extends BaseActivity {
                 list.add(messageModel5);
                 MessageModel messageModel6 = new MessageModel();
                 messageModel6.setAddress("惠州市江北市政府");
-                messageModel6.setIcon(new ImageModel(""));
+                messageModel6.setIcon(new ImageModel("drawable://"+R.drawable.icon_setting));
                 messageModel6.setName("市政府电梯108号维保");
                 messageModel6.setTime(1444492800);
                 messageModel6.setStatus(1);
@@ -96,8 +96,8 @@ public class MessageActivity extends BaseActivity {
     }
 
     void initView() {
-        listView.setPullRefreshLoadEnable(false, false, PullToRefreshBase.Mode.BOTH);
         listView.setLayoutManager(new LinearLayoutManager(mContext));
+        listView.setPullRefreshLoadEnable(false, false, PullToRefreshBase.Mode.BOTH);
         mMessageAdapter = new MessageAdapter(mContext, list);
         listView.setAdapter(mMessageAdapter);
         listView.notifyDataSetChanged();

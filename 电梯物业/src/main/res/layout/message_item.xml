@@ -9,7 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp100"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/dp10">
+        android:layout_marginTop="@dimen/dp10"
+        android:padding="@dimen/dp5"
+        android:background="@android:color/white">
 
         <TextView
             android:id="@+id/tv_messageitem_status"
