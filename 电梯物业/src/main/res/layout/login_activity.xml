@@ -45,9 +45,9 @@
             android:drawablePadding="15dp"
             android:hint="用户名"
             android:paddingLeft="15dp"
+            android:text="15918727922"
             android:textColor="@color/text_color_555"
-            android:textColorHint="@color/hint_color"
-            tools:text="" />
+            android:textColorHint="@color/hint_color" />
 
         <EditText
             android:id="@+id/edt_login_password"
@@ -60,11 +60,11 @@
             android:drawablePadding="15dp"
             android:hint="密码"
             android:paddingLeft="15dp"
+            android:inputType="textPassword"
+            android:text="888888"
             android:textColor="@color/text_color_555"
-            android:textColorHint="@color/hint_color"
-            tools:text="11111111111" />
+            android:textColorHint="@color/hint_color" />
     </LinearLayout>
-
 
 
     <TextView

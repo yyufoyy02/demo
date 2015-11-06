@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.property.api.UserApi;
 import com.property.base.BaseActivity;
+import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.model.UserModel;
 import com.property.utils.UserDataUtil;
 import com.vk.simpleutil.library.XSimpleImage;
@@ -39,21 +41,38 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.iv_login_login)
     void login(View v) {
-        UserModel userModel=new UserModel();
-        userModel.setDepartment("惠州维保公司");
-        userModel.setCompany("惠州维保公司");
-        userModel.setSex(0);
-        userModel.setJob("高级维护员");
-        userModel.setName("张三");
-        userModel.setStaff_id("1");
-        userModel.setPhone("13380123456");
-        UserDataUtil.getInstance().login(userModel);
-        startActivity(new Intent(mContext, IndexActivity.class));
+//        UserModel userModel=new UserModel();
+//        userModel.setDepartment("惠州维保公司");
+//        userModel.setCompany("惠州维保公司");
+//        userModel.setSex(0);
+//        userModel.setJob("高级维护员");
+//        userModel.setName("张三");
+//        userModel.setStaff_id("1");
+//        userModel.setPhone("13380123456");
+//        UserDataUtil.getInstance().login(userModel);
+//        startActivity(new Intent(mContext, IndexActivity.class));
+        login();
     }
 
     @Override
     public void initListener() {
 
+    }
+
+    void login() {
+        UserApi.getInstance().login(mContext, edtLoginUsername.getText().toString(), edtLoginPassword.getText().toString(), new MyJsonDataResponseCacheHandler<UserModel>(UserModel.class, false) {
+            @Override
+            public void onJsonDataSuccess(UserModel userModel) {
+                UserDataUtil.getInstance().login(userModel);
+                startActivity(new Intent(mContext, IndexActivity.class));
+                finish();
+            }
+
+            @Override
+            public boolean onJsonCacheData(boolean has) {
+                return false;
+            }
+        });
     }
 
     @Override

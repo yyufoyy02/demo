@@ -5,7 +5,11 @@ import android.support.v4.util.ArrayMap;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.property.model.JsonRestfulHeadModel;
 import com.vk.simpleutil.http.XSimpleHttpUtil;
+import com.vk.simpleutil.json.XSimpleJsonBeen;
+
+import org.json.JSONObject;
 
 import java.util.Map;
 
@@ -61,6 +65,8 @@ public class BaseApi {
         if (url != null && url.indexOf("http://") == 0) {
             urlStr.append(url);
         } else {
+            if (url != null)
+                url = "&" + url;
             urlStr.append(BaseUrl.toString() + url);
         }
         switch (mHttpMethod) {
@@ -94,6 +100,17 @@ public class BaseApi {
                 break;
         }
 
+    }
+
+    public static JsonRestfulHeadModel JsonRestfulHeadPublicData(
+            String s) {
+        return XSimpleJsonBeen.json2JavaBean(s,
+                JsonRestfulHeadModel.class);
+    }
+
+    public static JsonRestfulHeadModel JsonRestfulHeadPublicData(
+            JSONObject s) {
+        return JsonRestfulHeadPublicData(s.toString());
     }
 
 }
