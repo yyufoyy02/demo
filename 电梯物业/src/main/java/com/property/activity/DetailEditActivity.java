@@ -75,7 +75,8 @@ public class DetailEditActivity extends BaseActivity {
 
     @OnClick(R.id.tv_detailedit_submit)
     void submit(View view) {
-
+        startActivity(new Intent(mContext, CompleteActivity.class));
+        finish();
     }
 
 }

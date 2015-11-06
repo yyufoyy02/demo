@@ -15,6 +15,18 @@ public class ElevatorModel extends BaseModel {
     String phone;
     double last_time;
     double this_time;
+    String reason;
+
+    /**
+     * 原因
+     */
+    public String getReason() {
+        return XSimpleText.isEmpty(reason, "");
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
 
     /**
      * 电话ID

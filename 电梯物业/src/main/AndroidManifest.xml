@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.property.activity"
     android:installLocation="auto"
-    android:versionCode="1"
+    android:versionCode="2"
     android:versionName="1.0">
 
 
@@ -90,6 +90,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CompleteActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".DetailEditActivity"

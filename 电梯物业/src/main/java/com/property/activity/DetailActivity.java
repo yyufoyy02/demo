@@ -32,6 +32,9 @@ public class DetailActivity extends BaseActivity {
     TextView edtDetailLasttime;
     @InjectView(R.id.edt_detail_thistime)
     TextView edtDetailThistime;
+    @InjectView(R.id.tv_detail_reason)
+    TextView tvReason;
+
     ElevatorModel elevatorModel = new ElevatorModel();
 
     @Override
@@ -50,6 +53,7 @@ public class DetailActivity extends BaseActivity {
         elevatorModel.setPhone("13380123456");
         elevatorModel.setLast_time(1420819200);
         elevatorModel.setThis_time(1445270400);
+        elevatorModel.setReason("电梯升降系统螺丝损坏、保险烧坏、零件需要更换。");
         edtDetailId.setText(elevatorModel.getId());
         edtDetailAddress.setText(elevatorModel.getAddress());
         edtDetailBrand.setText(elevatorModel.getBrand());
@@ -58,6 +62,7 @@ public class DetailActivity extends BaseActivity {
         edtDetailPhone.setText(elevatorModel.getPhone());
         edtDetailLasttime.setText(XSimpleTime.getFormatTimeFromTimestamp((long) elevatorModel.getLast_time(), "yyyy-MM-dd"));
         edtDetailThistime.setText(XSimpleTime.getFormatTimeFromTimestamp((long) elevatorModel.getThis_time(), "yyyy-MM-dd"));
+        tvReason.setText(elevatorModel.getReason());
     }
 
     @Override
