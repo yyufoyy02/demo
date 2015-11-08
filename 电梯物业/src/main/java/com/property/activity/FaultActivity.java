@@ -1,11 +1,15 @@
 package com.property.activity;
 
+import android.content.Intent;
+
 import com.property.api.FaultApi;
+import com.property.enumbase.MessageType;
 import com.property.enumbase.UpdateType;
 import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.model.FaultModel;
 import com.property.model.ImageModel;
 import com.property.model.MessageModel;
+import com.vk.simpleutil.library.XSimpleLogger;
 import com.vk.simpleutil.view.pulltorefresh.lib.PullToRefreshBase;
 import com.vk.simpleutil.view.pulltorefresh.lib.extras.IXListViewListener;
 
@@ -83,5 +87,16 @@ public class FaultActivity extends MessageActivity implements IXListViewListener
     @Override
     public void onLoadMore() {
         getList(UpdateType.bottom);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_SCANLE && resultCode == RESULT_OK&&data!=null) {
+            XSimpleLogger.Log().e("code:" + data.getStringExtra("code"));
+            startActivity(new Intent(mContext, DetailActivity.class)
+                    .putExtra("code",data.getStringExtra("code")).putExtra("messageType", MessageType.repair));
+        }
+
     }
 }

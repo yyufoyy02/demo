@@ -1,14 +1,13 @@
 package com.property.activity;
 
-import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.property.adapter.MessageAdapter;
 import com.property.base.BaseActivity;
+import com.property.enumbase.MessageType;
 import com.property.enumbase.UpdateType;
 import com.property.model.MessageModel;
-import com.vk.simpleutil.library.XSimpleLogger;
 import com.vk.simpleutil.view.PullToRefreshRecyclerView;
 import com.vk.simpleutil.view.pulltorefresh.lib.PullToRefreshBase;
 
@@ -114,17 +113,4 @@ public class MessageActivity extends BaseActivity {
         });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_SCANLE && resultCode == RESULT_OK) {
-            XSimpleLogger.Log().e("code:" + data.getStringExtra("code"));
-            startActivity(new Intent(mContext, DetailActivity.class));
-        }
-
-    }
-
-    public enum MessageType {
-        maintenance, repair, all
-    }
 }

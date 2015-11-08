@@ -2,14 +2,12 @@ package com.property.activity;
 
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.property.base.BaseActivity;
 import com.property.utils.UserDataUtil;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.annotation.event.OnClick;
 
@@ -45,7 +43,7 @@ public class IndexActivity extends BaseActivity {
                 startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageActivity.MessageType.maintenance));
                 break;
             case R.id.iv_index_repair:
-                startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageActivity.MessageType.repair));
+                startActivity(new Intent(mContext, FaultActivity.class));
                 break;
             case R.id.iv_index_statistics:
                 startActivity(new Intent(mContext, StatisticsActivity.class));
@@ -61,12 +59,5 @@ public class IndexActivity extends BaseActivity {
     @Override
     public void initListener() {
 
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.inject(this);
     }
 }
