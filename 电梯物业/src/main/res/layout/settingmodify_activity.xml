@@ -23,12 +23,14 @@
         <EditText
             android:id="@+id/edt_settingmodify_newpassword"
             style="@style/SettingEditStyle.MarginTop10"
-            android:hint="新密码" />
+            android:hint="新密码"
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/edt_settingmodify_newpassword2"
             style="@style/SettingEditStyle.MarginTop10"
-            android:hint="确认密码" />
+            android:hint="确认密码"
+            android:inputType="textPassword" />
 
         <TextView
             android:id="@+id/tv_settingmodify_submit"

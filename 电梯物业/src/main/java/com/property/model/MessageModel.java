@@ -12,7 +12,7 @@ public class MessageModel extends BaseModel {
     int message_type;
 
     /**
-     * 状态: （正在处理：0  完成：1）
+     * 状态: （2：等待处理，3：已经签到正在处理，4：抢修完成）
      */
     public int getStatus() {
         return status;

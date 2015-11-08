@@ -93,6 +93,14 @@ public class UserDataUtil {
         }
     }
 
+    public String getStaff_id() {
+        if (mOwenUser != null) {
+            return mOwenUser.getStaff_id();
+        } else {
+            return "";
+        }
+    }
+
 
     public interface UserIsLoginInterface {
         void LoginSuccess();

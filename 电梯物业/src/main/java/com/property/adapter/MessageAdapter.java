@@ -57,18 +57,18 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
             timeTitle.setText("维保时间");
         }
 
-        if (item.getStatus() == 0) {
-            status.setText("等待处理");
-            status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
-            submit.setVisibility(View.VISIBLE);
-            time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
-            timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_333));
-        } else if (item.getStatus() == 1) {
+        if (item.getStatus() == 4) {
             status.setText("已完成");
             status.setTextColor(XSimpleResources.getColor(android.R.color.holo_blue_light));
             submit.setVisibility(View.GONE);
             time.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
             timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+        } else if (item.getStatus() == 0) {
+            status.setText("等待处理");
+            status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
+            submit.setVisibility(View.VISIBLE);
+            time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
+            timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_333));
         }
     }
 }

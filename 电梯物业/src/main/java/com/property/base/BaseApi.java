@@ -19,7 +19,7 @@ public class BaseApi {
         GET, POST, PUT, DELETE
     }
 
-    public static String BaseUrl = "http://lintianranqi.com/lift/index.php?g=Admin&m=Android";
+    public static String BaseUrl = "http://lintianranqi.com/lift/Admin/RestApi/";
     public Map<String, String> mTempMap = new ArrayMap<>();
     private Map<String, String> mParameterMap = new ArrayMap<>();
     private StringBuffer urlStr = new StringBuffer();
@@ -65,8 +65,6 @@ public class BaseApi {
         if (url != null && url.indexOf("http://") == 0) {
             urlStr.append(url);
         } else {
-            if (url != null)
-                url = "&" + url;
             urlStr.append(BaseUrl.toString() + url);
         }
         switch (mHttpMethod) {

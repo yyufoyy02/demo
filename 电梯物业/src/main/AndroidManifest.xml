@@ -95,6 +95,9 @@
             android:name=".CompleteActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".FaultActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".DetailEditActivity"
             android:screenOrientation="portrait" />
         <activity android:name="com.property.ui.codeScan.CaptureActivity"     android:screenOrientation="portrait" />/>

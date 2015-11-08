@@ -204,7 +204,7 @@ public final class CameraConfigurationManager {
 			}
 		}
 
-		// If no exact match, use largest preview size. This was not a great
+		// If no exact match, use largest preview size. This was not UpdateType great
 		// idea on older devices because
 		// of the additional computation needed. We're likely to get here on
 		// newer Android 4+ devices, where

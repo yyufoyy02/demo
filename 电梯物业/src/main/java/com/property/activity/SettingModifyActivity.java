@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.property.api.UserApi;
 import com.property.base.BaseActivity;
+import com.property.http.MySimpleJsonDataResponseCacheHandler;
+import com.vk.simpleutil.library.XSimpleToast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -27,7 +30,20 @@ public class SettingModifyActivity extends BaseActivity {
 
     @OnClick(R.id.tv_settingmodify_submit)
     void submit(View v) {
+        UserApi.getInstance().password(mContext, edtSettingmodifyOldpassword.getText().toString(),
+                edtSettingmodifyNewpassword.getText().toString(), edtSettingmodifyNewpassword2.getText().toString(),
+                new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
+                    @Override
+                    public void success() {
+                        XSimpleToast.showToast("密码修改成功!");
+                        finish();
+                    }
 
+                    @Override
+                    public void fail() {
+
+                    }
+                }));
     }
 
     @Override
