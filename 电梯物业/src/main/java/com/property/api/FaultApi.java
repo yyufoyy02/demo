@@ -6,6 +6,8 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.property.base.BaseApi;
 import com.property.utils.UserDataUtil;
 
+import java.util.Map;
+
 
 public class FaultApi extends BaseApi {
     private static class Holder {
@@ -46,5 +48,32 @@ public class FaultApi extends BaseApi {
         mTempMap.clear();
         mTempMap.put("fault_id", fault_id);
         get(context, "fault_sign.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+    }
+
+    public void putBeg(Context context, String id, Map<String, String> map, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+        mTempMap.clear();
+        mTempMap.put("fault_id", id);
+        if (map != null)
+            mTempMap.putAll(map);
+        get(context, "fault_beg.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+    }
+
+    public void putDeal(Context context, String id, String fault_describe,
+                        int fault_parts, String fault_parts_name, String fault_cost, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+        mTempMap.clear();
+        mTempMap.put("fault_id", id);
+        mTempMap.put("fault_describe", fault_describe);
+        mTempMap.put("fault_parts", fault_parts + "");
+        mTempMap.put("fault_parts_name", fault_parts_name);
+        mTempMap.put("fault_cost", fault_cost);
+        get(context, "fault_deal.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+    }
+
+    public void putEng(Context context, String id, Map<String, String> map, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+        mTempMap.clear();
+        mTempMap.put("fault_id", id);
+        if (map != null)
+            mTempMap.putAll(map);
+        get(context, "fault_eng.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 }

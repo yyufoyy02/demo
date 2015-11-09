@@ -4,7 +4,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.property.api.FaultApi;
 import com.property.base.BaseActivity;
+import com.property.http.MySimpleJsonDataResponseCacheHandler;
+import com.vk.simpleutil.library.XSimpleToast;
 
 import butterknife.InjectView;
 import butterknife.annotation.event.OnClick;
@@ -23,7 +26,7 @@ public class CompleteActivity extends BaseActivity {
     EditText edtCompleteName;
     @InjectView(R.id.edt_complete_price)
     EditText edtCompletePrice;
-
+    String id;
 
     @Override
     public int onCreateViewLayouId() {
@@ -33,6 +36,7 @@ public class CompleteActivity extends BaseActivity {
     @Override
     public void initAllData() {
         setTitle("确认完成");
+        id = getIntent().getStringExtra("id");
         tvCompleteNo.setSelected(true);
     }
 
@@ -44,6 +48,27 @@ public class CompleteActivity extends BaseActivity {
     @OnClick(R.id.tv_complete_submit)
     void submit(View v) {
         finish();
+    }
+
+    void complete() {
+        MySimpleJsonDataResponseCacheHandler mySimpleJsonDataResponseCacheHandler = new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
+            @Override
+            public void success() {
+                XSimpleToast.showToast("上传成功");
+                finish();
+            }
+
+            @Override
+            public void fail() {
+
+            }
+        });
+        int fault_parts = 0;
+        if (tvCompleteYes.isSelected()) {
+            fault_parts = 1;
+        }
+        FaultApi.getInstance().putDeal(mContext, id, edtDetailSay.getText().toString(), fault_parts,
+                edtCompleteName.getText().toString(), edtCompletePrice.getText().toString(), mySimpleJsonDataResponseCacheHandler);
     }
 
     @OnClick({R.id.tv_complete_no, R.id.tv_complete_yes})

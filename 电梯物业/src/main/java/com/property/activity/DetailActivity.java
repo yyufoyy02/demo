@@ -37,7 +37,7 @@ public class DetailActivity extends BaseActivity {
     @InjectView(R.id.tv_detail_reason)
     TextView tvReason;
     MessageType messageType;
-
+String id;
     @Override
     public int onCreateViewLayouId() {
         return R.layout.detail_activity;
@@ -46,8 +46,9 @@ public class DetailActivity extends BaseActivity {
     @Override
     public void initAllData() {
         setTitle("电梯信息");
+        id=getIntent().getStringExtra("id");
         messageType = (MessageType) getIntent().getSerializableExtra("messageType");
-        getScan(getIntent().getStringExtra("id"), getIntent().getStringExtra("code"));
+        getScan(id, getIntent().getStringExtra("code"));
     }
 
     void initData(LiftModel liftModel) {
@@ -91,7 +92,7 @@ public class DetailActivity extends BaseActivity {
 
     @OnClick(R.id.tv_detail_submit)
     void submit(View view) {
-        startActivity(new Intent(mContext, DetailEditActivity.class));
+        startActivity(new Intent(mContext, DetailEditActivity.class) .putExtra("messageType", messageType).putExtra("id",id));
     }
 
 }

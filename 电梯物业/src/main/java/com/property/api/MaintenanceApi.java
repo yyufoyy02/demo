@@ -6,6 +6,8 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.property.base.BaseApi;
 import com.property.utils.UserDataUtil;
 
+import java.util.Map;
+
 
 public class MaintenanceApi extends BaseApi {
     private static class Holder {
@@ -44,5 +46,13 @@ public class MaintenanceApi extends BaseApi {
         mTempMap.clear();
         mTempMap.put("maintenance_id", maintenance_id);
         get(context, "maintenance_sign.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+    }
+
+    public void putEng(Context context, String id, Map<String, String> map, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+        mTempMap.clear();
+        mTempMap.put("maintenance_id", id);
+        if (map != null)
+            mTempMap.putAll(map);
+        get(context, "maintenance_eng.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 }

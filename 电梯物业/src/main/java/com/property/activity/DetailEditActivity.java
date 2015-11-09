@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.property.api.LiftApi;
+import com.property.api.FaultApi;
+import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
+import com.property.enumbase.MessageType;
 import com.property.http.MySimpleJsonDataResponseCacheHandler;
+import com.property.utils.ImageUploadUtils;
 import com.vk.simpleutil.library.XSimpleAlertDialog;
 import com.vk.simpleutil.library.XSimpleImage;
 import com.vk.simpleutil.library.XSimplePhotoChoose;
+import com.vk.simpleutil.library.XSimpleToast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +23,7 @@ import java.util.Map;
 import butterknife.InjectView;
 import butterknife.annotation.event.OnClick;
 
-public class DetailEditActivity extends BaseActivity {
+public class DetailEditActivity extends BaseActivity implements ImageUploadUtils.ImageUpLoadListener {
     @InjectView(R.id.iv_detailedit_photo)
     ImageView ivDetaileditPhoto;
     @InjectView(R.id.iv_detailedit_imageView1)
@@ -29,6 +33,9 @@ public class DetailEditActivity extends BaseActivity {
     @InjectView(R.id.iv_detailedit_imageView3)
     ImageView ivDetaileditImageView3;
     List<String> list = new ArrayList<>();
+    List<String> base64List = new ArrayList<>();
+    MessageType messageType;
+    String id;
 
     @Override
     public int onCreateViewLayouId() {
@@ -38,6 +45,9 @@ public class DetailEditActivity extends BaseActivity {
     @Override
     public void initAllData() {
         setTitle("确认");
+        messageType = (MessageType) getIntent().getSerializableExtra("messageType");
+        id = getIntent().getStringExtra("id");
+
     }
 
     @Override
@@ -74,19 +84,22 @@ public class DetailEditActivity extends BaseActivity {
             } else if (i == 2) {
                 XSimpleImage.getInstance().displayImage(list.get(i), ivDetaileditImageView3);
             }
+            ImageUploadUtils.getInstance().initImageCode(mContext, list.get(i), "", i, this);
         }
     }
 
     @OnClick(R.id.tv_detailedit_submit)
     void submit(View view) {
         Map<String, String> map = new HashMap<>();
-        for (int i = 0; i < list.size(); i++) {
-            map.put("images[" + i + "]", list.get(i));
+        for (int i = 0; i < base64List.size(); i++) {
+            map.put("img[" + i + "]", base64List.get(i));
         }
-        LiftApi.getInstance().putlift(mContext, "", map, new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
+        MySimpleJsonDataResponseCacheHandler mySimpleJsonDataResponseCacheHandler = new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
             @Override
             public void success() {
-                startActivity(new Intent(mContext, CompleteActivity.class));
+                if (messageType == MessageType.repair) {
+                    startActivity(new Intent(mContext, CompleteActivity.class).putExtra("id", id));
+                }
                 finish();
             }
 
@@ -94,8 +107,25 @@ public class DetailEditActivity extends BaseActivity {
             public void fail() {
 
             }
-        }));
-
+        });
+        if (messageType == MessageType.repair) {
+            FaultApi.getInstance().putEng(mContext, id, map, mySimpleJsonDataResponseCacheHandler);
+        } else {
+            MaintenanceApi.getInstance().putEng(mContext, id, map, mySimpleJsonDataResponseCacheHandler);
+        }
     }
 
+    @Override
+    public void imageUploadSuccess(String base64, int tag) {
+        if (tag < base64List.size()) {
+            base64List.set(tag, base64);
+        } else {
+            base64List.add(base64);
+        }
+    }
+
+    @Override
+    public void imageUploadFail(int statusFail, String error, int tag) {
+        XSimpleToast.showToast("上传失败");
+    }
 }
