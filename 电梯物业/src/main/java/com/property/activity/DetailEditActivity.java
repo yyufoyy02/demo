@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.property.api.LiftApi;
 import com.property.base.BaseActivity;
+import com.property.http.MySimpleJsonDataResponseCacheHandler;
 import com.vk.simpleutil.library.XSimpleAlertDialog;
 import com.vk.simpleutil.library.XSimpleImage;
 import com.vk.simpleutil.library.XSimplePhotoChoose;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.InjectView;
 import butterknife.annotation.event.OnClick;
@@ -75,8 +79,23 @@ public class DetailEditActivity extends BaseActivity {
 
     @OnClick(R.id.tv_detailedit_submit)
     void submit(View view) {
-        startActivity(new Intent(mContext, CompleteActivity.class));
-        finish();
+        Map<String, String> map = new HashMap<>();
+        for (int i = 0; i < list.size(); i++) {
+            map.put("images[" + i + "]", list.get(i));
+        }
+        LiftApi.getInstance().putlift(mContext, "", map, new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
+            @Override
+            public void success() {
+                startActivity(new Intent(mContext, CompleteActivity.class));
+                finish();
+            }
+
+            @Override
+            public void fail() {
+
+            }
+        }));
+
     }
 
 }

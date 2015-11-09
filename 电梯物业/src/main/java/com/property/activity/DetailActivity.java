@@ -61,7 +61,7 @@ public class DetailActivity extends BaseActivity {
         edtDetailPhone.setText(liftModel.getPhone());
         edtDetailLasttime.setText(XSimpleTime.getFormatTimeFromTimestamp((long) liftModel.getLast_time(), "yyyy-MM-dd"));
         edtDetailThistime.setText(XSimpleTime.getFormatTimeFromTimestamp((long) liftModel.getStart_time(), "yyyy-MM-dd"));
-        tvReason.setText("电梯升降系统螺丝损坏、保险烧坏、零件需要更换。");
+        tvReason.setText(liftModel.getFault_type());
     }
 
     void getScan(String id, String code) {

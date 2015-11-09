@@ -53,6 +53,23 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                 }
             });
             timeTitle.setText("抢修");
+            if (item.getStatus() == 4) {
+                status.setText("抢修完成");
+                status.setTextColor(XSimpleResources.getColor(android.R.color.holo_blue_light));
+                submit.setVisibility(View.GONE);
+                time.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+                timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+            } else {
+                if (item.getStatus() == 2) {
+                    status.setText("等待处理");
+                } else {
+                    status.setText("已经签到正在处理");
+                }
+                status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
+                submit.setVisibility(View.VISIBLE);
+                time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
+                timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_333));
+            }
         } else if (item.getMessage_type() == 1) {
             submit.setText("维保");
             submit.setOnClickListener(new View.OnClickListener() {
@@ -63,28 +80,27 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                 }
             });
             timeTitle.setText("维保时间");
+            if (item.getStatus() == 2) {
+                status.setText("维保完成");
+                status.setTextColor(XSimpleResources.getColor(android.R.color.holo_blue_light));
+                submit.setVisibility(View.GONE);
+                time.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+                timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+            } else {
+                if (item.getStatus() == 0) {
+                    status.setText("待维保");
+                } else if (item.getStatus() == 1) {
+                    status.setText("维保中");
+                } else if (item.getStatus() == 3) {
+                    status.setText("过期");
+                }
+                status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
+                submit.setVisibility(View.VISIBLE);
+                time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
+                timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_333));
+            }
         }
 
-        if (item.getStatus() == 4) {
-            if (item.getMessage_type() == 0) {
-                status.setText("抢修完成");
-            } else {
-                status.setText("抢修完成");
-            }
-            status.setTextColor(XSimpleResources.getColor(android.R.color.holo_blue_light));
-            submit.setVisibility(View.GONE);
-            time.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
-            timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
-        } else {
-            if (item.getStatus() == 2) {
-                status.setText("等待处理");
-            } else {
-                status.setText("已经签到正在处理");
-            }
-            status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
-            submit.setVisibility(View.VISIBLE);
-            time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
-            timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_333));
-        }
+
     }
 }
