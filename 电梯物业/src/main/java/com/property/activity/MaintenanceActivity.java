@@ -27,7 +27,7 @@ import butterknife.InjectView;
  * Created by Administrator on 2015/11/8.
  */
 public class MaintenanceActivity extends BaseActivity implements IXListViewListener {
-    public static final int REQUEST_CODE_SCANLE = 98;
+
     List<MessageModel> list = new ArrayList<>();
     @InjectView(R.id.list)
     PullToRefreshRecyclerView listView;
@@ -42,7 +42,7 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
 
     @Override
     public void initAllData() {
-        setTitle("抢修单");
+        setTitle("维保");
         mMessageAdapter = new MessageAdapter(mContext, list);
         listView.setLayoutManager(new LinearLayoutManager(mContext));
         listView.setPullRefreshLoadEnable(true, true, PullToRefreshBase.Mode.BOTH);
@@ -120,7 +120,7 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_SCANLE && resultCode == RESULT_OK && data != null && mMessageAdapter.getScanPostion() != -1) {
+        if (requestCode == MessageActivity.REQUEST_CODE_SCANLE && resultCode == RESULT_OK && data != null && mMessageAdapter.getScanPostion() != -1) {
             XSimpleLogger.Log().e("code:" + data.getStringExtra("code"));
             startActivity(new Intent(mContext, DetailActivity.class)
                     .putExtra("code", data.getStringExtra("code")).putExtra("id", maintenanceModellist.get(mMessageAdapter.getScanPostion()).getId())
