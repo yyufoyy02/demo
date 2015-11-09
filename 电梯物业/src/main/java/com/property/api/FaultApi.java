@@ -28,7 +28,7 @@ public class FaultApi extends BaseApi {
     public void getList(Context context, String id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("staff_id", UserDataUtil.getInstance().getStaff_id());
-        if (id == null) {
+        if (id != null) {
             mTempMap.put("type", "1");
             mTempMap.put("id", id);
         }

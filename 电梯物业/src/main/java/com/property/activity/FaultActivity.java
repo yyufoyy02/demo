@@ -1,8 +1,12 @@
 package com.property.activity;
 
 import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 
+import com.property.adapter.MessageAdapter;
 import com.property.api.FaultApi;
+import com.property.base.BaseActivity;
 import com.property.enumbase.MessageType;
 import com.property.enumbase.UpdateType;
 import com.property.http.MyJsonDataResponseCacheHandler;
@@ -10,28 +14,51 @@ import com.property.model.FaultModel;
 import com.property.model.ImageModel;
 import com.property.model.MessageModel;
 import com.vk.simpleutil.library.XSimpleLogger;
+import com.vk.simpleutil.view.PullToRefreshRecyclerView;
 import com.vk.simpleutil.view.pulltorefresh.lib.PullToRefreshBase;
 import com.vk.simpleutil.view.pulltorefresh.lib.extras.IXListViewListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.InjectView;
+
 /**
  * Created by Administrator on 2015/11/8.
  */
-public class FaultActivity extends MessageActivity implements IXListViewListener {
-
+public class FaultActivity extends BaseActivity implements IXListViewListener {
+    public static final int REQUEST_CODE_SCANLE = 99;
+    List<MessageModel> list = new ArrayList<>();
+    @InjectView(R.id.list)
+    PullToRefreshRecyclerView listView;
+    MessageAdapter mMessageAdapter;
     List<FaultModel> faultModellist = new ArrayList<>();
     String id;
 
     @Override
+    public int onCreateViewLayouId() {
+        return R.layout.message_activity;
+    }
+
+    @Override
     public void initAllData() {
-        super.initAllData();
         setTitle("抢修单");
-        listView.setAdapter(mMessageAdapter);
+        mMessageAdapter=new MessageAdapter(mContext,list);
+        listView.setLayoutManager(new LinearLayoutManager(mContext));
         listView.setPullRefreshLoadEnable(true, true, PullToRefreshBase.Mode.BOTH);
         listView.setOnXListViewListener(this);
+        listView.setAdapter(mMessageAdapter);
         getList(UpdateType.top);
+    }
+
+    @Override
+    public void initListener() {
+        findViewById(R.id.toolbar).findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     List<MessageModel> initFault2Message(List<FaultModel> list) {
@@ -43,7 +70,7 @@ public class FaultActivity extends MessageActivity implements IXListViewListener
             messageModel.setName("市政府电梯" + faultModel.getElevetor_number() + "号维保");
             messageModel.setTime(1444492800);
             messageModel.setStatus(faultModel.getStatus());
-            messageModel.setMessage_type(1);
+            messageModel.setMessage_type(0);
             messageModelList.add(messageModel);
         }
         return messageModelList;

@@ -66,13 +66,21 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
         }
 
         if (item.getStatus() == 4) {
-            status.setText("已完成");
+            if (item.getMessage_type() == 0) {
+                status.setText("抢修完成");
+            } else {
+                status.setText("抢修完成");
+            }
             status.setTextColor(XSimpleResources.getColor(android.R.color.holo_blue_light));
             submit.setVisibility(View.GONE);
             time.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
             timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
-        } else if (item.getStatus() == 0) {
-            status.setText("等待处理");
+        } else {
+            if (item.getStatus() == 2) {
+                status.setText("等待处理");
+            } else {
+                status.setText("已经签到正在处理");
+            }
             status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
             submit.setVisibility(View.VISIBLE);
             time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
