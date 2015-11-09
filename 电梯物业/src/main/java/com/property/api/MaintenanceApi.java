@@ -8,6 +8,17 @@ import com.property.utils.UserDataUtil;
 
 
 public class MaintenanceApi extends BaseApi {
+    private static class Holder {
+        private static MaintenanceApi instance = new MaintenanceApi();
+    }
+
+    private MaintenanceApi() {
+    }
+
+    public static MaintenanceApi getInstance() {
+        return Holder.instance;
+    }
+
     public void getList(Context context, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("staff_id", UserDataUtil.getInstance().getStaff_id());

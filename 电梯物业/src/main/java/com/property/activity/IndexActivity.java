@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.property.base.BaseActivity;
+import com.property.enumbase.MessageType;
 import com.property.utils.UserDataUtil;
 
 import butterknife.InjectView;
@@ -37,10 +38,10 @@ public class IndexActivity extends BaseActivity {
                 startActivity(new Intent(mContext, SettingActivity.class));
                 break;
             case R.id.iv_index_message:
-                startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageActivity.MessageType.all));
+                startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageType.all));
                 break;
             case R.id.iv_index_maintenance:
-                startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageActivity.MessageType.maintenance));
+                startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageType.maintenance));
                 break;
             case R.id.iv_index_repair:
                 startActivity(new Intent(mContext, FaultActivity.class));

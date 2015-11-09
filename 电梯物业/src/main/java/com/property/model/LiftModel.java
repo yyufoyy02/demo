@@ -6,6 +6,7 @@ import com.vk.simpleutil.library.XSimpleText;
 public class LiftModel extends BaseModel {
     String lift_id;
     String fault_id;
+    String maintenance_id;
     String lift_code;
     String lift_brand;
     String lift_address;
@@ -13,6 +14,32 @@ public class LiftModel extends BaseModel {
     String company;
     String phone;
     String fault_type;
+    double start_time;
+    double last_time;
+
+    public String getMaintenance_id() {
+        return XSimpleText.isEmpty(maintenance_id, "");
+    }
+
+    public void setMaintenance_id(String maintenance_id) {
+        this.maintenance_id = maintenance_id;
+    }
+
+    public double getStart_time() {
+        return start_time;
+    }
+
+    public void setStart_time(double start_time) {
+        this.start_time = start_time;
+    }
+
+    public double getLast_time() {
+        return last_time;
+    }
+
+    public void setLast_time(double last_time) {
+        this.last_time = last_time;
+    }
 
     public String getLift_id() {
         return XSimpleText.isEmpty(lift_id, "");

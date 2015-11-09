@@ -22,6 +22,7 @@ import java.util.List;
 public class FaultActivity extends MessageActivity implements IXListViewListener {
 
     List<FaultModel> faultModellist = new ArrayList<>();
+    String id;
 
     @Override
     public void initAllData() {
@@ -92,10 +93,11 @@ public class FaultActivity extends MessageActivity implements IXListViewListener
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_SCANLE && resultCode == RESULT_OK&&data!=null) {
+        if (requestCode == REQUEST_CODE_SCANLE && resultCode == RESULT_OK && data != null && mMessageAdapter.getScanPostion() != -1) {
             XSimpleLogger.Log().e("code:" + data.getStringExtra("code"));
             startActivity(new Intent(mContext, DetailActivity.class)
-                    .putExtra("code",data.getStringExtra("code")).putExtra("messageType", MessageType.repair));
+                    .putExtra("code", data.getStringExtra("code")).putExtra("id", faultModellist.get(mMessageAdapter.getScanPostion()).getId())
+                    .putExtra("messageType", MessageType.repair));
         }
 
     }

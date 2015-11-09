@@ -23,8 +23,14 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
         super(context, mData, R.layout.message_item);
     }
 
+    int postions = -1;
+
+    public int getScanPostion() {
+        return postions;
+    }
+
     @Override
-    public void convert(View convertView, MessageModel item, int position) {
+    public void convert(View convertView, final MessageModel item, final int position) {
         TextView status = XSimpleViewHolder.get(convertView, R.id.tv_messageitem_status);
         TextView address = XSimpleViewHolder.get(convertView, R.id.tv_messageitem_address);
         ImageView icon = XSimpleViewHolder.get(convertView, R.id.iv_messageitem_icon);
@@ -42,6 +48,7 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    postions = position;
                     CaptureActivity.launchActivity((Activity) getContext(), MessageActivity.REQUEST_CODE_SCANLE);
                 }
             });
@@ -51,6 +58,7 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    postions = position;
                     CaptureActivity.launchActivity((Activity) getContext(), MessageActivity.REQUEST_CODE_SCANLE);
                 }
             });
