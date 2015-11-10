@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.property.ActivityForResult;
 import com.property.api.FaultApi;
 import com.property.base.BaseActivity;
 import com.property.http.MySimpleJsonDataResponseCacheHandler;
@@ -58,6 +59,8 @@ public class CompleteActivity extends BaseActivity {
             public void success() {
                 XSimpleToast.showToast("上传成功");
                 dismissProgressDialog();
+                ActivityForResult.MaintenanceListRefresh = true;
+                ActivityForResult.FaultListRefresh = true;
                 finish();
             }
 

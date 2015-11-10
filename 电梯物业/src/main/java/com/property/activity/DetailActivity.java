@@ -36,8 +36,11 @@ public class DetailActivity extends BaseActivity {
     TextView edtDetailThistime;
     @InjectView(R.id.tv_detail_reason)
     TextView tvReason;
+    @InjectView(R.id.tv_detail_submit)
+    TextView submit;
     MessageType messageType;
-String id;
+    String id;
+
     @Override
     public int onCreateViewLayouId() {
         return R.layout.detail_activity;
@@ -46,7 +49,8 @@ String id;
     @Override
     public void initAllData() {
         setTitle("电梯信息");
-        id=getIntent().getStringExtra("id");
+        submit.setClickable(false);
+        id = getIntent().getStringExtra("id");
         messageType = (MessageType) getIntent().getSerializableExtra("messageType");
         getScan(id, getIntent().getStringExtra("code"));
     }
@@ -63,6 +67,7 @@ String id;
         edtDetailLasttime.setText(XSimpleTime.getFormatTimeFromTimestamp((long) liftModel.getLast_time(), "yyyy-MM-dd"));
         edtDetailThistime.setText(XSimpleTime.getFormatTimeFromTimestamp((long) liftModel.getStart_time(), "yyyy-MM-dd"));
         tvReason.setText(liftModel.getFault_type());
+        submit.setClickable(true);
     }
 
     void getScan(String id, String code) {
@@ -86,8 +91,11 @@ String id;
         };
         if (messageType == MessageType.repair) {
             FaultApi.getInstance().scan(mContext, id, code, myJsonDataResponseCacheHandler);
+            edtDetailLasttime.setVisibility(View.GONE);
+            edtDetailThistime.setVisibility(View.GONE);
         } else if (messageType == MessageType.maintenance) {
             MaintenanceApi.getInstance().scan(mContext, id, code, myJsonDataResponseCacheHandler);
+            tvReason.setVisibility(View.GONE);
         }
     }
 
@@ -99,7 +107,7 @@ String id;
 
     @OnClick(R.id.tv_detail_submit)
     void submit(View view) {
-        startActivity(new Intent(mContext, DetailEditActivity.class) .putExtra("messageType", messageType).putExtra("id",id));
+        startActivity(new Intent(mContext, DetailEditActivity.class).putExtra("messageType", messageType).putExtra("id", id));
     }
 
 }

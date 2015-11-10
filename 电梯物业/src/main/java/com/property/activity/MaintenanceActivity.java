@@ -4,8 +4,9 @@ import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
+import com.property.ActivityForResult;
 import com.property.adapter.MessageAdapter;
-import com.property.api.FaultApi;
+import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
 import com.property.enumbase.MessageType;
 import com.property.enumbase.UpdateType;
@@ -84,7 +85,7 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
         } else {
             id = maintenanceModellist.get(maintenanceModellist.size() - 1).getId();
         }
-        FaultApi.getInstance().getList(mContext, id, new MyJsonDataResponseCacheHandler<List<MaintenanceModel>>(MaintenanceModel.class, maintenanceModellist.isEmpty()) {
+        MaintenanceApi.getInstance().getList(mContext, id, new MyJsonDataResponseCacheHandler<List<MaintenanceModel>>(MaintenanceModel.class, maintenanceModellist.isEmpty()) {
             @Override
             public void onJsonDataSuccess(List<MaintenanceModel> object) {
                 if (updateType == UpdateType.top)
@@ -127,7 +128,17 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
             startActivity(new Intent(mContext, DetailActivity.class)
                     .putExtra("code", data.getStringExtra("code")).putExtra("id", maintenanceModellist.get(mMessageAdapter.getScanPostion()).getId())
                     .putExtra("messageType", MessageType.maintenance));
+
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (ActivityForResult.MaintenanceListRefresh) {
+            ActivityForResult.MaintenanceListRefresh = false;
+            getList(UpdateType.top);
+        }
     }
 }

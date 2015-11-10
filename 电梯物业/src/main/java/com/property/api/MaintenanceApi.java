@@ -30,8 +30,10 @@ public class MaintenanceApi extends BaseApi {
     public void getList(Context context, String id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("staff_id", UserDataUtil.getInstance().getStaff_id());
-        mTempMap.put("type", "1");
-        mTempMap.put("id", id);
+        if (id != null) {
+            mTempMap.put("type", "1");
+            mTempMap.put("id", id);
+        }
         get(context, "maintenance_list.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 

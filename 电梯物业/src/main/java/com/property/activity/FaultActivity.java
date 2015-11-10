@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
+import com.property.ActivityForResult;
 import com.property.adapter.MessageAdapter;
 import com.property.api.FaultApi;
 import com.property.base.BaseActivity;
@@ -42,7 +43,7 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
     @Override
     public void initAllData() {
         setTitle("抢修单");
-        mMessageAdapter=new MessageAdapter(mContext,list);
+        mMessageAdapter = new MessageAdapter(mContext, list);
         listView.setLayoutManager(new LinearLayoutManager(mContext));
         listView.setPullRefreshLoadEnable(true, true, PullToRefreshBase.Mode.BOTH);
         listView.setOnXListViewListener(this);
@@ -129,5 +130,14 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
                     .putExtra("messageType", MessageType.repair));
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (ActivityForResult.FaultListRefresh) {
+            ActivityForResult.FaultListRefresh = false;
+            getList(UpdateType.top);
+        }
     }
 }
