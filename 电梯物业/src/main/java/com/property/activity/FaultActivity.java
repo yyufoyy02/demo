@@ -76,8 +76,10 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
     }
 
     void getList(final UpdateType updateType) {
+
         String id = null;
         if (updateType == UpdateType.top || faultModellist.isEmpty()) {
+            showProgressDialog(mContext);
             id = null;
         } else {
             id = faultModellist.get(faultModellist.size() - 1).getId();
@@ -97,6 +99,7 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
             public void onHttpComplete() {
                 super.onHttpComplete();
                 listView.onRefreshComplete();
+                dismissProgressDialog();
             }
 
             @Override

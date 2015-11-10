@@ -53,6 +53,6 @@ public class MaintenanceApi extends BaseApi {
         mTempMap.put("maintenance_id", id);
         if (map != null)
             mTempMap.putAll(map);
-        get(context, "maintenance_eng.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+        put(context, "maintenance_eng.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 }

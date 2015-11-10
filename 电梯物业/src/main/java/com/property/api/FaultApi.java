@@ -55,7 +55,7 @@ public class FaultApi extends BaseApi {
         mTempMap.put("fault_id", id);
         if (map != null)
             mTempMap.putAll(map);
-        get(context, "fault_beg.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+        put(context, "fault_beg.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
     public void putDeal(Context context, String id, String fault_describe,
@@ -66,7 +66,7 @@ public class FaultApi extends BaseApi {
         mTempMap.put("fault_parts", fault_parts + "");
         mTempMap.put("fault_parts_name", fault_parts_name);
         mTempMap.put("fault_cost", fault_cost);
-        get(context, "fault_deal.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+        put(context, "fault_deal.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
     public void putEng(Context context, String id, Map<String, String> map, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
@@ -74,6 +74,6 @@ public class FaultApi extends BaseApi {
         mTempMap.put("fault_id", id);
         if (map != null)
             mTempMap.putAll(map);
-        get(context, "fault_eng.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+        put(context, "fault_eng.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 }

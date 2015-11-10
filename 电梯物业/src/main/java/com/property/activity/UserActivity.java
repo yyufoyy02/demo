@@ -1,12 +1,10 @@
 package com.property.activity;
 
-import android.os.Bundle;
 import android.widget.TextView;
 
 import com.property.base.BaseActivity;
 import com.property.utils.UserDataUtil;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class UserActivity extends BaseActivity {
@@ -45,10 +43,4 @@ public class UserActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.inject(this);
-    }
 }

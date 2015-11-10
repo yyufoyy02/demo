@@ -80,4 +80,8 @@
         <item name="android:layout_width">@dimen/dp25</item>
         <item name="android:paddingRight">@dimen/dp15</item>
     </style>
+    <style name="AppDrakTheme" parent="android:Theme.Holo">
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

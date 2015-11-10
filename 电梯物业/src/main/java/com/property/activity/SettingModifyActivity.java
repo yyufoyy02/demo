@@ -30,19 +30,23 @@ public class SettingModifyActivity extends BaseActivity {
 
     @OnClick(R.id.tv_settingmodify_submit)
     void submit(View v) {
+        showProgressDialog(mContext, "请稍候...");
         UserApi.getInstance().password(mContext, edtSettingmodifyOldpassword.getText().toString(),
                 edtSettingmodifyNewpassword.getText().toString(), edtSettingmodifyNewpassword2.getText().toString(),
                 new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
                     @Override
                     public void success() {
                         XSimpleToast.showToast("密码修改成功!");
+                        dismissProgressDialog();
                         finish();
+
                     }
 
                     @Override
                     public void fail() {
-
+                        dismissProgressDialog();
                     }
+
                 }));
     }
 

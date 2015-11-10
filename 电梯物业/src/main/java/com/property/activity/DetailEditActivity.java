@@ -90,6 +90,7 @@ public class DetailEditActivity extends BaseActivity implements ImageUploadUtils
 
     @OnClick(R.id.tv_detailedit_submit)
     void submit(View view) {
+        showProgressDialog(mContext);
         Map<String, String> map = new HashMap<>();
         for (int i = 0; i < base64List.size(); i++) {
             map.put("img[" + i + "]", base64List.get(i));
@@ -100,16 +101,17 @@ public class DetailEditActivity extends BaseActivity implements ImageUploadUtils
                 if (messageType == MessageType.repair) {
                     startActivity(new Intent(mContext, CompleteActivity.class).putExtra("id", id));
                 }
+                dismissProgressDialog();
                 finish();
             }
 
             @Override
             public void fail() {
-
+                dismissProgressDialog();
             }
         });
         if (messageType == MessageType.repair) {
-            FaultApi.getInstance().putEng(mContext, id, map, mySimpleJsonDataResponseCacheHandler);
+            FaultApi.getInstance().putBeg(mContext, id, map, mySimpleJsonDataResponseCacheHandler);
         } else {
             MaintenanceApi.getInstance().putEng(mContext, id, map, mySimpleJsonDataResponseCacheHandler);
         }

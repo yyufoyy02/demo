@@ -79,6 +79,7 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
     void getList(final UpdateType updateType) {
         String id = null;
         if (updateType == UpdateType.top || maintenanceModellist.isEmpty()) {
+            showProgressDialog(mContext);
             id = null;
         } else {
             id = maintenanceModellist.get(maintenanceModellist.size() - 1).getId();
@@ -98,6 +99,7 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
             public void onHttpComplete() {
                 super.onHttpComplete();
                 listView.onRefreshComplete();
+                dismissProgressDialog();
             }
 
             @Override

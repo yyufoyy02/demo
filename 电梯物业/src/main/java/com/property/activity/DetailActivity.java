@@ -66,6 +66,7 @@ String id;
     }
 
     void getScan(String id, String code) {
+        showProgressDialog(mContext);
         MyJsonDataResponseCacheHandler myJsonDataResponseCacheHandler = new MyJsonDataResponseCacheHandler<LiftModel>(LiftModel.class, false) {
             @Override
             public void onJsonDataSuccess(LiftModel object) {
@@ -75,6 +76,12 @@ String id;
             @Override
             public boolean onJsonCacheData(boolean has) {
                 return false;
+            }
+
+            @Override
+            public void onHttpComplete() {
+                super.onHttpComplete();
+                dismissProgressDialog();
             }
         };
         if (messageType == MessageType.repair) {

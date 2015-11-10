@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.property.api.FaultApi;
 import com.property.base.BaseActivity;
 import com.property.http.MySimpleJsonDataResponseCacheHandler;
+import com.vk.simpleutil.library.XSimpleLogger;
 import com.vk.simpleutil.library.XSimpleToast;
 
 import butterknife.InjectView;
@@ -47,20 +48,22 @@ public class CompleteActivity extends BaseActivity {
 
     @OnClick(R.id.tv_complete_submit)
     void submit(View v) {
-        finish();
+        complete();
     }
 
     void complete() {
+        showProgressDialog(mContext);
         MySimpleJsonDataResponseCacheHandler mySimpleJsonDataResponseCacheHandler = new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
             @Override
             public void success() {
                 XSimpleToast.showToast("上传成功");
+                dismissProgressDialog();
                 finish();
             }
 
             @Override
             public void fail() {
-
+                dismissProgressDialog();
             }
         });
         int fault_parts = 0;
@@ -75,6 +78,7 @@ public class CompleteActivity extends BaseActivity {
     void select(View v) {
         switch (v.getId()) {
             case R.id.tv_complete_yes:
+                XSimpleLogger.Log().e("tv_complete_yes");
                 tvCompleteYes.setSelected(true);
                 tvCompleteNo.setSelected(false);
                 break;

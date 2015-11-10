@@ -62,13 +62,14 @@
     <EditText
         android:id="@+id/edt_complete_name"
         style="@style/SettingEditStyle.MarginTop10"
-        android:text="填写配件名称"
+        android:hint="填写配件名称"
         android:textColor="@color/text_color_999" />
 
     <EditText
         android:id="@+id/edt_complete_price"
         style="@style/SettingEditStyle.MarginTop10"
         android:hint="填写维修金额                                 元"
+        android:inputType="numberDecimal"
         android:textColor="@color/text_color_999" />
 
     <TextView

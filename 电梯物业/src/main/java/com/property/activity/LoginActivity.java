@@ -60,6 +60,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     void login() {
+        showProgressDialog(mContext,"登录中...");
         UserApi.getInstance().login(mContext, edtLoginUsername.getText().toString(), edtLoginPassword.getText().toString(), new MyJsonDataResponseCacheHandler<UserModel>(UserModel.class, false) {
             @Override
             public void onJsonDataSuccess(UserModel userModel) {
@@ -71,6 +72,12 @@ public class LoginActivity extends BaseActivity {
             @Override
             public boolean onJsonCacheData(boolean has) {
                 return false;
+            }
+
+            @Override
+            public void onHttpComplete() {
+                super.onHttpComplete();
+                dismissProgressDialog();
             }
         });
     }

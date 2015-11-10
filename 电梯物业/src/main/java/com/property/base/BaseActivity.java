@@ -121,16 +121,23 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void showProgressDialog(Context mContext, String msg,
                                    XSimpleAlertDialog.Callback callback) {
-//        if (mContext != null && !isFinishing()) {
-//            mContext.setTheme(R.style.AppDrakTheme);
-//            if (mProgressDialog == null)
-//                mProgressDialog = MyAlertDialogInit.getInstance()
-//                        .MyProgessDialog((Activity) mContext, msg, callback);
-//            mProgressDialog.show();
-//
-//            mProgressDialog.setCanceledOnTouchOutside(false);
-//        }
+        if (mContext != null && !isFinishing()) {
+            mContext.setTheme(R.style.AppDrakTheme);
+            if (mProgressDialog == null)
+                mProgressDialog = XSimpleAlertDialog.MyProgessDialog((Activity) mContext, msg, callback);
+            mProgressDialog.show();
 
+            mProgressDialog.setCanceledOnTouchOutside(false);
+        }
+
+    }
+
+    public void showProgressDialog(Context mContext, String msg) {
+        showProgressDialog(mContext, msg, null);
+    }
+
+    public void showProgressDialog(Context mContext) {
+        showProgressDialog(mContext, "加载中...");
     }
 
     /**
