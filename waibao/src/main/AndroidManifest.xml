@@ -92,7 +92,7 @@
             android:name=".DetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CompleteActivity"
+            android:name=".DetailEditCompleteActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".FaultActivity"

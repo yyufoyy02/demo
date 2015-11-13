@@ -168,6 +168,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_toRightOf="@+id/tv_detail_thistime"
                 android:gravity="right|center_vertical"
+                android:textColor="@android:color/holo_red_light"
                 tools:text="张三" />
         </RelativeLayout>
 
