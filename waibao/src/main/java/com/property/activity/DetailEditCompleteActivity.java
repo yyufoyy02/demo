@@ -195,4 +195,10 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
     public void imageUploadFail(int statusFail, String error, int tag) {
         XSimpleToast.showToast("上传失败");
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ImageUploadUtils.getInstance().onDestroy();
+    }
 }

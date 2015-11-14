@@ -8,12 +8,18 @@ import android.os.Message;
 import android.support.v4.util.ArrayMap;
 import android.view.View;
 
+import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.property.base.BaseApi;
+import com.property.http.MyJsonDataResponseCacheHandler;
+import com.property.model.ImageModel;
 import com.vk.simpleutil.http.XSimpleHttpUtil;
 import com.vk.simpleutil.library.XSimpleExecutor;
 import com.vk.simpleutil.library.XSimpleImage;
+
+import org.apache.http.Header;
 
 import java.util.Map;
 
@@ -115,8 +121,53 @@ public class ImageUploadUtils extends Handler implements ImageLoadingListener {
                 mImageUpLoadListener.imageUploadFail(LOCAL_FAIL, "loadValues数据错误", 0);
             return;
         }
-        if (mImageUpLoadListener != null)
-            mImageUpLoadListener.imageUploadSuccess("data:image/png;base64," + data.get("base64"), mUploadValues.tag);
+        mMap.clear();
+        mMap.put("img", "data:image/png;base64," + data.get("base64"));
+        XSimpleHttpUtil.getInstance().post(mContent, BaseApi.BaseUrl + "base64.json", new RequestParams(mMap),
+                new MyJsonDataResponseCacheHandler<ImageModel>(ImageModel.class, false) {
+                    int mRetryNo;
+
+                    @Override
+                    public void onRetry(int retryNo) {
+                        super.onRetry(retryNo);
+                        mRetryNo = retryNo;
+
+                    }
+
+                    @Override
+                    public void onHttpComplete() {
+
+                    }
+
+                    @Override
+                    public void onJsonDataSuccess(ImageModel object) {
+                        if (mImageUpLoadListener != null)
+                            mImageUpLoadListener.imageUploadSuccess(object.getCode(), mRetryNo);
+                    }
+
+
+
+                    @Override
+                    public boolean onJsonCacheData(boolean has) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onJsonDataError( String error_description) {
+                        if (mImageUpLoadListener != null)
+                            mImageUpLoadListener.imageUploadFail(JSON_FAIL, error_description, mRetryNo);
+                        return super.onJsonDataError( error_description);
+                    }
+
+                    @Override
+                    public void onHttpFailure(int statusCode, Header[] headers, Throwable throwable, String errorResponse) {
+                        cancle(mRetryNo);
+                        if (mImageUpLoadListener != null)
+                            mImageUpLoadListener.imageUploadFail(HTTP_FAIL, "网络错误，请重新上传.", mRetryNo);
+                        super.onHttpFailure(statusCode, headers, throwable, errorResponse);
+                    }
+
+                }, mUploadValues.tag);
     }
 
     public void cancle(int tag) {

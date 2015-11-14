@@ -5,8 +5,16 @@ import com.vk.simpleutil.library.XSimpleText;
 
 public class ImageModel extends BaseModel {
     String url;
-
+    String code;
     public ImageModel() {
+    }
+
+    public String getCode() {
+        return XSimpleText.isEmpty(code,"");
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public ImageModel(String url) {

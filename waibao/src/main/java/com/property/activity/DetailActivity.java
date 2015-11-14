@@ -107,7 +107,7 @@ public class DetailActivity extends BaseActivity {
 
     @OnClick(R.id.tv_detail_submit)
     void submit(View view) {
-        startActivity(new Intent(mContext, DetailEditActivity.class).putExtra("messageType", messageType).putExtra("id", id));
+        startActivity(new Intent(mContext, DetailEditCompleteActivity.class).putExtra("messageType", messageType).putExtra("id", id));
     }
 
 }
