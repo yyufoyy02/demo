@@ -14,6 +14,7 @@ import com.vk.simpleutil.adapter.XSimpleRecyclerAdapter;
 import com.vk.simpleutil.adapter.XSimpleViewHolder;
 import com.vk.simpleutil.library.XSimpleImage;
 import com.vk.simpleutil.library.XSimpleResources;
+import com.vk.simpleutil.library.XSimpleText;
 import com.vk.simpleutil.library.XSimpleTime;
 
 import java.util.List;
@@ -38,13 +39,19 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
         TextView submit = XSimpleViewHolder.get(convertView, R.id.tv_messageitem_submit);
         TextView time = XSimpleViewHolder.get(convertView, R.id.tv_messageitem_time);
         TextView timeTitle = XSimpleViewHolder.get(convertView, R.id.tv_messageitem_time_title);
+        TextView tvPeriods = XSimpleViewHolder.get(convertView, R.id.tv_messageitem_periods);
+        TextView tvPeriodsNums = XSimpleViewHolder.get(convertView, R.id.tv_messageitem_periods_nums);
 
         address.setText("地址：" + item.getAddress());
         XSimpleImage.getInstance().displayImage(item.getIcon().getUrl(), icon);
         name.setText(item.getName());
         time.setText(XSimpleTime.getFormatTimeFromTimestamp((long) item.getTime(), "yyyy-MM-dd"));
+
         if (item.getMessage_type() == 0) {
             submit.setText("抢修");
+            tvPeriods.setVisibility(View.GONE);
+            submit.setVisibility(View.VISIBLE);
+            tvPeriodsNums.setVisibility(View.GONE);
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -72,13 +79,20 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
             }
         } else if (item.getMessage_type() == 1) {
             submit.setText("维保");
-            submit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    postions = position;
-                    CaptureActivity.launchActivity((Activity) getContext(), MessageActivity.REQUEST_CODE_SCANLE);
-                }
-            });
+            tvPeriods.setVisibility(View.VISIBLE);
+            tvPeriods.setTextColor(XSimpleResources.getColor(R.color.text_color_555));
+            tvPeriods.setText(XSimpleText.setColorText("(第" + item.getPeriods() + "期维保计划)", 2,
+                    String.valueOf(item.getPeriods()).length(), XSimpleResources.getColor(android.R.color.holo_red_light)));
+            tvPeriodsNums.setVisibility(View.VISIBLE);
+            tvPeriodsNums.setText(item.getPeriods() + "/" + item.getMax_periods());
+            submit.setVisibility(View.GONE);
+//            submit.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    postions = position;
+//                    CaptureActivity.launchActivity((Activity) getContext(), MessageActivity.REQUEST_CODE_SCANLE);
+//                }
+//            });
             timeTitle.setText("维保时间");
             if (item.getStatus() == 2) {
                 status.setText("维保完成");
@@ -86,6 +100,8 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                 submit.setVisibility(View.GONE);
                 time.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
                 timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+                name.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+                tvPeriods.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
             } else {
                 if (item.getStatus() == 0) {
                     status.setText("待维保");
@@ -98,6 +114,7 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                 submit.setVisibility(View.VISIBLE);
                 time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
                 timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_333));
+                name.setTextColor(XSimpleResources.getColor(R.color.text_color_555));
             }
         }
 

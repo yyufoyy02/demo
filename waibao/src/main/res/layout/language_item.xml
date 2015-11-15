@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/SettingRelativeLayoutStyle"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_reason_check"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:src="@drawable/btn_gou_normal"
+            android:textColor="@color/text_color_999" />
+
+        <TextView
+            android:id="@+id/ib_reason_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="故障常用语2"
+            android:textColor="@color/main_color" />
+
+        <TextView
+            android:id="@+id/ib_reason_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="解决方法"
+            android:textColor="@color/text_color_555" />
+    </LinearLayout>
+
+    <TextView style="@style/line" />
+</LinearLayout>

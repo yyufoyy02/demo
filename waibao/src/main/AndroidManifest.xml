@@ -101,7 +101,7 @@
             android:name=".MaintenanceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DetailEditActivity"
+            android:name=".MaintenancePeriodsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.property.ui.codeScan.CaptureActivity"

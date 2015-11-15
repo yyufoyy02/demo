@@ -59,6 +59,7 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
 
             }
         });
+
     }
 
     List<MessageModel> initFault2Message(List<FaultModel> list) {

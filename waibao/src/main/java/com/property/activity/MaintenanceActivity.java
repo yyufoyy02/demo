@@ -25,7 +25,7 @@ import java.util.List;
 import butterknife.InjectView;
 
 /**
- * Created by Administrator on 2015/11/8.
+ * 维保
  */
 public class MaintenanceActivity extends BaseActivity implements IXListViewListener {
 
@@ -43,7 +43,7 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
 
     @Override
     public void initAllData() {
-        setTitle("维保");
+        setTitle("维保计划");
         mMessageAdapter = new MessageAdapter(mContext, list);
         listView.setLayoutManager(new LinearLayoutManager(mContext));
         listView.setPullRefreshLoadEnable(true, true, PullToRefreshBase.Mode.BOTH);

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/search_title_layout" />
+
+    <LinearLayout
+        style="@style/SettingRelativeLayoutStyle.MarginTop10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp120"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp12">
+
+        <TextView
+            android:id="@+id/tv_maintenanceperiods_periods"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp12"
+            android:layout_weight="1"
+            android:background="@drawable/icon_textbg"
+            android:gravity="center"
+            android:textColor="@color/main_color"
+            tools:text="22/100" />
+
+        <TextView
+            android:id="@+id/tv_maintenanceperiods_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp12"
+            android:layout_weight="1"
+            android:background="@drawable/icon_textbg"
+            android:gravity="center"
+            android:text="正在进行中"
+            android:textColor="@android:color/holo_red_light" />
+
+        <TextView
+            android:id="@+id/tv_maintenanceperiods_maintenance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp12"
+            android:layout_weight="1"
+            android:background="@drawable/btn_textbg"
+            android:gravity="center"
+            android:text="开始维保"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp5"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/main_color" />
+
+    <com.vk.simpleutil.view.PullToRefreshRecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:listSelector="#00000000"
+        android:scrollbars="none"
+        android:scrollingCache="true" />
+
+</LinearLayout>

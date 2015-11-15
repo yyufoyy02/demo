@@ -10,6 +10,30 @@ public class MessageModel extends BaseModel {
     String name;
     double time;
     int message_type;
+    int periods;
+    int max_periods;
+
+    /**
+     * 期数
+     */
+    public int getPeriods() {
+        return periods;
+    }
+
+    public void setPeriods(int periods) {
+        this.periods = periods;
+    }
+
+    /**
+     * 最大期数
+     */
+    public int getMax_periods() {
+        return max_periods;
+    }
+
+    public void setMax_periods(int max_periods) {
+        this.max_periods = max_periods;
+    }
 
     /**
      * 状态: （2：等待处理，3：已经签到正在处理，4：抢修完成）
