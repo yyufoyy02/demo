@@ -92,6 +92,11 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        setResult(RESULT_OK, new Intent().putExtra("code", "lift1231"));
+        finish();
+
+
+
 
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
