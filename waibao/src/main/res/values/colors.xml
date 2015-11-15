@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="main_color">#356aa0</color>
+    <color name="blue">#5A96F4</color>
+
     <color name="line">#dddddd</color>
     <color name="text_color_555">#555555</color>
     <color name="text_color_999">#999999</color>

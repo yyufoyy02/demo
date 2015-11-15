@@ -68,11 +68,17 @@
 
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/edt_detail_say"
-        style="@style/SettingEditStyle.MarginTop10"
-        android:hint="填写故障常用语"
-        android:textColor="@color/text_color_999" />
+    <RelativeLayout style="@style/SettingRelativeLayoutStyle.MarginTop10">
+
+        <TextView
+            android:id="@+id/edt_detail_say"
+            style="@style/SettingEditStyle"
+            android:hint="填写故障常用语"
+            android:textColor="@color/text_color_999" />
+
+        <ImageView style="@style/ArrowImageStylePadding15" />
+    </RelativeLayout>
+
 
     <RelativeLayout style="@style/SettingRelativeLayoutStyle.MarginTop10">
 

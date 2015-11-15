@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/normal_title_layout" />
+
+    <LinearLayout
+        style="@style/SettingRelativeLayoutStyle.MarginTop10"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="选择"
+            android:textColor="@color/text_color_999" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="故障常用语"
+            android:textColor="@color/main_color" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="解决方法"
+            android:textColor="@color/text_color_555" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/SettingRelativeLayoutStyle.MarginTop10"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_reason_check1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:src="@drawable/btn_gou_normal"
+            android:textColor="@color/text_color_999" />
+
+        <TextView
+            android:id="@+id/ib_reason_text1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="故障常用语1"
+            android:textColor="@color/main_color" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="解决方法"
+            android:textColor="@color/text_color_555" />
+    </LinearLayout>
+
+    <TextView style="@style/line" />
+
+    <LinearLayout
+        style="@style/SettingRelativeLayoutStyle"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_reason_check2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:src="@drawable/btn_gou_normal"
+            android:textColor="@color/text_color_999" />
+
+        <TextView
+            android:id="@+id/ib_reason_text2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="故障常用语2"
+            android:textColor="@color/main_color" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="解决方法"
+            android:textColor="@color/text_color_555" />
+    </LinearLayout>
+
+    <TextView style="@style/line" />
+
+    <LinearLayout
+        style="@style/SettingRelativeLayoutStyle"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_reason_check3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:src="@drawable/btn_gou_normal"
+            android:textColor="@color/text_color_999" />
+
+        <TextView
+            android:id="@+id/ib_reason_text3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="故障常用语3"
+            android:textColor="@color/main_color" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="解决方法"
+            android:textColor="@color/text_color_555" />
+    </LinearLayout>
+
+    <TextView style="@style/line" />
+
+    <LinearLayout
+        style="@style/SettingRelativeLayoutStyle"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_reason_check4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:src="@drawable/btn_gou_normal"
+            android:textColor="@color/text_color_999" />
+
+        <TextView
+            android:id="@+id/ib_reason_text4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="故障常用语4"
+            android:textColor="@color/main_color" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="解决方法"
+            android:textColor="@color/text_color_555" />
+    </LinearLayout>
+
+    <TextView style="@style/line" />
+
+    <LinearLayout
+        style="@style/SettingRelativeLayoutStyle"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_reason_check5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:src="@drawable/btn_gou_normal"
+            android:textColor="@color/text_color_999" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="自定义"
+            android:textColor="@color/main_color" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/text_color_555" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/SettingRelativeLayoutStyle"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:src="@null"
+            android:textColor="@color/text_color_999" />
+
+        <EditText
+            android:id="@+id/ib_reason_text5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginRight="@dimen/dp5"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_weight="1"
+            android:background="@color/bg_color"
+            android:gravity="center"
+            android:textColor="@color/main_color" />
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginRight="@dimen/dp15"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_weight="1"
+            android:background="@color/bg_color"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/text_color_555" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_complete_submit"
+        style="@style/SubmitStyle"
+        android:layout_marginTop="@dimen/dp30"
+        android:background="@drawable/corners_blue_radius6"
+        android:text="完成"
+        android:textColor="@android:color/white" />
+</LinearLayout>

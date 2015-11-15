@@ -58,6 +58,7 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
     static final int AFTER = 1;
     static final int BEFORE = 2;
 
+
     @Override
     public int onCreateViewLayouId() {
         return R.layout.complete_activity;
@@ -100,7 +101,8 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
                 edtCompleteName.getText().toString(), edtCompletePrice.getText().toString(), mySimpleJsonDataResponseCacheHandler);
     }
 
-    @OnClick({R.id.tv_complete_no, R.id.tv_complete_yes, R.id.iv_detailedit_photo, R.id.iv_detailedit_complete_photo, R.id.tv_complete_submit})
+    @OnClick({R.id.tv_complete_no, R.id.tv_complete_yes, R.id.iv_detailedit_photo, R.id.iv_detailedit_complete_photo,
+            R.id.tv_complete_submit, R.id.edt_detail_say})
     void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_complete_yes:
@@ -120,6 +122,9 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
                 break;
             case R.id.tv_complete_submit:
                 complete();
+                break;
+            case R.id.edt_detail_say:
+                startActivityForResult(new Intent(mContext, CommonLanguageActivity.class), ActivityForResult.REASONFORRESULT);
                 break;
         }
     }
@@ -142,33 +147,39 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (imageType == AFTER) {
-            if (list1.size() == 3)
-                return;
-            list1.add("file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data));
-            for (int i = 0; i < list1.size(); i++) {
-                if (i == 0) {
-                    XSimpleImage.getInstance().displayImage(list1.get(i), ivDetaileditFaultImageView1);
-                } else if (i == 1) {
-                    XSimpleImage.getInstance().displayImage(list1.get(i), ivDetaileditFaultImageView2);
-                } else if (i == 2) {
-                    XSimpleImage.getInstance().displayImage(list1.get(i), ivDetaileditFaultImageView3);
-                }
-                ImageUploadUtils.getInstance().initImageCode(mContext, list1.get(i), "", i, this);
+        if (requestCode == ActivityForResult.REASONFORRESULT) {
+            if (resultCode == RESULT_OK && data != null) {
+                XSimpleLogger.Log().e(data.getStringExtra("reason"));
             }
-        } else if (imageType == BEFORE) {
-            if (list2.size() == 3)
-                return;
-            list2.add("file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data));
-            for (int i = 0; i < list2.size(); i++) {
-                if (i == 0) {
-                    XSimpleImage.getInstance().displayImage(list2.get(i), ivDetaileditCompleteImageView1);
-                } else if (i == 1) {
-                    XSimpleImage.getInstance().displayImage(list2.get(i), ivDetaileditCompleteImageView2);
-                } else if (i == 2) {
-                    XSimpleImage.getInstance().displayImage(list2.get(i), ivDetaileditCompleteImageView3);
+        } else {
+            if (imageType == AFTER) {
+                if (list1.size() == 3)
+                    return;
+                list1.add("file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data));
+                for (int i = 0; i < list1.size(); i++) {
+                    if (i == 0) {
+                        XSimpleImage.getInstance().displayImage(list1.get(i), ivDetaileditFaultImageView1);
+                    } else if (i == 1) {
+                        XSimpleImage.getInstance().displayImage(list1.get(i), ivDetaileditFaultImageView2);
+                    } else if (i == 2) {
+                        XSimpleImage.getInstance().displayImage(list1.get(i), ivDetaileditFaultImageView3);
+                    }
+                    ImageUploadUtils.getInstance().initImageCode(mContext, list1.get(i), "", i, this);
                 }
-                ImageUploadUtils.getInstance().initImageCode(mContext, list2.get(i), "", 3 + i, this);
+            } else if (imageType == BEFORE) {
+                if (list2.size() == 3)
+                    return;
+                list2.add("file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data));
+                for (int i = 0; i < list2.size(); i++) {
+                    if (i == 0) {
+                        XSimpleImage.getInstance().displayImage(list2.get(i), ivDetaileditCompleteImageView1);
+                    } else if (i == 1) {
+                        XSimpleImage.getInstance().displayImage(list2.get(i), ivDetaileditCompleteImageView2);
+                    } else if (i == 2) {
+                        XSimpleImage.getInstance().displayImage(list2.get(i), ivDetaileditCompleteImageView3);
+                    }
+                    ImageUploadUtils.getInstance().initImageCode(mContext, list2.get(i), "", 3 + i, this);
+                }
             }
         }
     }
