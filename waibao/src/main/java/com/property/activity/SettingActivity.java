@@ -1,12 +1,10 @@
 package com.property.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 
 import com.property.base.BaseActivity;
 
-import butterknife.ButterKnife;
 import butterknife.annotation.event.OnClick;
 
 public class SettingActivity extends BaseActivity {
@@ -37,10 +35,4 @@ public class SettingActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.inject(this);
-    }
 }
