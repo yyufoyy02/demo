@@ -9,255 +9,271 @@
         android:id="@id/toolbar"
         layout="@layout/normal_title_layout" />
 
-    <RelativeLayout
-        style="@style/SettingRelativeLayoutStyle.MarginTop10"
-        android:layout_height="@dimen/dp150">
-
-        <TextView
-            android:id="@+id/iv_detailedit_title1"
-            style="@style/SettingEditStyle"
-            android:text="上传故障图片"
-            android:textColor="@android:color/holo_red_light" />
-
-        <TextView
-            android:id="@+id/iv_detailedit_line1"
-            style="@style/line"
-            android:layout_below="@+id/iv_detailedit_title1" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp80"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/iv_detailedit_line1"
-            android:layout_margin="@dimen/dp15"
-            android:divider="@drawable/divider_h_padding15"
-            android:orientation="horizontal"
-            android:showDividers="middle">
-
-            <ImageView
-                android:id="@+id/iv_detailedit_photo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_photo" />
-
-            <ImageView
-                android:id="@+id/iv_detailedit_fault_imageView1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="centerCrop" />
-
-            <ImageView
-                android:id="@+id/iv_detailedit_fault_imageView2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="centerCrop" />
-
-            <ImageView
-                android:id="@+id/iv_detailedit_fault_imageView3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="centerCrop" />
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
-    <RelativeLayout style="@style/SettingRelativeLayoutStyle.MarginTop10">
-
-        <TextView
-            android:id="@+id/tv_detail_say"
-            style="@style/SettingEditStyle"
-            android:hint="故障常用语"
-            android:textColor="@color/text_color_999"
-            android:textSize="@dimen/sp16" />
-
-        <ImageView
-            android:id="@+id/iv_detail_say_arrow"
-            style="@style/ArrowImageStylePadding15" />
-
-        <TextView
-            android:id="@+id/tv_detail_say_reason"
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:gravity="center_vertical"
-            android:paddingRight="@dimen/dp60"
-            android:text=""
-            android:textColor="@color/main_color"
-            android:textSize="@dimen/sp16" />
-    </RelativeLayout>
+            android:orientation="vertical">
+
+            <RelativeLayout
+                style="@style/SettingRelativeLayoutStyle.MarginTop10"
+                android:layout_height="@dimen/dp150">
+
+                <TextView
+                    android:id="@+id/iv_detailedit_title1"
+                    style="@style/SettingEditStyle"
+                    android:text="上传故障图片"
+                    android:textColor="@android:color/holo_red_light" />
+
+                <TextView
+                    android:id="@+id/iv_detailedit_line1"
+                    style="@style/line"
+                    android:layout_below="@+id/iv_detailedit_title1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp80"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/iv_detailedit_line1"
+                    android:layout_margin="@dimen/dp15"
+                    android:background="@android:color/white"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@drawable/divider_h_padding15"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <ImageView
+                        android:id="@+id/iv_detailedit_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_photo" />
+
+                    <ImageView
+                        android:id="@+id/iv_detailedit_fault_imageView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/iv_detailedit_fault_imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/iv_detailedit_fault_imageView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop" />
+                </LinearLayout>
 
 
-    <RelativeLayout style="@style/SettingRelativeLayoutStyle.MarginTop10">
+            </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_complete_id"
-            style="@style/SettingEditStyle"
-            android:layout_width="wrap_content"
-            android:text="更换配件"
-            android:textColor="@color/text_color_999"
-            android:textSize="@dimen/sp16" />
+            <RelativeLayout style="@style/SettingRelativeLayoutStyle.MarginTop10">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dp50"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_detail_say"
+                    style="@style/SettingEditStyle"
+                    android:hint="故障常用语"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp16" />
+
+                <ImageView
+                    android:id="@+id/iv_detail_say_arrow"
+                    style="@style/ArrowImageStylePadding15" />
+
+                <TextView
+                    android:id="@+id/tv_detail_say_reason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:paddingRight="@dimen/dp60"
+                    android:text=""
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/sp16" />
+            </RelativeLayout>
+
+
+            <RelativeLayout style="@style/SettingRelativeLayoutStyle.MarginTop10">
+
+                <TextView
+                    android:id="@+id/tv_complete_id"
+                    style="@style/SettingEditStyle"
+                    android:layout_width="wrap_content"
+                    android:text="更换配件"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp16" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp50"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_complete_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp50"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/btn_gou"
+                        android:drawablePadding="@dimen/dp8"
+                        android:gravity="center_vertical"
+                        android:text="是" />
+
+                    <TextView
+                        android:id="@+id/tv_complete_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/btn_gou"
+                        android:drawablePadding="@dimen/dp8"
+                        android:gravity="center_vertical"
+                        android:text="否" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                style="@style/SettingEditStyle.MarginTop10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="配件名称"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp16" />
+
+                <EditText
+                    android:id="@+id/edt_complete_name"
+                    style="@style/SettingEditStyle.MarginTop10"
+                    android:gravity="center"
+                    android:hint=""
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/sp16" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/SettingEditStyle.MarginTop10"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="维修金额"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp16" />
+
+                <EditText
+                    android:id="@+id/edt_complete_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint=""
+                    android:inputType="numberDecimal"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="@dimen/sp16" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="元"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp16" />
+            </LinearLayout>
+
+
+            <RelativeLayout
+                style="@style/SettingRelativeLayoutStyle.MarginTop10"
+                android:layout_height="@dimen/dp150">
+
+                <TextView
+                    android:id="@+id/iv_detailedit_title2"
+                    style="@style/SettingEditStyle"
+                    android:text="维修完成图片"
+                    android:textColor="@color/main_color" />
+
+                <TextView
+                    android:id="@+id/iv_detailedit_line2"
+                    style="@style/line"
+                    android:layout_below="@+id/iv_detailedit_title2" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp80"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/iv_detailedit_line2"
+                    android:layout_margin="@dimen/dp15"
+                    android:divider="@drawable/divider_h_padding15"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <ImageView
+                        android:id="@+id/iv_detailedit_complete_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_photo" />
+
+                    <ImageView
+                        android:id="@+id/iv_detailedit_complete_imageView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/iv_detailedit_complete_imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/iv_detailedit_complete_imageView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop" />
+                </LinearLayout>
+
+            </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_complete_yes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/dp50"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/btn_gou"
-                android:drawablePadding="@dimen/dp8"
-                android:gravity="center_vertical"
-                android:text="是" />
-
-            <TextView
-                android:id="@+id/tv_complete_no"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/btn_gou"
-                android:drawablePadding="@dimen/dp8"
-                android:gravity="center_vertical"
-                android:text="否" />
+                android:id="@+id/tv_complete_submit"
+                style="@style/SubmitStyle"
+                android:layout_marginBottom="@dimen/dp50"
+                android:layout_marginTop="@dimen/dp50"
+                android:background="@drawable/corners_blue_radius6"
+                android:text="完成"
+                android:textColor="@android:color/white" />
         </LinearLayout>
+    </ScrollView>
 
 
-    </RelativeLayout>
-
-    <LinearLayout
-        style="@style/SettingEditStyle.MarginTop10"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="配件名称"
-            android:textColor="@color/text_color_999"
-            android:textSize="@dimen/sp16" />
-
-        <EditText
-            android:id="@+id/edt_complete_name"
-            style="@style/SettingEditStyle.MarginTop10"
-            android:gravity="center"
-            android:hint=""
-            android:textColor="@color/main_color"
-            android:textSize="@dimen/sp16" />
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/SettingEditStyle.MarginTop10"
-        android:orientation="horizontal">
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="维修金额"
-            android:textColor="@color/text_color_999"
-            android:textSize="@dimen/sp16" />
-
-        <EditText
-            android:id="@+id/edt_complete_price"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@null"
-            android:gravity="center"
-            android:hint=""
-            android:inputType="numberDecimal"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="@dimen/sp16" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="元"
-            android:textColor="@color/text_color_999"
-            android:textSize="@dimen/sp16" />
-    </LinearLayout>
-
-
-    <RelativeLayout
-        style="@style/SettingRelativeLayoutStyle.MarginTop10"
-        android:layout_height="@dimen/dp150">
-
-        <TextView
-            android:id="@+id/iv_detailedit_title2"
-            style="@style/SettingEditStyle"
-            android:text="维修完成图片"
-            android:textColor="@color/main_color" />
-
-        <TextView
-            android:id="@+id/iv_detailedit_line2"
-            style="@style/line"
-            android:layout_below="@+id/iv_detailedit_title2" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp80"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/iv_detailedit_line2"
-            android:layout_margin="@dimen/dp15"
-            android:divider="@drawable/divider_h_padding15"
-            android:orientation="horizontal"
-            android:showDividers="middle">
-
-            <ImageView
-                android:id="@+id/iv_detailedit_complete_photo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_photo" />
-
-            <ImageView
-                android:id="@+id/iv_detailedit_complete_imageView1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="centerCrop" />
-
-            <ImageView
-                android:id="@+id/iv_detailedit_complete_imageView2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="centerCrop" />
-
-            <ImageView
-                android:id="@+id/iv_detailedit_complete_imageView3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="centerCrop" />
-        </LinearLayout>
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tv_complete_submit"
-        style="@style/SubmitStyle"
-        android:layout_marginTop="@dimen/dp50"
-        android:background="@drawable/corners_blue_radius6"
-        android:text="完成"
-        android:textColor="@android:color/white" />
 </LinearLayout>

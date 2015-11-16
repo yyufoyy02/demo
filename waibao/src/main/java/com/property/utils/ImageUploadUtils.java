@@ -146,17 +146,16 @@ public class ImageUploadUtils extends Handler implements ImageLoadingListener {
                     }
 
 
-
                     @Override
                     public boolean onJsonCacheData(boolean has) {
                         return false;
                     }
 
                     @Override
-                    public boolean onJsonDataError( String error_description) {
+                    public boolean onJsonDataError(String error_description) {
                         if (mImageUpLoadListener != null)
                             mImageUpLoadListener.imageUploadFail(JSON_FAIL, error_description, mRetryNo);
-                        return super.onJsonDataError( error_description);
+                        return super.onJsonDataError(error_description);
                     }
 
                     @Override

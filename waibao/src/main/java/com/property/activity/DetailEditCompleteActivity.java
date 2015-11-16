@@ -1,6 +1,7 @@
 package com.property.activity;
 
 import android.content.Intent;
+import android.support.v4.util.ArrayMap;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,10 +16,12 @@ import com.vk.simpleutil.library.XSimpleAlertDialog;
 import com.vk.simpleutil.library.XSimpleImage;
 import com.vk.simpleutil.library.XSimpleLogger;
 import com.vk.simpleutil.library.XSimplePhotoChoose;
+import com.vk.simpleutil.library.XSimpleText;
 import com.vk.simpleutil.library.XSimpleToast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.InjectView;
 import butterknife.annotation.event.OnClick;
@@ -50,6 +53,8 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
     ImageView ivDetaileditCompleteImageView2;
     @InjectView(R.id.iv_detailedit_complete_imageView3)
     ImageView ivDetaileditCompleteImageView3;
+    @InjectView(R.id.tv_detail_say_reason)
+    TextView tvSayReason;
     List<String> list1 = new ArrayList<>();
     List<String> list2 = new ArrayList<>();
     List<String> codeList1 = new ArrayList<>();
@@ -57,7 +62,7 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
     int imageType = 0;
     static final int AFTER = 1;
     static final int BEFORE = 2;
-
+    Map<String, String> map = new ArrayMap<>();
 
     @Override
     public int onCreateViewLayouId() {
@@ -97,8 +102,13 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
         if (tvCompleteYes.isSelected()) {
             fault_parts = 1;
         }
+        map.clear();
+        for (int i = 0; i < codeList1.size(); i++)
+            map.put("img[" + i + "]", codeList1.get(i));
+        for (int i = 0; i < codeList2.size(); i++)
+            map.put("e_img[" + i + "]", codeList2.get(i));
         FaultApi.getInstance().putDeal(mContext, id, edtDetailSay.getText().toString(), fault_parts,
-                edtCompleteName.getText().toString(), edtCompletePrice.getText().toString(), mySimpleJsonDataResponseCacheHandler);
+                edtCompleteName.getText().toString(), edtCompletePrice.getText().toString(), map, mySimpleJsonDataResponseCacheHandler);
     }
 
     @OnClick({R.id.tv_complete_no, R.id.tv_complete_yes, R.id.iv_detailedit_photo, R.id.iv_detailedit_complete_photo,
@@ -149,13 +159,17 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ActivityForResult.REASONFORRESULT) {
             if (resultCode == RESULT_OK && data != null) {
-                XSimpleLogger.Log().e(data.getStringExtra("reason"));
+                tvSayReason.setText(data.getStringExtra("reason"));
             }
         } else {
+            String src = "file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data);
+            if (XSimpleText.isEmpty(src))
+                return;
             if (imageType == AFTER) {
                 if (list1.size() == 3)
                     return;
-                list1.add("file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data));
+                list1.add(src);
+                ImageUploadUtils.getInstance().initImageCode(mContext, src, "", list1.size() - 1, this);
                 for (int i = 0; i < list1.size(); i++) {
                     if (i == 0) {
                         XSimpleImage.getInstance().displayImage(list1.get(i), ivDetaileditFaultImageView1);
@@ -164,12 +178,12 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
                     } else if (i == 2) {
                         XSimpleImage.getInstance().displayImage(list1.get(i), ivDetaileditFaultImageView3);
                     }
-                    ImageUploadUtils.getInstance().initImageCode(mContext, list1.get(i), "", i, this);
                 }
             } else if (imageType == BEFORE) {
                 if (list2.size() == 3)
                     return;
-                list2.add("file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data));
+                list2.add(src);
+                ImageUploadUtils.getInstance().initImageCode(mContext, src, "", 3 + list2.size() - 1, this);
                 for (int i = 0; i < list2.size(); i++) {
                     if (i == 0) {
                         XSimpleImage.getInstance().displayImage(list2.get(i), ivDetaileditCompleteImageView1);
@@ -178,26 +192,27 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
                     } else if (i == 2) {
                         XSimpleImage.getInstance().displayImage(list2.get(i), ivDetaileditCompleteImageView3);
                     }
-                    ImageUploadUtils.getInstance().initImageCode(mContext, list2.get(i), "", 3 + i, this);
+
                 }
             }
         }
     }
 
     @Override
-    public void imageUploadSuccess(String base64, int tag) {
+    public void imageUploadSuccess(String code, int tag) {
+
         if (-1 < tag && tag < 3) {
             if (tag < codeList1.size()) {
-                codeList1.set(tag, base64);
+                codeList1.set(tag, code);
             } else {
-                codeList1.add(base64);
+                codeList1.add(code);
             }
         } else {
             tag = tag - 3;
             if (tag < codeList2.size()) {
-                codeList2.set(tag, base64);
+                codeList2.set(tag, code);
             } else {
-                codeList2.add(base64);
+                codeList2.add(code);
             }
         }
     }

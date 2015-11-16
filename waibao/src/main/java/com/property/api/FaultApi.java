@@ -59,14 +59,16 @@ public class FaultApi extends BaseApi {
     }
 
     public void putDeal(Context context, String id, String fault_describe,
-                        int fault_parts, String fault_parts_name, String fault_cost, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+                        int fault_parts, String fault_parts_name, String fault_cost, Map<String, String> map, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("fault_id", id);
         mTempMap.put("fault_describe", fault_describe);
         mTempMap.put("fault_parts", fault_parts + "");
         mTempMap.put("fault_parts_name", fault_parts_name);
         mTempMap.put("fault_cost", fault_cost);
-        put(context, "fault_deal.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+        if (map != null)
+            mTempMap.putAll(map);
+        put(context, "fault_all.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
     public void getDeal(Context context, String id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {

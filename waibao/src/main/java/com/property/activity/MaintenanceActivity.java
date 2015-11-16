@@ -79,8 +79,9 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
 
     void getList(final UpdateType updateType) {
         String id = null;
-        if (updateType == UpdateType.top || maintenanceModellist.isEmpty()) {
-            showProgressDialog(mContext);
+        if (updateType == UpdateType.top) {
+            if (maintenanceModellist.isEmpty())
+                showProgressDialog(mContext);
             id = null;
         } else {
             id = maintenanceModellist.get(maintenanceModellist.size() - 1).getId();

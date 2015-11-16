@@ -55,12 +55,14 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
             submit.setVisibility(View.VISIBLE);
             tvPeriodsNums.setVisibility(View.GONE);
 
-            timeTitle.setText("抢修");
+
             if (item.getStatus() == 4) {
                 status.setText("已完成");
+                timeTitle.setText("完成时间");
                 status.setTextColor(XSimpleResources.getColor(android.R.color.holo_blue_light));
                 time.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
                 timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+                name.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
                 submit.setText("查看");
                 submit.setBackgroundResource(R.drawable.corners_green_radius6);
                 submit.setOnClickListener(new View.OnClickListener() {
@@ -76,10 +78,11 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                 } else {
                     status.setText("已经签到正在处理");
                 }
-
+                timeTitle.setText("时间");
                 status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
                 time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
                 timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_333));
+                name.setTextColor(XSimpleResources.getColor(R.color.text_color_333));
                 submit.setText("抢修");
                 submit.setBackgroundResource(R.drawable.corners_blue_radius6);
                 submit.setOnClickListener(new View.OnClickListener() {

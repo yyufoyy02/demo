@@ -46,7 +46,11 @@ public class CommonLanguageActivity extends BaseActivity {
         switch (v.getId()) {
 
             case R.id.ib_reason_check5:
-                check(5);
+
+                check(-1);
+                if (ibReasonCheck5.isSelected())
+                    return;
+                ibReasonCheck5.setSelected(true);
                 break;
             case R.id.tv_complete_submit:
                 String reason = null;

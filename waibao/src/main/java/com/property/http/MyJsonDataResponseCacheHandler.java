@@ -90,7 +90,7 @@ public abstract class MyJsonDataResponseCacheHandler<T> extends MyJsonHttpRespon
         BaseApi.JsonRestfulHeadPublicData(response).addOnErrorListener(new JsonRestfulHeadModel.errorCodeListener() {
             @Override
             public void codeSuccess(JsonElement data) {
-                if (data.isJsonNull()) {
+                if (data == null || data.isJsonNull()) {
                     onJsonDataError("解析错误");
                     return;
                 }
@@ -123,6 +123,7 @@ public abstract class MyJsonDataResponseCacheHandler<T> extends MyJsonHttpRespon
     public void onJsonFailure(int statusCode, Header[] headers,
                               Throwable throwable, String errorResponse) {
         // TODO Auto-generated method stub
+        XSimpleLogger.Log().e(throwable.toString());
         onHttpComplete();
         onHttpFailure(statusCode, headers, throwable, errorResponse);
         onFail();

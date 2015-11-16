@@ -81,8 +81,9 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
     void getList(final UpdateType updateType) {
 
         String id = null;
-        if (updateType == UpdateType.top || faultModellist.isEmpty()) {
-            showProgressDialog(mContext);
+        if (updateType == UpdateType.top) {
+            if (faultModellist.isEmpty())
+                showProgressDialog(mContext);
             id = null;
         } else {
             id = faultModellist.get(faultModellist.size() - 1).getId();

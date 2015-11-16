@@ -133,7 +133,9 @@
         </RelativeLayout>
 
 
-        <RelativeLayout style="@style/SettingRelativeLayoutStyle.MarginTop10">
+        <RelativeLayout
+            android:id="@+id/rl_detail_lasttime"
+            style="@style/SettingRelativeLayoutStyle.MarginTop10">
 
             <TextView
                 android:id="@+id/tv_detail_lasttime"
@@ -152,9 +154,12 @@
                 tools:text="张三" />
         </RelativeLayout>
 
-        <RelativeLayout style="@style/SettingRelativeLayoutStyle">
+        <RelativeLayout
+            android:id="@+id/rl_detail_thistime"
+            style="@style/SettingRelativeLayoutStyle">
 
             <TextView
+
                 android:id="@+id/tv_detail_thistime"
                 style="@style/SettingEditStyle"
                 android:layout_width="wrap_content"

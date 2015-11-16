@@ -3,6 +3,7 @@ package com.property.activity;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.property.api.FaultApi;
@@ -38,6 +39,10 @@ public class DetailActivity extends BaseActivity {
     TextView tvReason;
     @InjectView(R.id.tv_detail_submit)
     TextView submit;
+    @InjectView(R.id.rl_detail_thistime)
+    RelativeLayout rlThistime;
+    @InjectView(R.id.rl_detail_lasttime)
+    RelativeLayout rlLasttime;
     MessageType messageType;
     String id;
 
@@ -50,6 +55,8 @@ public class DetailActivity extends BaseActivity {
     public void initAllData() {
         setTitle("电梯信息");
         submit.setClickable(false);
+        rlThistime.setVisibility(View.GONE);
+        rlLasttime.setVisibility(View.GONE);
         id = getIntent().getStringExtra("id");
         messageType = (MessageType) getIntent().getSerializableExtra("messageType");
         getScan(id, getIntent().getStringExtra("code"));
