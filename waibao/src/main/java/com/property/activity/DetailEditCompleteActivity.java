@@ -163,7 +163,7 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
             }
         } else {
             String src = "file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data);
-            if (XSimpleText.isEmpty(src))
+            if (XSimpleText.isEmpty(XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data)))
                 return;
             if (imageType == AFTER) {
                 if (list1.size() == 3)

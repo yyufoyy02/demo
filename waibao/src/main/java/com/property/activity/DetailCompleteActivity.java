@@ -108,6 +108,12 @@ public class DetailCompleteActivity extends BaseActivity {
         showProgressDialog(mContext);
         FaultApi.getInstance().getDeal(mContext, id, new MyJsonDataResponseCacheHandler<RepairModel>(RepairModel.class, false) {
             @Override
+            public void onHttpComplete() {
+                super.onHttpComplete();
+                dismissProgressDialog();
+            }
+
+            @Override
             public void onJsonDataSuccess(RepairModel object) {
                 initView(object);
             }

@@ -74,7 +74,7 @@ public class FaultApi extends BaseApi {
     public void getDeal(Context context, String id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("fault_id", id);
-        put(context, "fault_historyl.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+        get(context, "fault_history.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
     public void putEng(Context context, String id, Map<String, String> map, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
