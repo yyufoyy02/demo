@@ -61,7 +61,7 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
 
     @Override
     public int onCreateViewLayouId() {
-        return R.layout.complete_activity;
+        return R.layout.completeedit_activity;
     }
 
     @Override

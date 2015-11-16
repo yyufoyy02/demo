@@ -1,3 +1,1 @@
-include ':waibao', ':lib'
-include ':pullToRefreshLibrary'
-include ':xSimpleUtil'
+include ':waibao', ':lib', ':pullToRefreshLibrary',':xSimpleUtil'
