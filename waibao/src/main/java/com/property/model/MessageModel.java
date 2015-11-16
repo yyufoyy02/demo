@@ -4,6 +4,7 @@ import com.property.base.BaseModel;
 import com.vk.simpleutil.library.XSimpleText;
 
 public class MessageModel extends BaseModel {
+    String fault_id;
     int status;
     ImageModel icon;
     String address;
@@ -12,6 +13,14 @@ public class MessageModel extends BaseModel {
     int message_type;
     int periods;
     int max_periods;
+
+    public String getFault_id() {
+        return XSimpleText.isEmpty(fault_id, "");
+    }
+
+    public void setFault_id(String fault_id) {
+        this.fault_id = fault_id;
+    }
 
     /**
      * 期数

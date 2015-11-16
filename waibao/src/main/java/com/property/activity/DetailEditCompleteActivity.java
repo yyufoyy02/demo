@@ -27,8 +27,8 @@ import butterknife.annotation.event.OnClick;
  * Created by Administrator on 2015/11/7.
  */
 public class DetailEditCompleteActivity extends BaseActivity implements ImageUploadUtils.ImageUpLoadListener {
-    @InjectView(R.id.edt_detail_say)
-    EditText edtDetailSay;
+    @InjectView(R.id.tv_detail_say)
+    TextView edtDetailSay;
     @InjectView(R.id.tv_complete_yes)
     TextView tvCompleteYes;
     @InjectView(R.id.tv_complete_no)
@@ -102,7 +102,7 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
     }
 
     @OnClick({R.id.tv_complete_no, R.id.tv_complete_yes, R.id.iv_detailedit_photo, R.id.iv_detailedit_complete_photo,
-            R.id.tv_complete_submit, R.id.edt_detail_say})
+            R.id.tv_complete_submit, R.id.tv_detail_say})
     void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_complete_yes:
@@ -123,7 +123,7 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
             case R.id.tv_complete_submit:
                 complete();
                 break;
-            case R.id.edt_detail_say:
+            case R.id.tv_detail_say:
                 startActivityForResult(new Intent(mContext, CommonLanguageActivity.class), ActivityForResult.REASONFORRESULT);
                 break;
         }

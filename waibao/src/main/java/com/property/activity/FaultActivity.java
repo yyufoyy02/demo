@@ -66,6 +66,7 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
         List<MessageModel> messageModelList = new ArrayList<>();
         for (FaultModel faultModel : list) {
             MessageModel messageModel = new MessageModel();
+            messageModel.setFault_id(faultModel.getId());
             messageModel.setAddress(faultModel.getAddress());
             messageModel.setIcon(new ImageModel("drawable://" + R.drawable.icon_book));
             messageModel.setName("市政府电梯" + faultModel.getElevetor_number() + "号维保");

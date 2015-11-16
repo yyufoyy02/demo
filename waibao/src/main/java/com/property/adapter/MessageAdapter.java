@@ -2,10 +2,12 @@ package com.property.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.property.activity.DetailCompleteActivity;
 import com.property.activity.MessageActivity;
 import com.property.activity.R;
 import com.property.model.MessageModel;
@@ -52,32 +54,41 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
             tvPeriods.setVisibility(View.GONE);
             submit.setVisibility(View.VISIBLE);
             tvPeriodsNums.setVisibility(View.GONE);
-            submit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    postions = position;
-                    CaptureActivity.launchActivity((Activity) getContext(), MessageActivity.REQUEST_CODE_SCANLE);
-                }
-            });
+
             timeTitle.setText("抢修");
             if (item.getStatus() == 4) {
                 status.setText("已完成");
                 status.setTextColor(XSimpleResources.getColor(android.R.color.holo_blue_light));
-                submit.setText("查看");
-                submit.setBackgroundResource(R.drawable.corners_green_radius6);
                 time.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
                 timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+                submit.setText("查看");
+                submit.setBackgroundResource(R.drawable.corners_green_radius6);
+                submit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        postions = position;
+                        getContext().startActivity(new Intent(getContext(), DetailCompleteActivity.class).putExtra("id", item.getFault_id()));
+                    }
+                });
             } else {
                 if (item.getStatus() == 2) {
                     status.setText("等待处理");
                 } else {
                     status.setText("已经签到正在处理");
                 }
-                submit.setText("抢修");
-                submit.setBackgroundResource(R.drawable.corners_blue_radius6);
+
                 status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
                 time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
                 timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_333));
+                submit.setText("抢修");
+                submit.setBackgroundResource(R.drawable.corners_blue_radius6);
+                submit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        postions = position;
+                        CaptureActivity.launchActivity((Activity) getContext(), MessageActivity.REQUEST_CODE_SCANLE);
+                    }
+                });
             }
         } else if (item.getMessage_type() == 1) {
             submit.setText("维保");

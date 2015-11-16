@@ -15,8 +15,7 @@ import com.vk.simpleutil.library.XSimpleImage;
 import butterknife.InjectView;
 
 public class DetailCompleteActivity extends BaseActivity {
-    @InjectView(R.id.edt_detail_say)
-    EditText edtDetailSay;
+
     @InjectView(R.id.tv_complete_yes)
     TextView tvCompleteYes;
     @InjectView(R.id.tv_complete_no)
