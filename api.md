@@ -48,7 +48,7 @@ http://lintianranqi.com/lift/v1/users.json
 
 <h3 id='修改密码'>修改密码</h3>
 
-	POST  staff/:id/password.json
+	POST  staffs/:id/password.json
 
 | 名称 			| 类型		| 描述     
 | ------------ 	| ----  	|-----      
@@ -89,9 +89,9 @@ List<[Fault](#Fault)>
 | ------------ 	| ----  	|--    
 | code			|String		| 电梯编码，扫描  
 
-List<[Fault](#Fault)>
+[Fault](#Fault)
 
-<h3 id='扫描确定为故障电梯'>~~扫描确定为故障电梯~~</h3>
+<h3 id='抢修签到'>~~抢修签到~~</h3>
 
 	POST  /faults/:id/sign.json
 
@@ -135,7 +135,7 @@ null
 | cost			|double		| 维修金额
 
 
-[Image](#Image)
+null
 
 <h3 id='历史抢修信息'>历史抢修信息</h3>
 
@@ -147,6 +147,48 @@ null
 
 [Fault](#Fault)
 
+<h3 id='获取维保单列表'>获取维保单列表</h3>
+
+	GET  /maintenances.json
+
+| 名称 			| 类型		| 描述     
+| ------------ 	|----  		| ----
+|staff_id		| String	| 员工id，登录者id     
+
+
+[Maintenance](#Maintenance)
+
+<h3 id='获取维保单列表'>获取维保单列表</h3>
+
+	GET  /maintenances.json
+
+| 名称 			| 类型		| 描述     
+| ------------ 	|---		| ----      
+| staff_id		|String		| 员工id，登录者id    
+| type		   	|			| 1  
+| last_fault_id	|String		| 本页最后一条抢修单  
+
+List<[Maintenance](#Maintenance)>
+
+
+<h3 id='扫描确定为维保电梯'>扫描确定为维保电梯</h3>
+
+	GET  /maintenances/:id/scan.json
+
+| 名称 			| 类型  		| 描述     
+| ------------ 	| ----  	|--    
+| code			|String		| 电梯编码，扫描  
+
+List<[Maintenance](#Maintenance)>
+
+<h3 id='抢修签到'>~~抢修签到~~</h3>
+
+	POST  /maintenances/:id/sign.json
+
+| 名称 			| 描述     
+| ------------ 	| ----      
+
+null
 
 数据类型
 =====
@@ -204,3 +246,12 @@ null
 | ------------ 		| ----		| ---	
 | url				| String	| 图片链接
 | code				|	 String	| 标识码
+
+<h3 id='Maintenance'>Maintenance fields</h3>
+
+| 名称 				| 类型		| 描述  	
+| ------------ 		| ----		| ---	
+| id			    | String	| 维保单id
+| number		    | String	| 单号
+| lift			    | [Lift](#Lift)	| 电梯
+| status			| String	| 状态（0：待维保，1维保中，2维保完成，3过期 ）
