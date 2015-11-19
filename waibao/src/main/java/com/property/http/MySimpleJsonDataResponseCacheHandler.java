@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.property.base.BaseApi;
 import com.property.model.JsonRestfulHeadModel;
 import com.vk.simpleutil.library.XSimpleLogger;
+import com.vk.simpleutil.library.XSimpleToast;
 
 import org.apache.http.Header;
 import org.json.JSONObject;
@@ -36,6 +37,7 @@ public class MySimpleJsonDataResponseCacheHandler extends MyJsonHttpResponseCach
 
             @Override
             public void codeError(String error_description) {
+                XSimpleToast.showToast(error_description);
                 if (mOnJsonCallBack != null)
                     mOnJsonCallBack.fail();
             }
@@ -44,6 +46,7 @@ public class MySimpleJsonDataResponseCacheHandler extends MyJsonHttpResponseCach
 
     @Override
     public void onJsonFailure(int statusCode, Header[] headers, Throwable throwable, String errorResponse) {
+        XSimpleToast.showToast("网络错误");
         if (mOnJsonCallBack != null)
             mOnJsonCallBack.fail();
     }
