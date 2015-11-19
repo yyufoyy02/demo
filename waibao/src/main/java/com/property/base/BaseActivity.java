@@ -16,6 +16,7 @@ import com.vk.simpleutil.library.XSimpleAlertDialog;
 import com.vk.simpleutil.library.XSimpleAppManager;
 
 import butterknife.ButterKnife;
+import cn.jpush.android.api.JPushInterface;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -167,7 +168,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-
+        JPushInterface.onPause(this);
         mProgressDialog = null;
         super.onPause();
     }
@@ -180,7 +181,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-
+        JPushInterface.onResume(this);
         super.onResume();
     }
 
