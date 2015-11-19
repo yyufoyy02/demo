@@ -37,4 +37,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:22.1.1'
     compile project(':xSimpleUtil')
     compile files('libs/zxing.jar')
+    compile files('libs/jpush-android-2.0.5.jar')
 }

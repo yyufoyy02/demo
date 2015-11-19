@@ -10,6 +10,8 @@ import com.vk.simpleutil.XSimpleBaseUtil.Builder;
 import com.vk.simpleutil.library.XSimpleImage;
 import com.vk.simpleutil.library.XSimpleLogger;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * @author Administrator
  */
@@ -43,7 +45,7 @@ public class BaseApplication extends Application {
      */
     private void DebugMode(Boolean Debug) {
         debug = Debug;
-
+        JPushInterface.setDebugMode(Debug);
         XSimpleLogger.setDebugMode(Debug);// 日志文件调试模式
     }
 
@@ -51,7 +53,8 @@ public class BaseApplication extends Application {
      * 数据初始化
      */
     private void DataInit() {
-
+        /** 极光 */
+        JPushInterface.init(getApplicationContext());
         XSimpleBaseUtil.initConfig(new Builder().initContext(mContext)
                 .isDebug(debug).isPad(isPad).alertDialogTheme(R.style.MyAlertDialogStyle)
                 .initDefaultRequestParams(null).build());
