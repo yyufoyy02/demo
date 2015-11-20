@@ -83,6 +83,7 @@ public class CommonLanguageActivity extends BaseActivity {
     }
 
     void initView(List<LanguageModel> list) {
+        llMain.removeAllViews();
         for (int i = 0; i < list.size(); i++) {
             LanguageModel languageModel = list.get(i);
             View v = LayoutInflater.from(mContext).inflate(R.layout.language_item, null);
@@ -95,6 +96,7 @@ public class CommonLanguageActivity extends BaseActivity {
                     check(finalI);
                 }
             });
+            llMain.addView(llMain);
         }
     }
 
