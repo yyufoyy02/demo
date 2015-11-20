@@ -41,7 +41,7 @@ public class IndexActivity extends BaseActivity {
                 startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageType.all));
                 break;
             case R.id.iv_index_maintenance:
-                startActivity(new Intent(mContext, MaintenanceActivity.class));
+                startActivity(new Intent(mContext, MaintenancePlanActivity.class));
                 break;
             case R.id.iv_index_repair:
                 startActivity(new Intent(mContext, FaultActivity.class));

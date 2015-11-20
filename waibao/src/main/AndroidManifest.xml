@@ -104,7 +104,7 @@
             android:name=".FaultActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MaintenanceActivity"
+            android:name=".MaintenancePlanActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MaintenancePeriodsActivity"
