@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.property.adapter.MaintenancePeriodsAdapter;
-import com.property.adapter.SignModel;
+import com.property.model.SignModel;
 import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
 import com.property.enumbase.MessageType;

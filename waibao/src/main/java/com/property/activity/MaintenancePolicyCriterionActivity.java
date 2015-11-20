@@ -19,7 +19,7 @@ import java.util.List;
 import butterknife.InjectView;
 import butterknife.annotation.event.OnClick;
 
-public class MaintenancePolicyPaperActivity extends BaseActivity {
+public class MaintenancePolicyCriterionActivity extends BaseActivity {
     String ruleID;
     @InjectView(R.id.ll_paper_main)
     LinearLayout llPaperMain;

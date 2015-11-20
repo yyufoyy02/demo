@@ -119,7 +119,7 @@
             android:name=".MaintenancePolicyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MaintenancePolicyPaperActivity"
+            android:name=".MaintenancePolicyCriterionActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.property.ui.codeScan.CaptureActivity"

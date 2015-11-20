@@ -1,4 +1,4 @@
-package com.property.adapter;
+package com.property.model;
 
 
 import com.property.base.BaseModel;
