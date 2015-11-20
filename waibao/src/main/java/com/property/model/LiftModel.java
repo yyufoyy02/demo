@@ -5,6 +5,7 @@ import com.vk.simpleutil.library.XSimpleText;
 
 public class LiftModel extends BaseModel {
     String lift_id;
+    String plan_id;
     String fault_id;
     String maintenance_id;
     String lift_code;
@@ -16,6 +17,14 @@ public class LiftModel extends BaseModel {
     String fault_type;
     double start_time;
     double last_time;
+
+    public String getPlan_id() {
+        return XSimpleText.isEmpty(plan_id, "");
+    }
+
+    public void setPlan_id(String plan_id) {
+        this.plan_id = plan_id;
+    }
 
     public String getMaintenance_id() {
         return XSimpleText.isEmpty(maintenance_id, "");

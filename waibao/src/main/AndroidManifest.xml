@@ -107,7 +107,7 @@
             android:name=".MaintenancePlanActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MaintenancePeriodsActivity"
+            android:name=".MaintenanceActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CommonLanguageActivity"

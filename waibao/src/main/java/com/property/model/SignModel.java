@@ -1,10 +1,13 @@
 package com.property.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.property.base.BaseModel;
 import com.vk.simpleutil.library.XSimpleText;
 
-public class SignModel extends BaseModel {
+public class SignModel extends BaseModel implements Parcelable {
     String maintenance_id;
     String new_rule_id;
     int type;
@@ -53,4 +56,37 @@ public class SignModel extends BaseModel {
     public void setType2(int type2) {
         this.type2 = type2;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.maintenance_id);
+        dest.writeString(this.new_rule_id);
+        dest.writeInt(this.type);
+        dest.writeInt(this.type2);
+    }
+
+    public SignModel() {
+    }
+
+    protected SignModel(Parcel in) {
+        this.maintenance_id = in.readString();
+        this.new_rule_id = in.readString();
+        this.type = in.readInt();
+        this.type2 = in.readInt();
+    }
+
+    public static final Parcelable.Creator<SignModel> CREATOR = new Parcelable.Creator<SignModel>() {
+        public SignModel createFromParcel(Parcel source) {
+            return new SignModel(source);
+        }
+
+        public SignModel[] newArray(int size) {
+            return new SignModel[size];
+        }
+    };
 }

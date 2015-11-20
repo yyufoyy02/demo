@@ -151,7 +151,8 @@
             <TextView
                 android:id="@+id/tv_maintenancepolicy_submit"
                 style="@style/SubmitStyle"
-                android:layout_marginTop="@dimen/dp120"
+                android:layout_marginBottom="@dimen/dp30"
+                android:layout_marginTop="@dimen/dp60"
                 android:background="@drawable/corners_red_radius6"
                 android:text="提交" />
         </LinearLayout>

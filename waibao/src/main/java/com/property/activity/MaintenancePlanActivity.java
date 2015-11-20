@@ -61,7 +61,7 @@ public class MaintenancePlanActivity extends BaseActivity implements IXListViewL
             @Override
             public void onItemClick(View view, int position) {
                 if (planModellist.get(position).getStatus() == 1)
-                    startActivity(new Intent(mContext, MaintenancePeriodsActivity.class)
+                    startActivity(new Intent(mContext, MaintenanceActivity.class)
                             .putExtra("planModel", (Parcelable) planModellist.get(position)));
             }
         });

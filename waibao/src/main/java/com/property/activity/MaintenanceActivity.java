@@ -2,6 +2,7 @@ package com.property.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.TextView;
@@ -28,7 +29,7 @@ import java.util.List;
 import butterknife.InjectView;
 
 
-public class MaintenancePeriodsActivity extends BaseActivity implements IXListViewListener {
+public class MaintenanceActivity extends BaseActivity implements IXListViewListener {
     @InjectView(R.id.tv_maintenanceperiods_periods)
     TextView tvMaintenanceperiodsPeriods;
     @InjectView(R.id.tv_maintenanceperiods_loading)
@@ -63,6 +64,7 @@ public class MaintenancePeriodsActivity extends BaseActivity implements IXListVi
             tvMaintenanceperiodsLoading.setText("正在进行中");
         }
         tvMaintenanceperiodsMaintenance.setText("开始维保");
+        getList(UpdateType.top);
     }
 
     @Override
@@ -80,10 +82,12 @@ public class MaintenancePeriodsActivity extends BaseActivity implements IXListVi
                 if (maintenanceModel.getM_status() == 2) {
                     startActivity(new Intent(mContext, DetailCompleteActivity.class).putExtra("id", maintenanceModel.getId()).putExtra("messageType", MessageType.maintenance));
                 } else {
-                    MaintenanceApi.getInstance().sign(mContext, maintenanceModel.getId(), planModel.getId(), new MyJsonDataResponseCacheHandler<SignModel>(SignModel.class, false) {
+                    MaintenanceApi.getInstance().sign(mContext, maintenanceModel.getLift_id(), planModel.getId(), new MyJsonDataResponseCacheHandler<SignModel>(SignModel.class, false) {
                         @Override
                         public void onJsonDataSuccess(SignModel object) {
-
+                            startActivity(new Intent(mContext, MaintenanceActivity.class)
+                                    .putExtra("signModel", (Parcelable) object));
+                            finish();
                         }
 
                         @Override
@@ -105,27 +109,28 @@ public class MaintenancePeriodsActivity extends BaseActivity implements IXListVi
         } else {
             id = list.get(list.size() - 1).getId();
         }
-        MaintenanceApi.getInstance().getPlanList(mContext, id, new MyJsonDataResponseCacheHandler<List<MaintenanceModel>>(MaintenanceModel.class, list.isEmpty()) {
-            @Override
-            public void onJsonDataSuccess(List<MaintenanceModel> object) {
-                if (updateType == UpdateType.top)
-                    list.clear();
-                list.addAll(object);
-                listView.notifyDataSetChanged();
-            }
+        MaintenanceApi.getInstance().getList(mContext, id, planModel.getId(),
+                new MyJsonDataResponseCacheHandler<List<MaintenanceModel>>(MaintenanceModel.class, list.isEmpty()) {
+                    @Override
+                    public void onJsonDataSuccess(List<MaintenanceModel> object) {
+                        if (updateType == UpdateType.top)
+                            list.clear();
+                        list.addAll(object);
+                        listView.notifyDataSetChanged();
+                    }
 
-            @Override
-            public void onHttpComplete() {
-                super.onHttpComplete();
-                listView.onRefreshComplete();
-                dismissProgressDialog();
-            }
+                    @Override
+                    public void onHttpComplete() {
+                        super.onHttpComplete();
+                        listView.onRefreshComplete();
+                        dismissProgressDialog();
+                    }
 
-            @Override
-            public boolean onJsonCacheData(boolean has) {
-                return false;
-            }
-        });
+                    @Override
+                    public boolean onJsonCacheData(boolean has) {
+                        return false;
+                    }
+                });
     }
 
     @Override
@@ -134,7 +139,7 @@ public class MaintenancePeriodsActivity extends BaseActivity implements IXListVi
         if (requestCode == MessageActivity.REQUEST_CODE_SCANLE && resultCode == RESULT_OK && data != null && postion != -1) {
             XSimpleLogger.Log().e("code:" + data.getStringExtra("code"));
             startActivity(new Intent(mContext, DetailActivity.class)
-                    .putExtra("code", data.getStringExtra("code")).putExtra("id", list.get(postion).getId())
+                    .putExtra("code", data.getStringExtra("code")).putExtra("id", planModel.getId())
                     .putExtra("messageType", MessageType.maintenance));
         }
 

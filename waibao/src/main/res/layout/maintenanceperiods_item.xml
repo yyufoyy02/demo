@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp120"
+        android:layout_height="@dimen/dp130"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/dp10"
         android:background="@android:color/white"
@@ -88,11 +88,12 @@
                 android:layout_marginRight="@dimen/dp5"
                 android:layout_marginTop="@dimen/dp5"
                 android:text="类型：半月宝"
-                android:textColor="@color/text_color_999" />
+                android:textColor="@color/text_color_999"
+                android:layout_alignParentBottom="true" />
 
             <TextView
                 android:id="@+id/tv_maintenanceperiods_submit"
-                android:layout_width="@dimen/dp60"
+                android:layout_width="@dimen/dp75"
                 android:layout_height="@dimen/dp30"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"

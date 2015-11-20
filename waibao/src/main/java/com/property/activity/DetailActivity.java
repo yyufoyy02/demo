@@ -2,6 +2,7 @@ package com.property.activity;
 
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import com.property.base.BaseActivity;
 import com.property.enumbase.MessageType;
 import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.model.LiftModel;
+import com.property.model.SignModel;
 import com.vk.simpleutil.library.XSimpleTime;
 
 import butterknife.InjectView;
@@ -37,6 +39,9 @@ public class DetailActivity extends BaseActivity {
     TextView edtDetailThistime;
     @InjectView(R.id.tv_detail_reason)
     TextView tvReason;
+    @InjectView(R.id.tv_detail_reasontitle)
+    TextView tvTitleReason;
+
     @InjectView(R.id.tv_detail_submit)
     TextView submit;
     @InjectView(R.id.rl_detail_thistime)
@@ -45,6 +50,7 @@ public class DetailActivity extends BaseActivity {
     RelativeLayout rlLasttime;
     MessageType messageType;
     String id;
+    LiftModel liftModel;
 
     @Override
     public int onCreateViewLayouId() {
@@ -55,8 +61,6 @@ public class DetailActivity extends BaseActivity {
     public void initAllData() {
         setTitle("电梯信息");
         submit.setClickable(false);
-        rlThistime.setVisibility(View.GONE);
-        rlLasttime.setVisibility(View.GONE);
         id = getIntent().getStringExtra("id");
         messageType = (MessageType) getIntent().getSerializableExtra("messageType");
         getScan(id, getIntent().getStringExtra("code"));
@@ -65,6 +69,7 @@ public class DetailActivity extends BaseActivity {
     void initData(LiftModel liftModel) {
         if (liftModel == null)
             return;
+        this.liftModel = liftModel;
         edtDetailId.setText(liftModel.getLift_code());
         edtDetailAddress.setText(liftModel.getLift_address());
         edtDetailBrand.setText(liftModel.getLift_brand());
@@ -107,6 +112,7 @@ public class DetailActivity extends BaseActivity {
         } else if (messageType == MessageType.maintenance) {
             MaintenanceApi.getInstance().scan(mContext, id, code, myJsonDataResponseCacheHandler);
             tvReason.setVisibility(View.GONE);
+            tvTitleReason.setVisibility(View.GONE);
         }
     }
 
@@ -118,7 +124,29 @@ public class DetailActivity extends BaseActivity {
 
     @OnClick(R.id.tv_detail_submit)
     void submit(View view) {
-        startActivity(new Intent(mContext, DetailEditCompleteActivity.class).putExtra("messageType", messageType).putExtra("id", id));
+        if (messageType == MessageType.repair) {
+            startActivity(new Intent(mContext, DetailEditCompleteActivity.class)
+                    .putExtra("messageType", messageType).putExtra("id", id));
+            finish();
+        } else if (messageType == MessageType.maintenance) {
+            if (liftModel == null)
+                return;
+            MaintenanceApi.getInstance().sign(mContext, liftModel.getLift_id(), liftModel.getPlan_id()
+                    , new MyJsonDataResponseCacheHandler<SignModel>(SignModel.class, false) {
+                @Override
+                public void onJsonDataSuccess(SignModel object) {
+                    startActivity(new Intent(mContext, MaintenancePolicyActivity.class)
+                            .putExtra("signModel", (Parcelable) object));
+                    finish();
+                }
+
+                @Override
+                public boolean onJsonCacheData(boolean has) {
+                    return false;
+                }
+            });
+        }
+
     }
 
 }

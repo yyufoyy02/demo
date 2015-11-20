@@ -33,8 +33,8 @@ public class MaintenancePeriodsAdapter extends XSimpleRecyclerAdapter<Maintenanc
         TextView timeTitle = XSimpleViewHolder.get(convertView, R.id.tv_maintenanceperiods_time_title);
         TextView tvFault = XSimpleViewHolder.get(convertView, R.id.tv_maintenanceperiods_fault);
         TextView tvFaulttype = XSimpleViewHolder.get(convertView, R.id.tv_maintenanceperiods_faulttype);
-        tvFault.setText(item.getReg_code());
-        tvFaulttype.setText(item.getRule());
+        tvFault.setText("电梯:"+item.getReg_code());
+        tvFaulttype.setText("类型:"+item.getRule());
         XSimpleImage.getInstance().displayImage("drawable://" + R.drawable.icon_book, icon);
         name.setText(item.getCustomer());
         time.setText(XSimpleTime.getFormatTimeFromTimestamp((long) item.getTime(), "yyyy-MM-dd"));

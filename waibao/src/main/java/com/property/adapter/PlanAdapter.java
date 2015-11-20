@@ -42,8 +42,7 @@ public class PlanAdapter extends XSimpleRecyclerAdapter<PlanModel> {
         name.setText(item.getCustomer_name());
         time.setText(XSimpleTime.getFormatTimeFromTimestamp((long) item.getPlan_time(), "yyyy-MM-dd"));
         tvPeriods.setTextColor(XSimpleResources.getColor(R.color.text_color_555));
-        tvPeriods.setText(XSimpleText.setColorText(item.getPlan_name(), 2,
-                item.getPlan_name().length(), XSimpleResources.getColor(android.R.color.holo_red_light)));
+
         tvPeriodsNums.setText(item.getOk_count() + "/" + item.getLifts_count());
         timeTitle.setText("计划时间");
         if (item.getStatus() == 2) {
@@ -53,12 +52,20 @@ public class PlanAdapter extends XSimpleRecyclerAdapter<PlanModel> {
             timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
             name.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
             tvPeriods.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+            tvPeriods.setText(item.getPlan_name());
         } else {
             status.setText("正在进行");
             status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
             time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
             timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_333));
             name.setTextColor(XSimpleResources.getColor(R.color.text_color_555));
+            int i = item.getPlan_name().indexOf("期");
+            if (item.getPlan_name().indexOf("期") > 1) {
+                tvPeriods.setText(XSimpleText.setColorText(item.getPlan_name(), 1,
+                        item.getPlan_name().indexOf("期"), android.R.color.holo_red_light));
+            } else {
+                tvPeriods.setText(item.getPlan_name());
+            }
         }
 
 

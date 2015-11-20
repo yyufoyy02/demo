@@ -13,6 +13,7 @@ import com.property.base.BaseActivity;
 import com.property.http.MySimpleJsonDataResponseCacheHandler;
 import com.property.model.SignModel;
 import com.property.utils.ImageUploadUtils;
+import com.vk.simpleutil.library.XSimpleAlertDialog;
 import com.vk.simpleutil.library.XSimpleImage;
 import com.vk.simpleutil.library.XSimplePhotoChoose;
 import com.vk.simpleutil.library.XSimpleResources;
@@ -75,16 +76,16 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
         switch (v.getId()) {
 
             case R.id.iv_maintenancepolicy_bottom:
-                codePostion = 0;
+                pohoto(0);
                 break;
             case R.id.iv_maintenancepolicy_top:
-                codePostion = 1;
+                pohoto(1);
                 break;
             case R.id.iv_maintenancepolicy_side:
-                codePostion = 2;
+                pohoto(2);
                 break;
             case R.id.iv_maintenancepolicy_paper:
-                codePostion = 3;
+                pohoto(3);
                 break;
             case R.id.ll_maintenancepolicy_criterion:
                 startActivityForResult(new Intent(mContext, MaintenancePolicyCriterionActivity.class), ActivityForResult.CRITERIONFORRESULT);
@@ -93,6 +94,21 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
                 submit();
                 break;
         }
+    }
+
+    void pohoto(int codePostion) {
+        this.codePostion = codePostion;
+        XSimpleAlertDialog.simpleBaseDialog(mContext, null, "拍照", new XSimpleAlertDialog.Callback() {
+            @Override
+            public void getCallback() {
+                XSimplePhotoChoose.open(mActivity, XSimplePhotoChoose.PhotoChooseType.PHOTO_GRAPH);
+            }
+        }, "相册", new XSimpleAlertDialog.Callback() {
+            @Override
+            public void getCallback() {
+                XSimplePhotoChoose.open(mActivity, XSimplePhotoChoose.PhotoChooseType.PHOTO_ALBUM);
+            }
+        });
     }
 
     void submit() {

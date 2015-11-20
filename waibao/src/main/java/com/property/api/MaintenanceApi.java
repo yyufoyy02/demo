@@ -27,9 +27,10 @@ public class MaintenanceApi extends BaseApi {
         get(context, "maintenance_list.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
-    public void getList(Context context, String id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+    public void getList(Context context, String id, String plan_id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("staff_id", UserDataUtil.getInstance().getStaff_id());
+        mTempMap.put("plan_id", plan_id);
         if (id != null) {
             mTempMap.put("type", "1");
             mTempMap.put("id", id);
@@ -47,19 +48,19 @@ public class MaintenanceApi extends BaseApi {
         get(context, "plan_list.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
-    public void scan(Context context, String maintenance_id, String code, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+    public void scan(Context context, String plan_id, String code, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("code", code);
-        mTempMap.put("maintenance_id", maintenance_id);
+        mTempMap.put("plan_id", plan_id);
         get(context, "maintenance_scan.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
-    public void sign(Context context, String maintenance_id, String plan_id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+    public void sign(Context context, String lift_id, String plan_id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("staff_id", UserDataUtil.getInstance().getStaff_id());
-        mTempMap.put("maintenance_id", maintenance_id);
+        mTempMap.put("lift_id", lift_id);
         mTempMap.put("plan_id", plan_id);
-        get(context, "maintenance_sign.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+        post(context, "maintenance_sign.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
     public void getRuleList(Context context, String rule_id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {

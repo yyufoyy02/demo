@@ -97,8 +97,7 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
             submit.setText("维保");
             tvPeriods.setVisibility(View.VISIBLE);
             tvPeriods.setTextColor(XSimpleResources.getColor(R.color.text_color_555));
-            tvPeriods.setText(XSimpleText.setColorText("(第" + item.getPeriods() + "期维保计划)", 2,
-                    String.valueOf(item.getPeriods()).length(), XSimpleResources.getColor(android.R.color.holo_red_light)));
+
             tvPeriodsNums.setVisibility(View.VISIBLE);
             tvPeriodsNums.setText(item.getPeriods() + "/" + item.getMax_periods());
             submit.setVisibility(View.GONE);
@@ -118,6 +117,7 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                 timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
                 name.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
                 tvPeriods.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
+                tvPeriods.setText("(第" + item.getPeriods() + "期维保计划)");
             } else {
                 if (item.getStatus() == 0) {
                     status.setText("待维保");
@@ -126,6 +126,8 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                 } else if (item.getStatus() == 3) {
                     status.setText("过期");
                 }
+                tvPeriods.setText(XSimpleText.setColorText("(第" + item.getPeriods() + "期维保计划)", 2,
+                        (item.getPeriods()+"").length(), android.R.color.holo_red_light));
                 status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
                 submit.setVisibility(View.VISIBLE);
                 time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
