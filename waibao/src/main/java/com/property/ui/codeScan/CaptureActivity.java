@@ -92,8 +92,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-//        setResult(RESULT_OK, new Intent().putExtra("code", "lift1231"));
-//        finish();
+        setResult(RESULT_OK, new Intent().putExtra("code", "159877"));
+        finish();
 
 
 

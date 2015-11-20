@@ -1,6 +1,7 @@
 package com.property.activity;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
@@ -10,7 +11,6 @@ import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
 import com.property.enumbase.UpdateType;
 import com.property.http.MyJsonDataResponseCacheHandler;
-import com.property.model.MaintenanceModel;
 import com.property.model.PlanModel;
 import com.vk.simpleutil.adapter.XSimpleRecyclerAdapter;
 import com.vk.simpleutil.view.PullToRefreshRecyclerView;
@@ -62,7 +62,7 @@ public class MaintenancePlanActivity extends BaseActivity implements IXListViewL
             public void onItemClick(View view, int position) {
                 if (planModellist.get(position).getStatus() == 1)
                     startActivity(new Intent(mContext, MaintenancePeriodsActivity.class)
-                            .putExtra("id", planModellist.get(position)));
+                            .putExtra("planModel", (Parcelable) planModellist.get(position)));
             }
         });
     }
@@ -77,7 +77,7 @@ public class MaintenancePlanActivity extends BaseActivity implements IXListViewL
         } else {
             id = planModellist.get(planModellist.size() - 1).getId();
         }
-        MaintenanceApi.getInstance().getPlanList(mContext, id, new MyJsonDataResponseCacheHandler<List<PlanModel>>(MaintenanceModel.class, planModellist.isEmpty()) {
+        MaintenanceApi.getInstance().getPlanList(mContext, id, new MyJsonDataResponseCacheHandler<List<PlanModel>>(PlanModel.class, planModellist.isEmpty()) {
             @Override
             public void onJsonDataSuccess(List<PlanModel> object) {
                 if (updateType == UpdateType.top)

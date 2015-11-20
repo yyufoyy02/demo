@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/normal_title_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_maintenancepolicy_upload"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp60"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp10"
+                android:scaleType="centerCrop"
+                android:src="@drawable/btn_upload_image" />
+
+            <LinearLayout
+
+                style="@style/SettingRelativeLayoutStyle.MarginTop10"
+                android:layout_height="@dimen/dp140"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp70"
+                    android:layout_marginRight="@dimen/dp70"
+                    android:text="底部"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp16" />
+
+                <ImageView
+                    android:id="@+id/iv_maintenancepolicy_bottom"
+                    android:layout_width="@dimen/dp160"
+                    android:layout_height="@dimen/dp120"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/btn_photo" />
+            </LinearLayout>
+
+            <TextView style="@style/line" />
+
+            <LinearLayout
+                style="@style/SettingRelativeLayoutStyle"
+                android:layout_height="@dimen/dp140"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp70"
+                    android:layout_marginRight="@dimen/dp70"
+                    android:text="顶部"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp16" />
+
+                <ImageView
+                    android:id="@+id/iv_maintenancepolicy_top"
+                    android:layout_width="@dimen/dp160"
+                    android:layout_height="@dimen/dp120"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/btn_photo" />
+            </LinearLayout>
+
+            <TextView style="@style/line" />
+
+            <LinearLayout
+                style="@style/SettingRelativeLayoutStyle"
+                android:layout_height="@dimen/dp140"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp70"
+                    android:layout_marginRight="@dimen/dp70"
+                    android:text="侧面"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp16" />
+
+                <ImageView
+                    android:id="@+id/iv_maintenancepolicy_side"
+                    android:layout_width="@dimen/dp160"
+                    android:layout_height="@dimen/dp120"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/btn_photo" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_maintenancepolicy_criterion"
+                style="@style/SettingRelativeLayoutStyle.MarginTop10"
+
+                android:visibility="visible">
+
+                <TextView
+                    style="@style/SettingEditStyle"
+                    android:text="维保准则" />
+
+                <ImageView style="@style/ArrowImageStylePadding15" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_maintenancepolicy_paper"
+                style="@style/SettingRelativeLayoutStyle.MarginTop10"
+                android:layout_height="@dimen/dp140"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp70"
+                    android:layout_marginRight="@dimen/dp70"
+                    android:text="底部"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp16" />
+
+                <ImageView
+                    android:id="@+id/iv_maintenancepolicy_paper"
+                    android:layout_width="@dimen/dp160"
+                    android:layout_height="@dimen/dp120"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/btn_photo" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_maintenancepolicy_submit"
+                style="@style/SubmitStyle"
+                android:layout_marginTop="@dimen/dp120"
+                android:background="@drawable/corners_red_radius6"
+                android:text="提交" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -33,11 +33,11 @@ public class MaintenancePeriodsAdapter extends XSimpleRecyclerAdapter<Maintenanc
         TextView timeTitle = XSimpleViewHolder.get(convertView, R.id.tv_maintenanceperiods_time_title);
         TextView tvFault = XSimpleViewHolder.get(convertView, R.id.tv_maintenanceperiods_fault);
         TextView tvFaulttype = XSimpleViewHolder.get(convertView, R.id.tv_maintenanceperiods_faulttype);
-        tvFault.setText("SHDF002");
-        tvFaulttype.setText("半月保");
+        tvFault.setText(item.getReg_code());
+        tvFaulttype.setText(item.getRule());
         XSimpleImage.getInstance().displayImage("drawable://" + R.drawable.icon_book, icon);
-        name.setText("市政府电梯" + item.getElevetor_number() + "号维保");
-        time.setText(XSimpleTime.getFormatTimeFromTimestamp((long) 1444492800, "yyyy-MM-dd"));
+        name.setText(item.getCustomer());
+        time.setText(XSimpleTime.getFormatTimeFromTimestamp((long) item.getTime(), "yyyy-MM-dd"));
         if (item.getM_status() == 2) {
             status.setText("已完成");
             submit.setText("查看");
@@ -48,13 +48,6 @@ public class MaintenancePeriodsAdapter extends XSimpleRecyclerAdapter<Maintenanc
             timeTitle.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
             name.setTextColor(XSimpleResources.getColor(R.color.text_color_999));
         } else {
-//            if (item.getM_status() == 0) {
-//                status.setText("待维保");
-//            } else if (item.getM_status() == 1) {
-//                status.setText("正在进行");
-//            } else if (item.getM_status() == 3) {
-//                status.setText("过期");
-//            }
             status.setText("正在进行");
             submit.setText("继续维保");
             timeTitle.setText("维保时间");

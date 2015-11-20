@@ -7,13 +7,17 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.property.adapter.MaintenancePeriodsAdapter;
+import com.property.adapter.SignModel;
+import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
 import com.property.enumbase.MessageType;
+import com.property.enumbase.UpdateType;
+import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.model.MaintenanceModel;
+import com.property.model.PlanModel;
 import com.property.ui.codeScan.CaptureActivity;
 import com.vk.simpleutil.adapter.XSimpleRecyclerAdapter;
 import com.vk.simpleutil.library.XSimpleLogger;
-import com.vk.simpleutil.library.XSimpleToast;
 import com.vk.simpleutil.view.PullToRefreshRecyclerView;
 import com.vk.simpleutil.view.pulltorefresh.lib.PullToRefreshBase;
 import com.vk.simpleutil.view.pulltorefresh.lib.extras.IXListViewListener;
@@ -36,6 +40,7 @@ public class MaintenancePeriodsActivity extends BaseActivity implements IXListVi
     MaintenancePeriodsAdapter maintenancePeriodsAdapter;
     List<MaintenanceModel> list = new ArrayList<>();
     int postion = 0;
+    PlanModel planModel;
 
     @Override
     public int onCreateViewLayouId() {
@@ -44,25 +49,81 @@ public class MaintenancePeriodsActivity extends BaseActivity implements IXListVi
 
     @Override
     public void initAllData() {
-        setTitle(getIntent().getStringExtra("title"));
+        planModel = getIntent().getParcelableExtra("planModel");
+        setTitle(planModel.getPlan_name());
         maintenancePeriodsAdapter = new MaintenancePeriodsAdapter(mContext, list);
         listView.setLayoutManager(new LinearLayoutManager(mContext));
         listView.setPullRefreshLoadEnable(true, true, PullToRefreshBase.Mode.BOTH);
         listView.setOnXListViewListener(this);
         listView.setAdapter(maintenancePeriodsAdapter);
+        tvMaintenanceperiodsPeriods.setText(planModel.getOk_count() + "/" + planModel.getLifts_count());
+        if (planModel.getStatus() == 2) {
+            tvMaintenanceperiodsLoading.setText("已完成");
+        } else {
+            tvMaintenanceperiodsLoading.setText("正在进行中");
+        }
+        tvMaintenanceperiodsMaintenance.setText("开始维保");
     }
 
     @Override
     public void initListener() {
+        tvMaintenanceperiodsMaintenance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CaptureActivity.launchActivity((Activity) mContext, MessageActivity.REQUEST_CODE_SCANLE);
+            }
+        });
         maintenancePeriodsAdapter.setOnItemClickListener(new XSimpleRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 MaintenanceModel maintenanceModel = list.get(position);
                 if (maintenanceModel.getM_status() == 2) {
-                    XSimpleToast.showToast("查看");
+                    startActivity(new Intent(mContext, DetailCompleteActivity.class).putExtra("id", maintenanceModel.getId()).putExtra("messageType", MessageType.maintenance));
                 } else {
-                    CaptureActivity.launchActivity((Activity) mContext, MessageActivity.REQUEST_CODE_SCANLE);
+                    MaintenanceApi.getInstance().sign(mContext, maintenanceModel.getId(), planModel.getId(), new MyJsonDataResponseCacheHandler<SignModel>(SignModel.class, false) {
+                        @Override
+                        public void onJsonDataSuccess(SignModel object) {
+
+                        }
+
+                        @Override
+                        public boolean onJsonCacheData(boolean has) {
+                            return false;
+                        }
+                    });
                 }
+            }
+        });
+    }
+
+    void getList(final UpdateType updateType) {
+        String id = null;
+        if (updateType == UpdateType.top) {
+            if (list.isEmpty())
+                showProgressDialog(mContext);
+            id = null;
+        } else {
+            id = list.get(list.size() - 1).getId();
+        }
+        MaintenanceApi.getInstance().getPlanList(mContext, id, new MyJsonDataResponseCacheHandler<List<MaintenanceModel>>(MaintenanceModel.class, list.isEmpty()) {
+            @Override
+            public void onJsonDataSuccess(List<MaintenanceModel> object) {
+                if (updateType == UpdateType.top)
+                    list.clear();
+                list.addAll(object);
+                listView.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onHttpComplete() {
+                super.onHttpComplete();
+                listView.onRefreshComplete();
+                dismissProgressDialog();
+            }
+
+            @Override
+            public boolean onJsonCacheData(boolean has) {
+                return false;
             }
         });
     }
@@ -81,11 +142,11 @@ public class MaintenancePeriodsActivity extends BaseActivity implements IXListVi
 
     @Override
     public void onRefresh() {
-
+        getList(UpdateType.top);
     }
 
     @Override
     public void onLoadMore() {
-
+        getList(UpdateType.bottom);
     }
 }

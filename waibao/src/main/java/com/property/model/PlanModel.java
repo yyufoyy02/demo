@@ -1,9 +1,12 @@
 package com.property.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.property.base.BaseModel;
 import com.vk.simpleutil.library.XSimpleText;
 
-public class PlanModel extends BaseModel {
+public class PlanModel extends BaseModel implements Parcelable {
     String id;
     String customer_name;
     String customer_id;
@@ -112,4 +115,47 @@ public class PlanModel extends BaseModel {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
+        dest.writeString(this.customer_name);
+        dest.writeString(this.customer_id);
+        dest.writeString(this.customer_address);
+        dest.writeString(this.plan_name);
+        dest.writeInt(this.lifts_count);
+        dest.writeDouble(this.plan_time);
+        dest.writeInt(this.status);
+        dest.writeInt(this.ok_count);
+    }
+
+    public PlanModel() {
+    }
+
+    protected PlanModel(Parcel in) {
+        this.id = in.readString();
+        this.customer_name = in.readString();
+        this.customer_id = in.readString();
+        this.customer_address = in.readString();
+        this.plan_name = in.readString();
+        this.lifts_count = in.readInt();
+        this.plan_time = in.readDouble();
+        this.status = in.readInt();
+        this.ok_count = in.readInt();
+    }
+
+    public static final Parcelable.Creator<PlanModel> CREATOR = new Parcelable.Creator<PlanModel>() {
+        public PlanModel createFromParcel(Parcel source) {
+            return new PlanModel(source);
+        }
+
+        public PlanModel[] newArray(int size) {
+            return new PlanModel[size];
+        }
+    };
 }

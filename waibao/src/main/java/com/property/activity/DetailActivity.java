@@ -72,7 +72,11 @@ public class DetailActivity extends BaseActivity {
         edtDetailMaintenanceCompany.setText(liftModel.getCompany());
         edtDetailPhone.setText(liftModel.getPhone());
         edtDetailLasttime.setText(XSimpleTime.getFormatTimeFromTimestamp((long) liftModel.getLast_time(), "yyyy-MM-dd"));
+        if (liftModel.getLast_time() == 0 && messageType == MessageType.maintenance)
+            edtDetailLasttime.setText("未有过维保");
         edtDetailThistime.setText(XSimpleTime.getFormatTimeFromTimestamp((long) liftModel.getStart_time(), "yyyy-MM-dd"));
+        if (liftModel.getStart_time() == 0 && messageType == MessageType.maintenance)
+            edtDetailThistime.setText("未有过维保");
         tvReason.setText(liftModel.getFault_type());
         submit.setClickable(true);
     }

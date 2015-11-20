@@ -14,8 +14,46 @@ public class MaintenanceModel extends BaseModel {
     String elevetor_number;
     String reg_code;
     int m_status;
-    int sign_status;
+    String customer;
+    double time;
+    String rule;
 
+    /**
+     * 月保类型
+     */
+    public String getRule() {
+        return XSimpleText.isEmpty(rule, "");
+    }
+
+    public void setRule(String rule) {
+        this.rule = rule;
+    }
+
+    /**
+     * 物业公司名字,
+     */
+    public String getCustomer() {
+        return XSimpleText.isEmpty(customer, "");
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    /**
+     * 时间,
+     */
+    public double getTime() {
+        return time;
+    }
+
+    public void setTime(double time) {
+        this.time = time;
+    }
+
+    /**
+     * 维保单id,
+     */
     public String getId() {
         return XSimpleText.isEmpty(id, "");
     }
@@ -33,7 +71,9 @@ public class MaintenanceModel extends BaseModel {
         this.lift_id = lift_id;
     }
 
-
+    /**
+     * 地址,
+     */
     public String getAddress() {
         return XSimpleText.isEmpty(address, "");
     }
@@ -42,6 +82,9 @@ public class MaintenanceModel extends BaseModel {
         this.address = address;
     }
 
+    /**
+     * 梯号,
+     */
     public String getElevetor_number() {
         return XSimpleText.isEmpty(elevetor_number, "");
     }
@@ -50,6 +93,9 @@ public class MaintenanceModel extends BaseModel {
         this.elevetor_number = elevetor_number;
     }
 
+    /**
+     * reg_code
+     */
     public String getReg_code() {
         return XSimpleText.isEmpty(reg_code, "");
     }
@@ -58,6 +104,9 @@ public class MaintenanceModel extends BaseModel {
         this.reg_code = reg_code;
     }
 
+    /**
+     * 维保单号
+     */
     public String getWb_order_no() {
         return XSimpleText.isEmpty(wb_order_no, "");
     }
@@ -66,6 +115,9 @@ public class MaintenanceModel extends BaseModel {
         this.wb_order_no = wb_order_no;
     }
 
+    /**
+     * 维保状态，1：正在维保，2：完成
+     */
     public int getM_status() {
         return m_status;
     }
@@ -74,11 +126,4 @@ public class MaintenanceModel extends BaseModel {
         this.m_status = m_status;
     }
 
-    public int getSign_status() {
-        return sign_status;
-    }
-
-    public void setSign_status(int sign_status) {
-        this.sign_status = sign_status;
-    }
 }

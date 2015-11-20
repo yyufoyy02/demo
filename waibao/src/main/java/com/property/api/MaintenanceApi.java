@@ -37,7 +37,7 @@ public class MaintenanceApi extends BaseApi {
         get(context, "maintenance_list.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
-    public void getPlanList(Context context,String id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+    public void getPlanList(Context context, String id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("staff_id", UserDataUtil.getInstance().getStaff_id());
         if (id != null) {
@@ -54,9 +54,11 @@ public class MaintenanceApi extends BaseApi {
         get(context, "maintenance_scan.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
-    public void sign(Context context, String maintenance_id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+    public void sign(Context context, String maintenance_id, String plan_id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
+        mTempMap.put("staff_id", UserDataUtil.getInstance().getStaff_id());
         mTempMap.put("maintenance_id", maintenance_id);
+        mTempMap.put("plan_id", plan_id);
         get(context, "maintenance_sign.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
