@@ -50,6 +50,7 @@ public class MaintenancePolicyCriterionActivity extends BaseActivity {
                 list.add(ruleModelList.get(i).getId());
         }
         setResult(RESULT_OK, new Intent().putExtra("ruleIDs", (Serializable) list));
+        finish();
     }
 
     void initView(List<RuleModel> list) {

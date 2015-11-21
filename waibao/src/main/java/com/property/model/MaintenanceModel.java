@@ -17,6 +17,33 @@ public class MaintenanceModel extends BaseModel {
     String customer;
     double time;
     String rule;
+    int type;
+    int type2;
+    String new_rule_id;
+
+    public String getNew_rule_id() {
+        return XSimpleText.isEmpty(new_rule_id, "");
+    }
+
+    public void setNew_rule_id(String new_rule_id) {
+        this.new_rule_id = new_rule_id;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getType2() {
+        return type2;
+    }
+
+    public void setType2(int type2) {
+        this.type2 = type2;
+    }
 
     /**
      * 月保类型

@@ -88,7 +88,8 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
                 pohoto(3);
                 break;
             case R.id.ll_maintenancepolicy_criterion:
-                startActivityForResult(new Intent(mContext, MaintenancePolicyCriterionActivity.class), ActivityForResult.CRITERIONFORRESULT);
+                startActivityForResult(new Intent(mContext, MaintenancePolicyCriterionActivity.class).putExtra("ruleID"
+                        , signModel.getNew_rule_id()), ActivityForResult.CRITERIONFORRESULT);
                 break;
             case R.id.tv_maintenancepolicy_submit:
                 submit();
@@ -153,14 +154,14 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
             if (XSimpleText.isEmpty(XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data)))
                 return;
             ImageUploadUtils.getInstance().initImageCode(mContext, src, "", codePostion, this);
-            if (codeMap.containsKey(0)) {
-                XSimpleImage.getInstance().displayImage(codeMap.get(0), ivMaintenancepolicyBottom);
-            } else if (codeMap.containsKey(1)) {
-                XSimpleImage.getInstance().displayImage(codeMap.get(1), ivMaintenancepolicyTop);
-            } else if (codeMap.containsKey(2)) {
-                XSimpleImage.getInstance().displayImage(codeMap.get(2), ivMaintenancepolicySide);
-            } else if (codeMap.containsKey(3)) {
-                XSimpleImage.getInstance().displayImage(codeMap.get(3), ivMaintenancepolicyPaper);
+            if (codePostion == 0) {
+                XSimpleImage.getInstance().displayImage(src, ivMaintenancepolicyBottom);
+            } else if (codePostion == 1) {
+                XSimpleImage.getInstance().displayImage(src, ivMaintenancepolicyTop);
+            } else if (codePostion == 2) {
+                XSimpleImage.getInstance().displayImage(src, ivMaintenancepolicySide);
+            } else if (codePostion == 3) {
+                XSimpleImage.getInstance().displayImage(src, ivMaintenancepolicyPaper);
             }
         }
     }

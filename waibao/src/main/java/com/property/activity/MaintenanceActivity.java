@@ -80,21 +80,17 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
             public void onItemClick(View view, int position) {
                 MaintenanceModel maintenanceModel = list.get(position);
                 if (maintenanceModel.getM_status() == 2) {
-                    startActivity(new Intent(mContext, DetailCompleteActivity.class).putExtra("id", maintenanceModel.getId()).putExtra("messageType", MessageType.maintenance));
+//                    startActivity(new Intent(mContext, DetailCompleteActivity.class).putExtra("id", maintenanceModel.getId()).putExtra("messageType", MessageType.maintenance));
                 } else {
-                    MaintenanceApi.getInstance().sign(mContext, maintenanceModel.getLift_id(), planModel.getId(), new MyJsonDataResponseCacheHandler<SignModel>(SignModel.class, false) {
-                        @Override
-                        public void onJsonDataSuccess(SignModel object) {
-                            startActivity(new Intent(mContext, MaintenanceActivity.class)
-                                    .putExtra("signModel", (Parcelable) object));
-                            finish();
-                        }
+                    SignModel signModel = new SignModel();
+                    signModel.setType(maintenanceModel.getType());
+                    signModel.setType2(maintenanceModel.getType2());
+                    signModel.setMaintenance_id(maintenanceModel.getId());
+                    signModel.setNew_rule_id(maintenanceModel.getNew_rule_id());
+                    startActivity(new Intent(mContext, MaintenancePolicyActivity.class)
+                            .putExtra("signModel", (Parcelable) signModel));
+                    finish();
 
-                        @Override
-                        public boolean onJsonCacheData(boolean has) {
-                            return false;
-                        }
-                    });
                 }
             }
         });
