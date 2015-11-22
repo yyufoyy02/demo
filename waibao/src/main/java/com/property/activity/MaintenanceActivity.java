@@ -80,7 +80,8 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
             public void onItemClick(View view, int position) {
                 MaintenanceModel maintenanceModel = list.get(position);
                 if (maintenanceModel.getM_status() == 2) {
-//                    startActivity(new Intent(mContext, DetailCompleteActivity.class).putExtra("id", maintenanceModel.getId()).putExtra("messageType", MessageType.maintenance));
+                    startActivity(new Intent(mContext, DetailCompleteActivity.class).putExtra("id",
+ maintenanceModel.getId()).putExtra("messageType", MessageType.maintenance));
                 } else {
                     SignModel signModel = new SignModel();
                     signModel.setType(maintenanceModel.getType());

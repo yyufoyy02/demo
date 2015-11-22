@@ -9,43 +9,55 @@
         android:id="@id/toolbar"
         layout="@layout/normal_title_layout" />
 
-    <LinearLayout
-        style="@style/SettingRelativeLayoutStyle.MarginTop10"
-        android:orientation="horizontal">
-
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="left|center_vertical"
-            android:paddingLeft="@dimen/dp30"
-            android:text="维保内容"
-            android:textColor="@color/main_color" />
-
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="状态"
-            android:textColor="@color/text_color_555" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_paper_main"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp10"
-        android:orientation="vertical" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/SettingRelativeLayoutStyle.MarginTop10"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="@dimen/dp30"
+                    android:text="维保内容"
+                    android:textColor="@color/main_color" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="状态"
+                    android:textColor="@color/text_color_555" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_paper_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:orientation="vertical" />
 
 
-    <TextView
-        android:id="@+id/tv_maintenancepolicypaper_submit"
-        style="@style/SubmitStyle"
-        android:layout_marginTop="@dimen/dp30"
-        android:background="@drawable/corners_blue_radius6"
-        android:text="完成"
-        android:textColor="@android:color/white" />
+            <TextView
+                android:id="@+id/tv_maintenancepolicypaper_submit"
+                style="@style/SubmitStyle"
+                android:layout_marginTop="@dimen/dp30"
+                android:background="@drawable/corners_blue_radius6"
+                android:text="完成"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

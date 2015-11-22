@@ -77,4 +77,9 @@ public class MaintenanceApi extends BaseApi {
             mTempMap.putAll(map);
         put(context, "maintenance_on.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
+    public void getDeal(Context context, String id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+        mTempMap.clear();
+        mTempMap.put("maintenance_id", id);
+        get(context, "maintenance_history.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+    }
 }

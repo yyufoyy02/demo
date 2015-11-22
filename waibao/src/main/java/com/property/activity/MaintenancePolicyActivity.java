@@ -28,7 +28,7 @@ import butterknife.InjectView;
 import butterknife.annotation.event.OnClick;
 
 public class MaintenancePolicyActivity extends BaseActivity implements ImageUploadUtils.ImageUpLoadListener {
-    Map<String, String> codeMap = new ArrayMap<>();
+    Map<Integer, String> codeMap = new ArrayMap<>();
     List<String> ruleList = new ArrayList<>();
     SignModel signModel;
     @InjectView(R.id.iv_maintenancepolicy_bottom)
@@ -114,15 +114,14 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
 
     void submit() {
         map.clear();
-        if (codeMap.containsKey(1)) {
+        if (codeMap.containsKey(1))
             map.put("code[0]", codeMap.get(1));
-        } else if (codeMap.containsKey(0)) {
+        if (codeMap.containsKey(0))
             map.put("code[1]", codeMap.get(0));
-        } else if (codeMap.containsKey(2)) {
+        if (codeMap.containsKey(2))
             map.put("code[2]", codeMap.get(2));
-        } else if (codeMap.containsKey(3)) {
+        if (codeMap.containsKey(3))
             map.put("code[3]", codeMap.get(3));
-        }
         map.put("type", signModel.getType() + "");
         if (ruleIDs != null)
             for (int i = 0; i < ruleIDs.size(); i++)
@@ -168,7 +167,7 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
 
     @Override
     public void imageUploadSuccess(String base64, int tag) {
-        codeMap.put(String.valueOf(tag), base64);
+        codeMap.put(tag, base64);
     }
 
     @Override
