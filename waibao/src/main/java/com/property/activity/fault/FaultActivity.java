@@ -131,9 +131,12 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == MessageActivity.REQUEST_CODE_SCANLE && resultCode == RESULT_OK && data != null && mMessageAdapter.getScanPostion() != -1) {
             XSimpleLogger.Log().e("code:" + data.getStringExtra("code"));
-            startActivity(new Intent(mContext, DetailActivity.class)
+            Intent intent = new Intent(mContext, DetailActivity.class)
                     .putExtra("code", data.getStringExtra("code")).putExtra("id", faultModellist.get(mMessageAdapter.getScanPostion()).getId())
-                    .putExtra("messageType", MessageType.repair));
+                    .putExtra("messageType", MessageType.repair);
+            if (mMessageAdapter != null && mMessageAdapter.bdLocation != null)
+                intent.putExtra("latitude", mMessageAdapter.bdLocation.getLatitude()).putExtra("longitude", mMessageAdapter.bdLocation.getLongitude());
+            startActivity(intent);
         }
 
     }

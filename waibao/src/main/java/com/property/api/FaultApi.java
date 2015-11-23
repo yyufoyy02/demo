@@ -37,10 +37,12 @@ public class FaultApi extends BaseApi {
         get(context, "fault_list.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
-    public void scan(Context context, String fault_id, String code, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+    public void scan(Context context, String fault_id, String code, double latitude, double longitude, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("code", code);
         mTempMap.put("fault_id", fault_id);
+        mTempMap.put("latitude", latitude + "");
+        mTempMap.put("longitude", longitude + "");
         get(context, "fault_scan.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 

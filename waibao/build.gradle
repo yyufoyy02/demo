@@ -12,17 +12,24 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles 'proguard.cfg'
-
         }
 
+    }
+    signingConfigs {
+        debug {
+            storeFile file("D:\\外包\\mykey.jks")
+            storePassword 'asd843'
+            keyAlias 'asd843'
+            keyPassword 'asd843'
+        }
     }
     lintOptions {
         checkReleaseBuilds false
@@ -38,4 +45,5 @@ dependencies {
     compile project(':xSimpleUtil')
     compile files('libs/zxing.jar')
     compile files('libs/jpush-android-2.0.5.jar')
+    compile files('libs/locSDK_6.13.jar')
 }

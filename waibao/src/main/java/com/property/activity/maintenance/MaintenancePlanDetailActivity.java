@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.TextView;
 
+import com.baidu.location.BDLocation;
 import com.property.activity.DetailActivity;
 import com.property.activity.MessageActivity;
 import com.property.activity.R;
@@ -20,6 +21,7 @@ import com.property.model.MaintenanceModel;
 import com.property.model.PlanModel;
 import com.property.model.SignModel;
 import com.property.ui.codeScan.CaptureActivity;
+import com.property.utils.BaiDuMapUtilInit;
 import com.vk.simpleutil.adapter.XSimpleRecyclerAdapter;
 import com.vk.simpleutil.library.XSimpleLogger;
 import com.vk.simpleutil.view.PullToRefreshRecyclerView;
@@ -45,6 +47,7 @@ public class MaintenancePlanDetailActivity extends BaseActivity implements IXLis
     List<MaintenanceModel> list = new ArrayList<>();
     int postion = 0;
     PlanModel planModel;
+    BDLocation bdLocation;
 
     @Override
     public int onCreateViewLayouId() {
@@ -79,6 +82,17 @@ public class MaintenancePlanDetailActivity extends BaseActivity implements IXLis
                 @Override
                 public void onClick(View v) {
                     CaptureActivity.launchActivity((Activity) mContext, MessageActivity.REQUEST_CODE_SCANLE);
+                    BaiDuMapUtilInit.getInstance().startBaiDuMapReceiveLocation(new BaiDuMapUtilInit.LocationCallback() {
+                        @Override
+                        public void getLocation(BDLocation location) {
+                            bdLocation = location;
+                        }
+
+                        @Override
+                        public void getLocationFail() {
+
+                        }
+                    });
                 }
             });
         maintenancePeriodsAdapter.setOnItemClickListener(
@@ -144,9 +158,12 @@ public class MaintenancePlanDetailActivity extends BaseActivity implements IXLis
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == MessageActivity.REQUEST_CODE_SCANLE && resultCode == RESULT_OK && data != null && postion != -1) {
             XSimpleLogger.Log().e("code:" + data.getStringExtra("code"));
-            startActivity(new Intent(mContext, DetailActivity.class)
+            Intent intent = new Intent(mContext, DetailActivity.class)
                     .putExtra("code", data.getStringExtra("code")).putExtra("id", planModel.getId())
-                    .putExtra("messageType", MessageType.maintenance));
+                    .putExtra("messageType", MessageType.maintenance);
+            if (bdLocation != null)
+                intent.putExtra("latitude", bdLocation.getLatitude()).putExtra("longitude", bdLocation.getLongitude());
+            startActivity(intent);
         }
 
     }

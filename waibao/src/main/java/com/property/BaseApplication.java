@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.property.activity.R;
+import com.property.utils.BaiDuMapUtilInit;
 import com.property.utils.UserDataUtil;
 import com.vk.simpleutil.XSimpleBaseUtil;
 import com.vk.simpleutil.XSimpleBaseUtil.Builder;
@@ -53,6 +54,7 @@ public class BaseApplication extends Application {
      * 数据初始化
      */
     private void DataInit() {
+        BaiDuMapUtilInit.getInstance().BaiDuMapDataInit(mContext);
         /** 极光 */
         JPushInterface.init(getApplicationContext());
         XSimpleBaseUtil.initConfig(new Builder().initContext(mContext)

@@ -3,6 +3,7 @@ package com.property.activity.maintenance;
 import android.content.Intent;
 import android.support.v4.util.ArrayMap;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -47,6 +48,8 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
     ImageView ivMaintenancepolicyPaper;
     @InjectView(R.id.ll_maintenancepolicy_paper)
     LinearLayout llMaintenancepolicyPaper;
+    @InjectView(R.id.edt_maintenancepolicy_other)
+    EditText edtOther;
     @InjectView(R.id.tv_maintenancepolicy_submit)
     TextView submit;
     Map<String, String> map = new ArrayMap<>();

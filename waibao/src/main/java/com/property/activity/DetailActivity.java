@@ -53,6 +53,7 @@ public class DetailActivity extends BaseActivity {
     MessageType messageType;
     String id;
     LiftModel liftModel;
+    double latitude, longitude;
 
     @Override
     public int onCreateViewLayouId() {
@@ -65,6 +66,8 @@ public class DetailActivity extends BaseActivity {
         submit.setClickable(false);
         id = getIntent().getStringExtra("id");
         messageType = (MessageType) getIntent().getSerializableExtra("messageType");
+        latitude = getIntent().getDoubleExtra("latitude", 0);
+        longitude = getIntent().getDoubleExtra("longitude", 0);
         getScan(id, getIntent().getStringExtra("code"));
     }
 
@@ -108,11 +111,11 @@ public class DetailActivity extends BaseActivity {
             }
         };
         if (messageType == MessageType.repair) {
-            FaultApi.getInstance().scan(mContext, id, code, myJsonDataResponseCacheHandler);
+            FaultApi.getInstance().scan(mContext, id, code, latitude, longitude, myJsonDataResponseCacheHandler);
             edtDetailLasttime.setVisibility(View.GONE);
             edtDetailThistime.setVisibility(View.GONE);
         } else if (messageType == MessageType.maintenance) {
-            MaintenanceApi.getInstance().scan(mContext, id, code, myJsonDataResponseCacheHandler);
+            MaintenanceApi.getInstance().scan(mContext, id, code, latitude, longitude, myJsonDataResponseCacheHandler);
             tvReason.setVisibility(View.GONE);
             tvTitleReason.setVisibility(View.GONE);
         }

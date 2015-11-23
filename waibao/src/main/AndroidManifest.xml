@@ -128,7 +128,11 @@
             android:name="com.property.ui.codeScan.ResultActivity"
             android:screenOrientation="portrait" />
 
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"/>
 
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="MVgSnGgehTP988TaDrG1GLLt" />       //key:开发者申请的key
         <!-- Required SDK核心功能-->
         <activity
             android:name="cn.jpush.android.ui.PushActivity"

@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.baidu.location.BDLocation;
 import com.property.activity.fault.FaultDetailCompleteActivity;
 import com.property.activity.MessageActivity;
 import com.property.activity.R;
 import com.property.model.MessageModel;
 import com.property.ui.codeScan.CaptureActivity;
+import com.property.utils.BaiDuMapUtilInit;
 import com.vk.simpleutil.adapter.XSimpleRecyclerAdapter;
 import com.vk.simpleutil.adapter.XSimpleViewHolder;
 import com.vk.simpleutil.library.XSimpleImage;
@@ -31,6 +33,8 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
     public int getScanPostion() {
         return postions;
     }
+
+    public BDLocation bdLocation;
 
     @Override
     public void convert(View convertView, final MessageModel item, final int position) {
@@ -90,6 +94,17 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                     public void onClick(View v) {
                         postions = position;
                         CaptureActivity.launchActivity((Activity) getContext(), MessageActivity.REQUEST_CODE_SCANLE);
+                        BaiDuMapUtilInit.getInstance().startBaiDuMapReceiveLocation(new BaiDuMapUtilInit.LocationCallback() {
+                            @Override
+                            public void getLocation(BDLocation location) {
+                                bdLocation = location;
+                            }
+
+                            @Override
+                            public void getLocationFail() {
+
+                            }
+                        });
                     }
                 });
             }
@@ -127,7 +142,7 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                     status.setText("过期");
                 }
                 tvPeriods.setText(XSimpleText.setColorText("(第" + item.getPeriods() + "期维保计划)", 2,
-                        (item.getPeriods()+"").length(), android.R.color.holo_red_light));
+                        (item.getPeriods() + "").length(), android.R.color.holo_red_light));
                 status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
                 submit.setVisibility(View.VISIBLE);
                 time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));

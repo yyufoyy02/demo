@@ -48,10 +48,12 @@ public class MaintenanceApi extends BaseApi {
         get(context, "plan_list.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
-    public void scan(Context context, String plan_id, String code, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+    public void scan(Context context, String plan_id, String code, double latitude, double longitude, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("code", code);
         mTempMap.put("plan_id", plan_id);
+        mTempMap.put("latitude", latitude + "");
+        mTempMap.put("longitude", longitude + "");
         get(context, "maintenance_scan.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
@@ -77,6 +79,7 @@ public class MaintenanceApi extends BaseApi {
             mTempMap.putAll(map);
         put(context, "maintenance_on.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
+
     public void getDeal(Context context, String id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("maintenance_id", id);
