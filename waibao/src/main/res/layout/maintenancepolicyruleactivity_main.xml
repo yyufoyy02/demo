@@ -43,7 +43,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_paper_main"
+                android:id="@+id/ll_rule_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
@@ -51,8 +51,9 @@
 
 
             <TextView
-                android:id="@+id/tv_maintenancepolicypaper_submit"
+                android:id="@+id/tv_maintenancepolicyrule_submit"
                 style="@style/SubmitStyle"
+                android:layout_marginBottom="@dimen/dp30"
                 android:layout_marginTop="@dimen/dp30"
                 android:background="@drawable/corners_blue_radius6"
                 android:text="完成"

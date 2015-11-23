@@ -1,4 +1,4 @@
-package com.property.activity;
+package com.property.activity.maintenance;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,8 +7,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.TextView;
 
+import com.property.activity.DetailActivity;
+import com.property.activity.MessageActivity;
+import com.property.activity.R;
 import com.property.adapter.MaintenancePeriodsAdapter;
-import com.property.model.SignModel;
 import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
 import com.property.enumbase.MessageType;
@@ -16,6 +18,7 @@ import com.property.enumbase.UpdateType;
 import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.model.MaintenanceModel;
 import com.property.model.PlanModel;
+import com.property.model.SignModel;
 import com.property.ui.codeScan.CaptureActivity;
 import com.vk.simpleutil.adapter.XSimpleRecyclerAdapter;
 import com.vk.simpleutil.library.XSimpleLogger;
@@ -29,13 +32,13 @@ import java.util.List;
 import butterknife.InjectView;
 
 
-public class MaintenanceActivity extends BaseActivity implements IXListViewListener {
-    @InjectView(R.id.tv_maintenanceperiods_periods)
-    TextView tvMaintenanceperiodsPeriods;
-    @InjectView(R.id.tv_maintenanceperiods_loading)
-    TextView tvMaintenanceperiodsLoading;
-    @InjectView(R.id.tv_maintenanceperiods_maintenance)
-    TextView tvMaintenanceperiodsMaintenance;
+public class MaintenancePlanDetailActivity extends BaseActivity implements IXListViewListener {
+    @InjectView(R.id.tv_maintenanceplandetail_plandetail)
+    TextView tvPlandetail;
+    @InjectView(R.id.tv_maintenanceplandetail_loading)
+    TextView tvLoading;
+    @InjectView(R.id.tv_maintenanceplandetail_maintenance)
+    TextView tvMaintenance;
     @InjectView(R.id.list)
     PullToRefreshRecyclerView listView;
     MaintenancePeriodsAdapter maintenancePeriodsAdapter;
@@ -57,51 +60,57 @@ public class MaintenanceActivity extends BaseActivity implements IXListViewListe
         listView.setPullRefreshLoadEnable(true, true, PullToRefreshBase.Mode.BOTH);
         listView.setOnXListViewListener(this);
         listView.setAdapter(maintenancePeriodsAdapter);
-        tvMaintenanceperiodsPeriods.setText(planModel.getOk_count() + "/" + planModel.getLifts_count());
+        tvPlandetail.setText(planModel.getOk_count() + "/" + planModel.getLifts_count());
         if (planModel.getStatus() == 2) {
-            tvMaintenanceperiodsLoading.setText("已完成");
+            tvLoading.setText("已完成");
+            tvMaintenance.setText("已完成");
         } else {
-            tvMaintenanceperiodsLoading.setText("正在进行中");
+            tvLoading.setText("正在进行中");
+            tvMaintenance.setText("开始维保");
         }
-        tvMaintenanceperiodsMaintenance.setText("开始维保");
+
         getList(UpdateType.top);
     }
 
     @Override
     public void initListener() {
-        tvMaintenanceperiodsMaintenance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CaptureActivity.launchActivity((Activity) mContext, MessageActivity.REQUEST_CODE_SCANLE);
-            }
-        });
-        maintenancePeriodsAdapter.setOnItemClickListener(new XSimpleRecyclerAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                MaintenanceModel maintenanceModel = list.get(position);
-                if (maintenanceModel.getM_status() == 2) {
-                    startActivity(new Intent(mContext, DetailCompleteActivity.class).putExtra("id",
- maintenanceModel.getId()).putExtra("messageType", MessageType.maintenance));
-                } else {
-                    SignModel signModel = new SignModel();
-                    signModel.setType(maintenanceModel.getType());
-                    signModel.setType2(maintenanceModel.getType2());
-                    signModel.setMaintenance_id(maintenanceModel.getId());
-                    signModel.setNew_rule_id(maintenanceModel.getNew_rule_id());
-                    startActivity(new Intent(mContext, MaintenancePolicyActivity.class)
-                            .putExtra("signModel", (Parcelable) signModel));
-                    finish();
-
+        if (planModel.getStatus() != 2)
+            tvMaintenance.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CaptureActivity.launchActivity((Activity) mContext, MessageActivity.REQUEST_CODE_SCANLE);
                 }
-            }
-        });
+            });
+        maintenancePeriodsAdapter.setOnItemClickListener(
+                new XSimpleRecyclerAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        MaintenanceModel maintenanceModel = list.get(position);
+                        if (maintenanceModel.getM_status() == 2) {
+                            startActivity(new Intent(mContext, MaintenancePolicyActivity.class).putExtra("maintenanceID",
+                                    maintenanceModel.getId()));
+                        } else {
+                            SignModel signModel = new SignModel();
+                            signModel.setType(maintenanceModel.getType());
+                            signModel.setType2(maintenanceModel.getType2());
+                            signModel.setMaintenance_id(maintenanceModel.getId());
+                            signModel.setNew_rule_id(maintenanceModel.getNew_rule_id());
+                            startActivity(new Intent(mContext, MaintenancePolicyActivity.class)
+                                    .putExtra("signModel", (Parcelable) signModel));
+                            finish();
+
+                        }
+                    }
+                }
+
+        );
     }
 
     void getList(final UpdateType updateType) {
         String id = null;
         if (updateType == UpdateType.top) {
             if (list.isEmpty())
-                showProgressDialog(mContext);
+                showProgressDialog();
             id = null;
         } else {
             id = list.get(list.size() - 1).getId();

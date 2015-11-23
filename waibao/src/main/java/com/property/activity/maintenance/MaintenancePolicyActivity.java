@@ -1,4 +1,4 @@
-package com.property.activity;
+package com.property.activity.maintenance;
 
 import android.content.Intent;
 import android.support.v4.util.ArrayMap;
@@ -6,10 +6,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.property.ActivityForResult;
+import com.property.activity.R;
 import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
+import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.http.MySimpleJsonDataResponseCacheHandler;
 import com.property.model.SignModel;
 import com.property.utils.ImageUploadUtils;
@@ -20,6 +23,7 @@ import com.vk.simpleutil.library.XSimpleResources;
 import com.vk.simpleutil.library.XSimpleText;
 import com.vk.simpleutil.library.XSimpleToast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -43,8 +47,11 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
     ImageView ivMaintenancepolicyPaper;
     @InjectView(R.id.ll_maintenancepolicy_paper)
     LinearLayout llMaintenancepolicyPaper;
+    @InjectView(R.id.tv_maintenancepolicy_submit)
+    TextView submit;
     Map<String, String> map = new ArrayMap<>();
     int codePostion = -1;
+    String maintenanceID;
 
     @Override
     public int onCreateViewLayouId() {
@@ -53,7 +60,16 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
 
     @Override
     public void initAllData() {
-        signModel = getIntent().getParcelableExtra("signModel");
+        maintenanceID = getIntent().getStringExtra("maintenanceID");
+        if (!XSimpleText.isEmpty(maintenanceID)) {
+            initMaintenanceData(maintenanceID);
+        } else {
+            signModel = getIntent().getParcelableExtra("signModel");
+            initRuleData(signModel);
+        }
+    }
+
+    void initRuleData(final SignModel signModel) {
         if (signModel.getType() == 1) {
             setTitle("电子维保单");
             llMaintenancepolicyPaper.setVisibility(View.GONE);
@@ -63,6 +79,25 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
             llMaintenancepolicyPaper.setVisibility(View.VISIBLE);
             llMaintenancepolicyCriterion.setVisibility(View.GONE);
         }
+        if (!XSimpleText.isEmpty(signModel.getImg1()))
+            XSimpleImage.getInstance().displayImage(signModel.getImg1(), ivMaintenancepolicyTop);
+        if (!XSimpleText.isEmpty(signModel.getImg2()))
+            XSimpleImage.getInstance().displayImage(signModel.getImg2(), ivMaintenancepolicyBottom);
+        if (!XSimpleText.isEmpty(signModel.getImg3()))
+            XSimpleImage.getInstance().displayImage(signModel.getImg3(), ivMaintenancepolicySide);
+        if (!XSimpleText.isEmpty(signModel.getImg4()))
+            XSimpleImage.getInstance().displayImage(signModel.getImg4(), ivMaintenancepolicyPaper);
+        if (!XSimpleText.isEmpty(maintenanceID)) {
+            if (signModel.getW_rule() != null)
+                llMaintenancepolicyCriterion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(mContext, MaintenancePolicyRuleActivity.class).putExtra("rules"
+                                , (Serializable) signModel.getW_rule()));
+                    }
+                });
+            submit.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -70,11 +105,33 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
 
     }
 
+    void initMaintenanceData(String id) {
+        showProgressDialog();
+        MaintenanceApi.getInstance().getDeal(mContext, id, new MyJsonDataResponseCacheHandler<SignModel>(SignModel.class, false) {
+            @Override
+            public void onHttpComplete() {
+                super.onHttpComplete();
+                dismissProgressDialog();
+            }
+
+            @Override
+            public void onJsonDataSuccess(SignModel object) {
+                initRuleData(object);
+            }
+
+            @Override
+            public boolean onJsonCacheData(boolean has) {
+                return false;
+            }
+        });
+    }
+
     @OnClick({R.id.iv_maintenancepolicy_bottom, R.id.iv_maintenancepolicy_top
             , R.id.iv_maintenancepolicy_side, R.id.iv_maintenancepolicy_paper, R.id.ll_maintenancepolicy_criterion, R.id.tv_maintenancepolicy_submit})
     void onClick(View v) {
+        if (!XSimpleText.isEmpty(maintenanceID))
+            return;
         switch (v.getId()) {
-
             case R.id.iv_maintenancepolicy_bottom:
                 pohoto(0);
                 break;
@@ -88,7 +145,7 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
                 pohoto(3);
                 break;
             case R.id.ll_maintenancepolicy_criterion:
-                startActivityForResult(new Intent(mContext, MaintenancePolicyCriterionActivity.class).putExtra("ruleID"
+                startActivityForResult(new Intent(mContext, MaintenancePolicyRuleActivity.class).putExtra("ruleID"
                         , signModel.getNew_rule_id()), ActivityForResult.CRITERIONFORRESULT);
                 break;
             case R.id.tv_maintenancepolicy_submit:
@@ -129,6 +186,8 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
         MaintenanceApi.getInstance().putMaintenance(mContext, signModel.getMaintenance_id(), map, new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
             @Override
             public void success() {
+                XSimpleToast.showToast("提交成功！");
+                ActivityForResult.MaintenanceListRefresh = true;
                 finish();
             }
 

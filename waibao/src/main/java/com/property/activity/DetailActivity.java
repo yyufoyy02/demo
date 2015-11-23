@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.property.activity.fault.FaultDetailEditCompleteActivity;
+import com.property.activity.maintenance.MaintenancePolicyActivity;
 import com.property.api.FaultApi;
 import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
@@ -87,7 +89,7 @@ public class DetailActivity extends BaseActivity {
     }
 
     void getScan(String id, String code) {
-        showProgressDialog(mContext);
+        showProgressDialog();
         MyJsonDataResponseCacheHandler myJsonDataResponseCacheHandler = new MyJsonDataResponseCacheHandler<LiftModel>(LiftModel.class, false) {
             @Override
             public void onJsonDataSuccess(LiftModel object) {
@@ -125,7 +127,7 @@ public class DetailActivity extends BaseActivity {
     @OnClick(R.id.tv_detail_submit)
     void submit(View view) {
         if (messageType == MessageType.repair) {
-            startActivity(new Intent(mContext, DetailEditCompleteActivity.class)
+            startActivity(new Intent(mContext, FaultDetailEditCompleteActivity.class)
                     .putExtra("messageType", messageType).putExtra("id", id));
             finish();
         } else if (messageType == MessageType.maintenance) {

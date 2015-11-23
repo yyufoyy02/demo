@@ -1,4 +1,4 @@
-package com.property.activity;
+package com.property.activity.fault;
 
 
 import android.view.View;
@@ -6,17 +6,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.property.activity.R;
 import com.property.api.FaultApi;
-import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
-import com.property.enumbase.MessageType;
 import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.model.RepairModel;
 import com.vk.simpleutil.library.XSimpleImage;
 
 import butterknife.InjectView;
 
-public class DetailCompleteActivity extends BaseActivity {
+public class FaultDetailCompleteActivity extends BaseActivity {
 
     @InjectView(R.id.tv_complete_yes)
     TextView tvCompleteYes;
@@ -49,7 +48,7 @@ public class DetailCompleteActivity extends BaseActivity {
     ImageView ivArrow;
     @InjectView(R.id.tv_detail_say_reason)
     TextView tvSayReason;
-    MessageType messageType;
+
 
     @Override
     public int onCreateViewLayouId() {
@@ -60,7 +59,6 @@ public class DetailCompleteActivity extends BaseActivity {
     public void initAllData() {
         setTitle("维修详情");
         id = getIntent().getStringExtra("id");
-        messageType = (MessageType) getIntent().getSerializableExtra("messageType");
         ivEditPhoto.setVisibility(View.GONE);
         ivCompletePhoto.setVisibility(View.GONE);
         tvSubmit.setVisibility(View.GONE);
@@ -109,8 +107,8 @@ public class DetailCompleteActivity extends BaseActivity {
     }
 
     void getDetail() {
-        showProgressDialog(mContext);
-        MyJsonDataResponseCacheHandler myJsonDataResponseCacheHandler = new MyJsonDataResponseCacheHandler<RepairModel>(RepairModel.class, false) {
+        showProgressDialog();
+        FaultApi.getInstance().getDeal(mContext, id, new MyJsonDataResponseCacheHandler<RepairModel>(RepairModel.class, false) {
             @Override
             public void onHttpComplete() {
                 super.onHttpComplete();
@@ -126,11 +124,7 @@ public class DetailCompleteActivity extends BaseActivity {
             public boolean onJsonCacheData(boolean has) {
                 return false;
             }
-        };
-        if (messageType == MessageType.repair) {
-            FaultApi.getInstance().getDeal(mContext, id, myJsonDataResponseCacheHandler);
-        } else if (messageType == MessageType.maintenance) {
-            MaintenanceApi.getInstance().getDeal(mContext, id, myJsonDataResponseCacheHandler);
-        }
+        });
+
     }
 }

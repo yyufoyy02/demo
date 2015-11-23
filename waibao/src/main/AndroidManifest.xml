@@ -98,28 +98,28 @@
             android:name=".DetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DetailEditCompleteActivity"
+            android:name=".fault.FaultDetailEditCompleteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FaultActivity"
+            android:name=".fault.FaultActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MaintenancePlanActivity"
+            android:name=".maintenance.MaintenancePlanActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MaintenanceActivity"
+            android:name=".maintenance.MaintenancePlanDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CommonLanguageActivity"
+            android:name=".fault.FaultCommonLanguageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DetailCompleteActivity"
+            android:name=".fault.FaultDetailCompleteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MaintenancePolicyActivity"
+            android:name=".maintenance.MaintenancePolicyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MaintenancePolicyCriterionActivity"
+            android:name=".maintenance.MaintenancePolicyRuleActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.property.ui.codeScan.CaptureActivity"

@@ -111,7 +111,6 @@
             <RelativeLayout
                 android:id="@+id/ll_maintenancepolicy_criterion"
                 style="@style/SettingRelativeLayoutStyle.MarginTop10"
-
                 android:visibility="visible">
 
                 <TextView
@@ -151,10 +150,14 @@
             <TextView
                 android:id="@+id/tv_maintenancepolicy_submit"
                 style="@style/SubmitStyle"
-                android:layout_marginBottom="@dimen/dp30"
                 android:layout_marginTop="@dimen/dp60"
                 android:background="@drawable/corners_red_radius6"
                 android:text="提交" />
+
+            <TextView
+                android:layout_width="0.1dp"
+                android:layout_height="0.1dp"
+                android:layout_marginTop="@dimen/dp30" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

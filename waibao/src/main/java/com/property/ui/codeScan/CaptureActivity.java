@@ -94,10 +94,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         super.onCreate(icicle);
 //        setResult(RESULT_OK, new Intent().putExtra("code", "159877"));
 //        finish();
-
-
-
-
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_capture);

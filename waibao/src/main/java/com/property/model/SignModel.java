@@ -7,11 +7,61 @@ import android.os.Parcelable;
 import com.property.base.BaseModel;
 import com.vk.simpleutil.library.XSimpleText;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SignModel extends BaseModel implements Parcelable {
     String maintenance_id;
     String new_rule_id;
     int type;
     int type2;
+    String img1;
+    String img2;
+    String img3;
+    String img4;
+   public List<RuleModel> w_rule;
+
+    public String getImg1() {
+        return XSimpleText.isEmpty(img1, "");
+    }
+
+    public void setImg1(String img1) {
+        this.img1 = img1;
+    }
+
+    public String getImg2() {
+        return XSimpleText.isEmpty(img2, "");
+    }
+
+    public void setImg2(String img2) {
+        this.img2 = img2;
+    }
+
+    public String getImg3() {
+        return XSimpleText.isEmpty(img3, "");
+    }
+
+    public void setImg3(String img3) {
+        this.img3 = img3;
+    }
+
+    public String getImg4() {
+        return XSimpleText.isEmpty(img4, "");
+    }
+
+    public void setImg4(String img4) {
+        this.img4 = img4;
+    }
+
+    public List<RuleModel> getW_rule() {
+        if (w_rule == null)
+            w_rule = new ArrayList<>();
+        return w_rule;
+    }
+
+    public void setW_rule(List<RuleModel> w_rule) {
+        this.w_rule = w_rule;
+    }
 
     /**
      * 生成的故障单id,

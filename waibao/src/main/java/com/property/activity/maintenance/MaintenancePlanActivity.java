@@ -1,4 +1,4 @@
-package com.property.activity;
+package com.property.activity.maintenance;
 
 import android.content.Intent;
 import android.os.Parcelable;
@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.property.ActivityForResult;
+import com.property.activity.R;
 import com.property.adapter.PlanAdapter;
 import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
@@ -60,9 +61,8 @@ public class MaintenancePlanActivity extends BaseActivity implements IXListViewL
         planAdapter.setOnItemClickListener(new XSimpleRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                if (planModellist.get(position).getStatus() == 1)
-                    startActivity(new Intent(mContext, MaintenanceActivity.class)
-                            .putExtra("planModel", (Parcelable) planModellist.get(position)));
+                startActivity(new Intent(mContext, MaintenancePlanDetailActivity.class)
+                        .putExtra("planModel", (Parcelable) planModellist.get(position)));
             }
         });
     }
@@ -72,7 +72,7 @@ public class MaintenancePlanActivity extends BaseActivity implements IXListViewL
         String id = null;
         if (updateType == UpdateType.top) {
             if (planModellist.isEmpty())
-                showProgressDialog(mContext);
+                showProgressDialog();
             id = null;
         } else {
             id = planModellist.get(planModellist.size() - 1).getId();

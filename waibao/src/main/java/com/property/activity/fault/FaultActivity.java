@@ -1,10 +1,13 @@
-package com.property.activity;
+package com.property.activity.fault;
 
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.property.ActivityForResult;
+import com.property.activity.DetailActivity;
+import com.property.activity.MessageActivity;
+import com.property.activity.R;
 import com.property.adapter.MessageAdapter;
 import com.property.api.FaultApi;
 import com.property.base.BaseActivity;
@@ -83,7 +86,7 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
         String id = null;
         if (updateType == UpdateType.top) {
             if (faultModellist.isEmpty())
-                showProgressDialog(mContext);
+                showProgressDialog();
             id = null;
         } else {
             id = faultModellist.get(faultModellist.size() - 1).getId();

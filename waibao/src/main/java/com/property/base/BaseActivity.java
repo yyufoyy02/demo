@@ -137,7 +137,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         showProgressDialog(mContext, msg, null);
     }
 
-    public void showProgressDialog(Context mContext) {
+    public void showProgressDialog() {
         showProgressDialog(mContext, "加载中...");
     }
 

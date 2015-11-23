@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.property.activity.DetailCompleteActivity;
+import com.property.activity.fault.FaultDetailCompleteActivity;
 import com.property.activity.MessageActivity;
 import com.property.activity.R;
 import com.property.model.MessageModel;
@@ -69,7 +69,7 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                     @Override
                     public void onClick(View v) {
                         postions = position;
-                        getContext().startActivity(new Intent(getContext(), DetailCompleteActivity.class).putExtra("id", item.getFault_id()));
+                        getContext().startActivity(new Intent(getContext(), FaultDetailCompleteActivity.class).putExtra("id", item.getFault_id()));
                     }
                 });
             } else {

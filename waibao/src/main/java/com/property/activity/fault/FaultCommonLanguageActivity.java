@@ -1,4 +1,4 @@
-package com.property.activity;
+package com.property.activity.fault;
 
 
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.property.activity.R;
 import com.property.api.LanguageApi;
 import com.property.base.BaseActivity;
 import com.property.http.MyJsonDataResponseCacheHandler;
@@ -18,7 +19,7 @@ import java.util.List;
 import butterknife.InjectView;
 import butterknife.annotation.event.OnClick;
 
-public class CommonLanguageActivity extends BaseActivity {
+public class FaultCommonLanguageActivity extends BaseActivity {
     @InjectView(R.id.ll_reason_main)
     LinearLayout llMain;
     @InjectView(R.id.ib_reason_check5)

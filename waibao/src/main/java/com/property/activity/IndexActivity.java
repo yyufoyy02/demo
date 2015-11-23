@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
+import com.property.activity.fault.FaultActivity;
+import com.property.activity.maintenance.MaintenancePlanActivity;
 import com.property.base.BaseActivity;
 import com.property.enumbase.MessageType;
 import com.property.utils.UserDataUtil;

@@ -19,7 +19,7 @@
         android:padding="@dimen/dp12">
 
         <TextView
-            android:id="@+id/tv_maintenanceperiods_periods"
+            android:id="@+id/tv_maintenanceplandetail_plandetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/dp12"
@@ -30,7 +30,7 @@
             tools:text="22/100" />
 
         <TextView
-            android:id="@+id/tv_maintenanceperiods_loading"
+            android:id="@+id/tv_maintenanceplandetail_loading"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/dp12"
@@ -41,7 +41,7 @@
             android:textColor="@android:color/holo_red_light" />
 
         <TextView
-            android:id="@+id/tv_maintenanceperiods_maintenance"
+            android:id="@+id/tv_maintenanceplandetail_maintenance"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/dp12"

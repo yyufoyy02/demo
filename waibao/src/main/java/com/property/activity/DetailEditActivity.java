@@ -99,7 +99,7 @@
 //            @Override
 //            public void success() {
 //                if (messageType == MessageType.repair) {
-//                    startActivity(new Intent(mContext, DetailEditCompleteActivity.class).putExtra("id", id));
+//                    startActivity(new Intent(mContext, FaultDetailEditCompleteActivity.class).putExtra("id", id));
 //                }
 //                dismissProgressDialog();
 //                finish();

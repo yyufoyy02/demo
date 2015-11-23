@@ -1,4 +1,4 @@
-package com.property.activity;
+package com.property.activity.fault;
 
 import android.content.Intent;
 import android.support.v4.util.ArrayMap;
@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.property.ActivityForResult;
+import com.property.activity.R;
 import com.property.api.FaultApi;
 import com.property.base.BaseActivity;
 import com.property.http.MySimpleJsonDataResponseCacheHandler;
@@ -29,7 +30,7 @@ import butterknife.annotation.event.OnClick;
 /**
  * Created by Administrator on 2015/11/7.
  */
-public class DetailEditCompleteActivity extends BaseActivity implements ImageUploadUtils.ImageUpLoadListener {
+public class FaultDetailEditCompleteActivity extends BaseActivity implements ImageUploadUtils.ImageUpLoadListener {
     @InjectView(R.id.tv_detail_say)
     TextView edtDetailSay;
     @InjectView(R.id.tv_complete_yes)
@@ -82,13 +83,12 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
     }
 
     void complete() {
-        showProgressDialog(mContext);
+        showProgressDialog();
         MySimpleJsonDataResponseCacheHandler mySimpleJsonDataResponseCacheHandler = new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
             @Override
             public void success() {
                 XSimpleToast.showToast("上传成功");
                 dismissProgressDialog();
-                ActivityForResult.MaintenanceListRefresh = true;
                 ActivityForResult.FaultListRefresh = true;
                 finish();
             }
@@ -134,7 +134,7 @@ public class DetailEditCompleteActivity extends BaseActivity implements ImageUpl
                 complete();
                 break;
             case R.id.tv_detail_say:
-                startActivityForResult(new Intent(mContext, CommonLanguageActivity.class), ActivityForResult.REASONFORRESULT);
+                startActivityForResult(new Intent(mContext, FaultCommonLanguageActivity.class), ActivityForResult.REASONFORRESULT);
                 break;
         }
     }
