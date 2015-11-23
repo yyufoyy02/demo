@@ -90,6 +90,11 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
             XSimpleImage.getInstance().displayImage(signModel.getImg3(), ivMaintenancepolicySide);
         if (!XSimpleText.isEmpty(signModel.getImg4()))
             XSimpleImage.getInstance().displayImage(signModel.getImg4(), ivMaintenancepolicyPaper);
+        if (!XSimpleText.isEmpty(signModel.getRemarks())) {
+            edtOther.setFocusable(false);
+            edtOther.setEnabled(false);
+            edtOther.setText(signModel.getRemarks());
+        }
         if (!XSimpleText.isEmpty(maintenanceID)) {
             if (signModel.getW_rule() != null)
                 llMaintenancepolicyCriterion.setOnClickListener(new View.OnClickListener() {
@@ -186,6 +191,7 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
         if (ruleIDs != null)
             for (int i = 0; i < ruleIDs.size(); i++)
                 map.put("w_rule[" + i + "]", ruleIDs.get(i));
+        map.put("remarks", edtOther.getText().toString());
         MaintenanceApi.getInstance().putMaintenance(mContext, signModel.getMaintenance_id(), map, new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
             @Override
             public void success() {

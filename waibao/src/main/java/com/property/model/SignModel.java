@@ -19,7 +19,16 @@ public class SignModel extends BaseModel implements Parcelable {
     String img2;
     String img3;
     String img4;
-   public List<RuleModel> w_rule;
+    public List<RuleModel> w_rule;
+    String remarks;
+
+    public String getRemarks() {
+        return XSimpleText.isEmpty(remarks, "");
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
 
     public String getImg1() {
         return XSimpleText.isEmpty(img1, "");
@@ -107,6 +116,9 @@ public class SignModel extends BaseModel implements Parcelable {
         this.type2 = type2;
     }
 
+    public SignModel() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -118,9 +130,12 @@ public class SignModel extends BaseModel implements Parcelable {
         dest.writeString(this.new_rule_id);
         dest.writeInt(this.type);
         dest.writeInt(this.type2);
-    }
-
-    public SignModel() {
+        dest.writeString(this.img1);
+        dest.writeString(this.img2);
+        dest.writeString(this.img3);
+        dest.writeString(this.img4);
+        dest.writeList(this.w_rule);
+        dest.writeString(this.remarks);
     }
 
     protected SignModel(Parcel in) {
@@ -128,9 +143,16 @@ public class SignModel extends BaseModel implements Parcelable {
         this.new_rule_id = in.readString();
         this.type = in.readInt();
         this.type2 = in.readInt();
+        this.img1 = in.readString();
+        this.img2 = in.readString();
+        this.img3 = in.readString();
+        this.img4 = in.readString();
+        this.w_rule = new ArrayList<RuleModel>();
+        in.readList(this.w_rule, List.class.getClassLoader());
+        this.remarks = in.readString();
     }
 
-    public static final Parcelable.Creator<SignModel> CREATOR = new Parcelable.Creator<SignModel>() {
+    public static final Creator<SignModel> CREATOR = new Creator<SignModel>() {
         public SignModel createFromParcel(Parcel source) {
             return new SignModel(source);
         }
