@@ -134,8 +134,6 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
             Intent intent = new Intent(mContext, DetailActivity.class)
                     .putExtra("code", data.getStringExtra("code")).putExtra("id", faultModellist.get(mMessageAdapter.getScanPostion()).getId())
                     .putExtra("messageType", MessageType.repair);
-            if (mMessageAdapter != null && mMessageAdapter.bdLocation != null)
-                intent.putExtra("latitude", mMessageAdapter.bdLocation.getLatitude()).putExtra("longitude", mMessageAdapter.bdLocation.getLongitude());
             startActivity(intent);
         }
 

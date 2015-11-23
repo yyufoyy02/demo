@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.baidu.location.BDLocation;
 import com.property.activity.fault.FaultDetailEditCompleteActivity;
 import com.property.activity.maintenance.MaintenancePolicyActivity;
 import com.property.api.FaultApi;
@@ -14,8 +15,10 @@ import com.property.api.MaintenanceApi;
 import com.property.base.BaseActivity;
 import com.property.enumbase.MessageType;
 import com.property.http.MyJsonDataResponseCacheHandler;
+import com.property.http.MySimpleJsonDataResponseCacheHandler;
 import com.property.model.LiftModel;
 import com.property.model.SignModel;
+import com.property.utils.BaiDuMapUtilInit;
 import com.vk.simpleutil.library.XSimpleTime;
 
 import butterknife.InjectView;
@@ -53,7 +56,7 @@ public class DetailActivity extends BaseActivity {
     MessageType messageType;
     String id;
     LiftModel liftModel;
-    double latitude, longitude;
+    BDLocation bdLocation;
 
     @Override
     public int onCreateViewLayouId() {
@@ -66,9 +69,18 @@ public class DetailActivity extends BaseActivity {
         submit.setClickable(false);
         id = getIntent().getStringExtra("id");
         messageType = (MessageType) getIntent().getSerializableExtra("messageType");
-        latitude = getIntent().getDoubleExtra("latitude", 0);
-        longitude = getIntent().getDoubleExtra("longitude", 0);
         getScan(id, getIntent().getStringExtra("code"));
+        BaiDuMapUtilInit.getInstance().startBaiDuMapReceiveLocation(new BaiDuMapUtilInit.LocationCallback() {
+            @Override
+            public void getLocation(BDLocation location) {
+                bdLocation = location;
+            }
+
+            @Override
+            public void getLocationFail() {
+
+            }
+        });
     }
 
     void initData(LiftModel liftModel) {
@@ -111,11 +123,11 @@ public class DetailActivity extends BaseActivity {
             }
         };
         if (messageType == MessageType.repair) {
-            FaultApi.getInstance().scan(mContext, id, code, latitude, longitude, myJsonDataResponseCacheHandler);
+            FaultApi.getInstance().scan(mContext, id, code, myJsonDataResponseCacheHandler);
             edtDetailLasttime.setVisibility(View.GONE);
             edtDetailThistime.setVisibility(View.GONE);
         } else if (messageType == MessageType.maintenance) {
-            MaintenanceApi.getInstance().scan(mContext, id, code, latitude, longitude, myJsonDataResponseCacheHandler);
+            MaintenanceApi.getInstance().scan(mContext, id, code, myJsonDataResponseCacheHandler);
             tvReason.setVisibility(View.GONE);
             tvTitleReason.setVisibility(View.GONE);
         }
@@ -130,14 +142,25 @@ public class DetailActivity extends BaseActivity {
     @OnClick(R.id.tv_detail_submit)
     void submit(View view) {
         if (messageType == MessageType.repair) {
-            startActivity(new Intent(mContext, FaultDetailEditCompleteActivity.class)
-                    .putExtra("messageType", messageType).putExtra("id", id));
-            finish();
+            FaultApi.getInstance().sign(mContext, id, bdLocation.getLatitude(), bdLocation.getLongitude(), new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
+                @Override
+                public void success() {
+                    startActivity(new Intent(mContext, FaultDetailEditCompleteActivity.class)
+                            .putExtra("messageType", messageType).putExtra("id", id));
+                    finish();
+                }
+
+                @Override
+                public void fail() {
+
+                }
+            }));
+
         } else if (messageType == MessageType.maintenance) {
             if (liftModel == null)
                 return;
             MaintenanceApi.getInstance().sign(mContext, liftModel.getLift_id(), liftModel.getPlan_id()
-                    , new MyJsonDataResponseCacheHandler<SignModel>(SignModel.class, false) {
+                    , bdLocation.getLatitude(), bdLocation.getLongitude(), new MyJsonDataResponseCacheHandler<SignModel>(SignModel.class, false) {
                 @Override
                 public void onJsonDataSuccess(SignModel object) {
                     startActivity(new Intent(mContext, MaintenancePolicyActivity.class)
