@@ -56,6 +56,15 @@ public class MaintenanceApi extends BaseApi {
         get(context, "maintenance_scan.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
 
+    public void scanConfirm(Context context, String maintenance_id, String code, double latitude, double longitude, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+        mTempMap.clear();
+        mTempMap.put("code", code);
+        mTempMap.put("maintenance_id", maintenance_id);
+        mTempMap.put("latitude", latitude + "");
+        mTempMap.put("longitude", longitude + "");
+        get(context, "maintenance_scan2.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+    }
+
     public void sign(Context context, String lift_id, String plan_id, double latitude, double longitude, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
         mTempMap.clear();
         mTempMap.put("staff_id", UserDataUtil.getInstance().getStaff_id());

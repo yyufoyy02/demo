@@ -1,5 +1,6 @@
 package com.property.activity.maintenance;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.util.ArrayMap;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.baidu.location.BDLocation;
 import com.property.ActivityForResult;
 import com.property.activity.R;
 import com.property.api.MaintenanceApi;
@@ -16,6 +18,8 @@ import com.property.base.BaseActivity;
 import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.http.MySimpleJsonDataResponseCacheHandler;
 import com.property.model.SignModel;
+import com.property.ui.codeScan.CaptureActivity;
+import com.property.utils.BaiDuMapUtilInit;
 import com.property.utils.ImageUploadUtils;
 import com.vk.simpleutil.library.XSimpleAlertDialog;
 import com.vk.simpleutil.library.XSimpleImage;
@@ -55,6 +59,8 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
     Map<String, String> map = new ArrayMap<>();
     int codePostion = -1;
     String maintenanceID;
+    List<String> ruleIDs;
+    BDLocation locations;
 
     @Override
     public int onCreateViewLayouId() {
@@ -66,9 +72,23 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
         maintenanceID = getIntent().getStringExtra("maintenanceID");
         if (!XSimpleText.isEmpty(maintenanceID)) {
             initMaintenanceData(maintenanceID);
+            submit.setVisibility(View.GONE);
+            edtOther.setFocusable(false);
+            edtOther.setEnabled(false);
         } else {
             signModel = getIntent().getParcelableExtra("signModel");
             initRuleData(signModel);
+            BaiDuMapUtilInit.getInstance().startBaiDuMapReceiveLocation(new BaiDuMapUtilInit.LocationCallback() {
+                @Override
+                public void getLocation(BDLocation location) {
+                    locations = location;
+                }
+
+                @Override
+                public void getLocationFail() {
+
+                }
+            });
         }
     }
 
@@ -101,9 +121,6 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
                                 , (Serializable) signModel.getW_rule()));
                     }
                 });
-            submit.setVisibility(View.GONE);
-            edtOther.setFocusable(false);
-            edtOther.setEnabled(false);
         }
     }
 
@@ -196,7 +213,11 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
             public void success() {
                 XSimpleToast.showToast("提交成功！");
                 ActivityForResult.MaintenanceListRefresh = true;
-                finish();
+                if (signModel.getType2() != 2) {
+                    finish();
+                } else {
+                    CaptureActivity.launchActivity((Activity) mContext, ActivityForResult.POLICY_REQUEST_CODE_SCANLE);
+                }
             }
 
             @Override
@@ -206,7 +227,20 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
         }));
     }
 
-    List<String> ruleIDs;
+    void scanConfirm(String code) {
+        MaintenanceApi.getInstance().scanConfirm(mContext, signModel.getMaintenance_id(), code, locations.getLatitude(), locations.getLongitude(),
+                new MySimpleJsonDataResponseCacheHandler(new MySimpleJsonDataResponseCacheHandler.OnJsonCallBack() {
+                    @Override
+                    public void success() {
+                        finish();
+                    }
+
+                    @Override
+                    public void fail() {
+
+                    }
+                }));
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -215,6 +249,8 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
             if (resultCode == RESULT_OK && data != null) {
                 ruleIDs = (List<String>) data.getSerializableExtra("ruleIDs");
             }
+        } else if (requestCode == ActivityForResult.POLICY_REQUEST_CODE_SCANLE) {
+            scanConfirm(data.getStringExtra("code"));
         } else {
             String src = "file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data);
             if (XSimpleText.isEmpty(XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data)))
