@@ -8,15 +8,13 @@ import com.property.ActivityForResult;
 import com.property.activity.DetailActivity;
 import com.property.activity.MessageActivity;
 import com.property.activity.R;
-import com.property.adapter.MessageAdapter;
+import com.property.adapter.FaultAdapter;
 import com.property.api.FaultApi;
 import com.property.base.BaseActivity;
 import com.property.enumbase.MessageType;
 import com.property.enumbase.UpdateType;
 import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.model.FaultModel;
-import com.property.model.ImageModel;
-import com.property.model.MessageModel;
 import com.vk.simpleutil.library.XSimpleLogger;
 import com.vk.simpleutil.view.PullToRefreshRecyclerView;
 import com.vk.simpleutil.view.pulltorefresh.lib.PullToRefreshBase;
@@ -31,11 +29,10 @@ import butterknife.InjectView;
  * Created by Administrator on 2015/11/8.
  */
 public class FaultActivity extends BaseActivity implements IXListViewListener {
-    List<MessageModel> list = new ArrayList<>();
+    List<FaultModel> list = new ArrayList<>();
     @InjectView(R.id.list)
     PullToRefreshRecyclerView listView;
-    MessageAdapter mMessageAdapter;
-    List<FaultModel> faultModellist = new ArrayList<>();
+    FaultAdapter faultAdapter;
     String id;
 
     @Override
@@ -46,11 +43,11 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
     @Override
     public void initAllData() {
         setTitle("抢修单");
-        mMessageAdapter = new MessageAdapter(mContext, list);
+        faultAdapter = new FaultAdapter(mContext, list);
         listView.setLayoutManager(new LinearLayoutManager(mContext));
         listView.setPullRefreshLoadEnable(true, true, PullToRefreshBase.Mode.BOTH);
         listView.setOnXListViewListener(this);
-        listView.setAdapter(mMessageAdapter);
+        listView.setAdapter(faultAdapter);
         getList(UpdateType.top);
     }
 
@@ -65,40 +62,22 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
 
     }
 
-    List<MessageModel> initFault2Message(List<FaultModel> list) {
-        List<MessageModel> messageModelList = new ArrayList<>();
-        for (FaultModel faultModel : list) {
-            MessageModel messageModel = new MessageModel();
-            messageModel.setFault_id(faultModel.getId());
-            messageModel.setAddress(faultModel.getAddress());
-            messageModel.setIcon(new ImageModel("drawable://" + R.drawable.icon_book));
-            messageModel.setName("市政府电梯" + faultModel.getElevetor_number() + "号维保");
-            messageModel.setTime(1444492800);
-            messageModel.setStatus(faultModel.getStatus());
-            messageModel.setMessage_type(0);
-            messageModelList.add(messageModel);
-        }
-        return messageModelList;
-    }
-
     void getList(final UpdateType updateType) {
 
         String id = null;
         if (updateType == UpdateType.top) {
-            if (faultModellist.isEmpty())
+            if (list.isEmpty())
                 showProgressDialog();
             id = null;
         } else {
-            id = faultModellist.get(faultModellist.size() - 1).getId();
+            id = list.get(list.size() - 1).getId();
         }
-        FaultApi.getInstance().getList(mContext, id, new MyJsonDataResponseCacheHandler<List<FaultModel>>(FaultModel.class, faultModellist.isEmpty()) {
+        FaultApi.getInstance().getList(mContext, id, new MyJsonDataResponseCacheHandler<List<FaultModel>>(FaultModel.class, list.isEmpty()) {
             @Override
             public void onJsonDataSuccess(List<FaultModel> object) {
                 if (updateType == UpdateType.top)
-                    faultModellist.clear();
-                faultModellist.addAll(object);
-                list.clear();
-                list.addAll(initFault2Message(faultModellist));
+                    list.clear();
+                list.addAll(object);
                 listView.notifyDataSetChanged();
             }
 
@@ -129,10 +108,10 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == MessageActivity.REQUEST_CODE_SCANLE && resultCode == RESULT_OK && data != null && mMessageAdapter.getScanPostion() != -1) {
+        if (requestCode == MessageActivity.REQUEST_CODE_SCANLE && resultCode == RESULT_OK && data != null && faultAdapter.getScanPostion() != -1) {
             XSimpleLogger.Log().e("code:" + data.getStringExtra("code"));
             Intent intent = new Intent(mContext, DetailActivity.class)
-                    .putExtra("code", data.getStringExtra("code")).putExtra("id", faultModellist.get(mMessageAdapter.getScanPostion()).getId())
+                    .putExtra("code", data.getStringExtra("code")).putExtra("id", list.get(faultAdapter.getScanPostion()).getId())
                     .putExtra("messageType", MessageType.repair);
             startActivity(intent);
         }

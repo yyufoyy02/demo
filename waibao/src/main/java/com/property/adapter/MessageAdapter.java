@@ -16,7 +16,6 @@ import com.vk.simpleutil.adapter.XSimpleRecyclerAdapter;
 import com.vk.simpleutil.adapter.XSimpleViewHolder;
 import com.vk.simpleutil.library.XSimpleImage;
 import com.vk.simpleutil.library.XSimpleResources;
-import com.vk.simpleutil.library.XSimpleText;
 import com.vk.simpleutil.library.XSimpleTime;
 
 import java.util.List;
@@ -129,8 +128,8 @@ public class MessageAdapter extends XSimpleRecyclerAdapter<MessageModel> {
                 } else if (item.getStatus() == 3) {
                     status.setText("过期");
                 }
-                tvPeriods.setText(XSimpleText.setColorText("(第" + item.getPeriods() + "期维保计划)", 2,
-                        (item.getPeriods() + "").length(), android.R.color.holo_red_light));
+//                tvPeriods.setText(XSimpleText.setColorText("(第" + item.getPeriods() + "期维保计划)", 2,2+
+//                        (item.getPeriods() + "").length(), android.R.color.holo_red_light));
                 status.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
                 submit.setVisibility(View.VISIBLE);
                 time.setTextColor(XSimpleResources.getColor(android.R.color.holo_red_light));
