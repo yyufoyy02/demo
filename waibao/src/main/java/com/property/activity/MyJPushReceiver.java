@@ -6,7 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.property.utils.AppRoute;
 import com.vk.simpleutil.library.XSimpleLogger;
+
+import org.json.JSONObject;
 
 import cn.jpush.android.api.JPushInterface;
 
@@ -41,7 +44,7 @@ public class MyJPushReceiver extends BroadcastReceiver {
                 .getAction())) {
             XSimpleLogger.Log().e("用户点击打开了通知");
 
-//            openNotification(context, bundle);
+            openNotification(context, bundle);
 
         } else {
             XSimpleLogger.Log().d("Unhandled intent - " + intent.getAction());
@@ -74,24 +77,18 @@ public class MyJPushReceiver extends BroadcastReceiver {
 //        }
 //    }
 
-//    private void openNotification(Context context, Bundle bundle) {
-//        String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
-//        String myValue = "";
-//        try {
-//
-//            JSONObject extrasJson = new JSONObject(extras);
-//            myValue = extrasJson.optString("app_route");
-//
-//        } catch (Exception e) {
-//            XSimpleLogger.Log().e("Unexpected: extras is not a valid json", e);
-//            return;
-//        }
-//        EventStatistics.getInstance().onEvent("openTopicPushed",
-//                "userIdentity",
-//                UserDataUtil.getInstance().getUserData().getIdentity() + "");
-//        Intent mIntent = new Intent(context, AppStartActivity.class);
-//        mIntent.putExtra("myValue", myValue);
-//        mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        context.startActivity(mIntent);
-//    }
+    private void openNotification(Context context, Bundle bundle) {
+        String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
+        String myValue = "";
+        try {
+
+            JSONObject extrasJson = new JSONObject(extras);
+            myValue = extrasJson.optString("app_route");
+        } catch (Exception e) {
+            XSimpleLogger.Log().e("Unexpected: extras is not a valid json", e);
+            return;
+        }
+        AppRoute.setActivityNewTask(true);
+        AppRoute.goActivity(context, myValue);
+    }
 }

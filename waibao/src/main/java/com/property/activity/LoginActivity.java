@@ -2,7 +2,6 @@ package com.property.activity;
 
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,9 +13,9 @@ import com.property.model.UserModel;
 import com.property.utils.UserDataUtil;
 import com.vk.simpleutil.library.XSimpleImage;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.annotation.event.OnClick;
+import cn.jpush.android.api.JPushInterface;
 
 public class LoginActivity extends BaseActivity {
 
@@ -60,11 +59,12 @@ public class LoginActivity extends BaseActivity {
     }
 
     void login() {
-        showProgressDialog(mContext,"登录中...");
+        showProgressDialog(mContext, "登录中...");
         UserApi.getInstance().login(mContext, edtLoginUsername.getText().toString(), edtLoginPassword.getText().toString(), new MyJsonDataResponseCacheHandler<UserModel>(UserModel.class, false) {
             @Override
             public void onJsonDataSuccess(UserModel userModel) {
                 UserDataUtil.getInstance().login(userModel);
+                JPushInterface.setAlias(mContext, userModel.getPhone(), null);
                 startActivity(new Intent(mContext, IndexActivity.class));
                 finish();
             }
@@ -80,12 +80,5 @@ public class LoginActivity extends BaseActivity {
                 dismissProgressDialog();
             }
         });
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.inject(this);
     }
 }

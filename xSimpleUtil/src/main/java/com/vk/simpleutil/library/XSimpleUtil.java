@@ -1,12 +1,12 @@
 package com.vk.simpleutil.library;
 
-import java.util.List;
-
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.res.Configuration;
+
+import java.util.List;
 
 /**
  * 普通工具类
@@ -55,5 +55,20 @@ public class XSimpleUtil {
 	public static boolean isApplicationBroughtToBackground() {
 		return isApplicationBroughtToBackground(context);
 
+	}
+	private static long lastClickTime;
+	/**
+	 * 控件是否被快速点击
+	 *
+	 * @return
+	 */
+	public static boolean isFastClick() {
+		long time = System.currentTimeMillis();
+		long timeD = time - lastClickTime;
+		if (0 < timeD && timeD < 800) {
+			return true;
+		}
+		lastClickTime = time;
+		return false;
 	}
 }
