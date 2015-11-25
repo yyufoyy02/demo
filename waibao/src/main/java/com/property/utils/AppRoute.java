@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.property.activity.fault.FaultDetailCompleteActivity;
-import com.property.activity.maintenance.MaintenancePolicyActivity;
+import com.property.activity.fault.FaultActivity;
+import com.property.activity.maintenance.MaintenancePlanActivity;
 import com.vk.simpleutil.library.XAppRouter;
 import com.vk.simpleutil.library.XAppRouter.RouteNotFoundException;
 import com.vk.simpleutil.library.XAppRouter.RouterCallback;
@@ -128,22 +128,20 @@ public class AppRoute {
         XSimpleLogger.Log().e("route:" + urlTag);
         final XAppRouter router = XAppRouter.sharedRouter();
         router.setContext(mActivity);
-        router.map("fault_order", new RouterCallback() {
+        router.map("fault_list", new RouterCallback() {
             @Override
             public void run(Map<String, String> params, Bundle extras) {
                 // TODO Auto-generated method stub
-                if (extras == null || !extras.containsKey("fault_id"))
-                    return;
-                initStartActivity(mActivity, new Intent(mActivity, FaultDetailCompleteActivity.class).putExtra("id", (String) extras.get("fault_id")));
+                initStartActivity(mActivity, new Intent(mActivity, FaultActivity.class));
             }
         });
-        router.map("maintenance_order", new RouterCallback() {
+        router.map("plan_list", new RouterCallback() {
             @Override
             public void run(Map<String, String> params, Bundle extras) {
                 // TODO Auto-generated method stub
-                if (extras == null || !extras.containsKey("maintenance_id"))
-                    return;
-                initStartActivity(mActivity, new Intent(mActivity, MaintenancePolicyActivity.class).putExtra("maintenanceID", (String) extras.get("maintenance_id")));
+//                if (extras == null || !extras.containsKey("maintenance_id"))
+//                    return;
+                initStartActivity(mActivity, new Intent(mActivity, MaintenancePlanActivity.class));
             }
         });
         try {
