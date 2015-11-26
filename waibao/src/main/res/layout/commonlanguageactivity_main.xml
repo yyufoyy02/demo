@@ -108,7 +108,7 @@
             android:textColor="@color/main_color" />
 
         <EditText
-
+            android:id="@+id/ib_reason_text_content5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/dp5"

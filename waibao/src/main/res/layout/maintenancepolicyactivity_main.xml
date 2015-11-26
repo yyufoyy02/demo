@@ -15,6 +15,7 @@
         android:background="@color/bg_color">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -28,8 +29,8 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/btn_upload_image" />
 
-            <LinearLayout
 
+            <LinearLayout
                 style="@style/SettingRelativeLayoutStyle.MarginTop10"
                 android:layout_height="@dimen/dp140"
                 android:layout_gravity="center_horizontal"
@@ -41,7 +42,35 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp70"
                     android:layout_marginRight="@dimen/dp70"
-                    android:text="底部"
+                    android:text="机房"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp16" />
+
+                <ImageView
+                    android:id="@+id/iv_maintenancepolicy_top"
+                    android:layout_width="@dimen/dp160"
+                    android:layout_height="@dimen/dp120"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/btn_photo" />
+            </LinearLayout>
+
+            <TextView style="@style/line" />
+
+            <LinearLayout
+
+                style="@style/SettingRelativeLayoutStyle"
+                android:layout_height="@dimen/dp140"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp70"
+                    android:layout_marginRight="@dimen/dp70"
+                    android:text="轿顶"
                     android:textColor="@color/text_color_999"
                     android:textSize="@dimen/sp16" />
 
@@ -68,34 +97,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp70"
                     android:layout_marginRight="@dimen/dp70"
-                    android:text="顶部"
-                    android:textColor="@color/text_color_999"
-                    android:textSize="@dimen/sp16" />
-
-                <ImageView
-                    android:id="@+id/iv_maintenancepolicy_top"
-                    android:layout_width="@dimen/dp160"
-                    android:layout_height="@dimen/dp120"
-                    android:layout_gravity="center_vertical"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/btn_photo" />
-            </LinearLayout>
-
-            <TextView style="@style/line" />
-
-            <LinearLayout
-                style="@style/SettingRelativeLayoutStyle"
-                android:layout_height="@dimen/dp140"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/dp70"
-                    android:layout_marginRight="@dimen/dp70"
-                    android:text="侧面"
+                    android:text="底坑"
                     android:textColor="@color/text_color_999"
                     android:textSize="@dimen/sp16" />
 

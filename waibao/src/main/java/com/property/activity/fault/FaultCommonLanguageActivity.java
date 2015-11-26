@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.property.activity.R;
-import com.property.api.LanguageApi;
+import com.property.api.FaultApi;
 import com.property.base.BaseActivity;
 import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.model.LanguageModel;
@@ -25,6 +25,7 @@ public class FaultCommonLanguageActivity extends BaseActivity {
     @InjectView(R.id.ib_reason_check5)
     ImageButton ibReasonCheck5;
     int postion = 0;
+    String id;
 
     @Override
     public int onCreateViewLayouId() {
@@ -34,6 +35,7 @@ public class FaultCommonLanguageActivity extends BaseActivity {
     @Override
     public void initAllData() {
         setTitle("选择故障常用语");
+        id = getIntent().getStringExtra("faultID");
         getLanguage();
     }
 
@@ -55,18 +57,23 @@ public class FaultCommonLanguageActivity extends BaseActivity {
                 break;
             case R.id.tv_complete_submit:
                 String reason = null;
-                if (postion < llMain.getChildCount())
+                String solution = null;
+                if (postion < llMain.getChildCount()) {
                     reason = ((TextView) llMain.getChildAt(postion).findViewById(R.id.ib_reason_text)).getText().toString();
-
+                    solution = ((TextView) llMain.getChildAt(postion).findViewById(R.id.ib_reason_content)).getText().toString();
+                }
                 if (ibReasonCheck5.isSelected()) {
                     reason = ((TextView) findViewById(R.id.ib_reason_text5)).getText().toString();
+                    solution = ((TextView) findViewById(R.id.ib_reason_text_content5)).getText().toString();
                 } else {
-                    if (postion < llMain.getChildCount())
+                    if (postion < llMain.getChildCount()) {
                         reason = ((TextView) llMain.getChildAt(postion).findViewById(R.id.ib_reason_text)).getText().toString();
+                        solution = ((TextView) llMain.getChildAt(postion).findViewById(R.id.ib_reason_content)).getText().toString();
+                    }
                 }
                 if (reason == null)
                     return;
-                setResult(RESULT_OK, new Intent().putExtra("reason", reason));
+                setResult(RESULT_OK, new Intent().putExtra("reason", reason).putExtra("solution", solution));
                 finish();
                 break;
         }
@@ -102,7 +109,7 @@ public class FaultCommonLanguageActivity extends BaseActivity {
     }
 
     void getLanguage() {
-        LanguageApi.getInstance().getLanguage(mContext, new MyJsonDataResponseCacheHandler<List<LanguageModel>>(LanguageModel.class,
+        FaultApi.getInstance().getLanguage(mContext, id, new MyJsonDataResponseCacheHandler<List<LanguageModel>>(LanguageModel.class,
                 true) {
             @Override
             public void onJsonDataSuccess(List<LanguageModel> object) {

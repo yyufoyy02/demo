@@ -3,12 +3,16 @@ package com.property.activity;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.property.activity.fault.FaultActivity;
 import com.property.activity.maintenance.MaintenancePlanActivity;
+import com.property.api.UserApi;
 import com.property.base.BaseActivity;
-import com.property.enumbase.MessageType;
+import com.property.http.MyJsonDataResponseCacheHandler;
+import com.property.model.MessageCountModel;
+import com.property.model.MessageModel;
 import com.property.utils.UserDataUtil;
 
 import butterknife.InjectView;
@@ -20,6 +24,8 @@ public class IndexActivity extends BaseActivity {
     TextView tvIndexUsername;
     @InjectView(R.id.tv_index_desc)
     TextView tvIndexDesc;
+    @InjectView(R.id.iv_index_message)
+    ImageView ivMessage;
 
 
     @Override
@@ -31,6 +37,7 @@ public class IndexActivity extends BaseActivity {
     public void initAllData() {
         tvIndexUsername.setText(UserDataUtil.getInstance().getUserData().getName());
         tvIndexDesc.setText(UserDataUtil.getInstance().getUserData().getDepartment());
+
     }
 
     @OnClick({R.id.iv_index_settring, R.id.iv_index_message, R.id.iv_index_maintenance, R.id.iv_index_repair, R.id.iv_index_statistics, R.id.iv_index_user})
@@ -40,7 +47,9 @@ public class IndexActivity extends BaseActivity {
                 startActivity(new Intent(mContext, SettingActivity.class));
                 break;
             case R.id.iv_index_message:
-                startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageType.all));
+//                MessagePopupWindow messagePopupWindow = new MessagePopupWindow(mContext);
+//                messagePopupWindow.showAtLocation(ivMessage, Gravity.BOTTOM,0,0);
+//                startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageType.all));
                 break;
             case R.id.iv_index_maintenance:
                 startActivity(new Intent(mContext, MaintenancePlanActivity.class));
@@ -57,6 +66,30 @@ public class IndexActivity extends BaseActivity {
             default:
                 break;
         }
+    }
+
+    void initMessageView(MessageCountModel messageCountModel) {
+
+    }
+
+    void getMessage() {
+        UserApi.getInstance().getMessages(mContext, new MyJsonDataResponseCacheHandler<MessageCountModel>(MessageModel.class, false) {
+            @Override
+            public void onJsonDataSuccess(MessageCountModel object) {
+                initMessageView(object);
+            }
+
+            @Override
+            public boolean onJsonCacheData(boolean has) {
+                return false;
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getMessage();
     }
 
     @Override

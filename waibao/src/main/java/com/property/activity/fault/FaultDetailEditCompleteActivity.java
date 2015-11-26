@@ -56,6 +56,7 @@ public class FaultDetailEditCompleteActivity extends BaseActivity implements Ima
     ImageView ivDetaileditCompleteImageView3;
     @InjectView(R.id.tv_detail_say_reason)
     TextView tvSayReason;
+    String reasonContent;
     List<String> list1 = new ArrayList<>();
     List<String> list2 = new ArrayList<>();
     List<String> codeList1 = new ArrayList<>();
@@ -107,6 +108,8 @@ public class FaultDetailEditCompleteActivity extends BaseActivity implements Ima
             map.put("img[" + i + "]", codeList1.get(i));
         for (int i = 0; i < codeList2.size(); i++)
             map.put("e_img[" + i + "]", codeList2.get(i));
+        map.put("shortname", tvSayReason.getText().toString());
+        map.put("solution", reasonContent);
         FaultApi.getInstance().putDeal(mContext, id, edtDetailSay.getText().toString(), fault_parts,
                 edtCompleteName.getText().toString(), edtCompletePrice.getText().toString(), map, mySimpleJsonDataResponseCacheHandler);
     }
@@ -134,7 +137,7 @@ public class FaultDetailEditCompleteActivity extends BaseActivity implements Ima
                 complete();
                 break;
             case R.id.tv_detail_say:
-                startActivityForResult(new Intent(mContext, FaultCommonLanguageActivity.class), ActivityForResult.REASONFORRESULT);
+                startActivityForResult(new Intent(mContext, FaultCommonLanguageActivity.class).putExtra("faultID", id), ActivityForResult.REASONFORRESULT);
                 break;
         }
     }
@@ -160,6 +163,7 @@ public class FaultDetailEditCompleteActivity extends BaseActivity implements Ima
         if (requestCode == ActivityForResult.REASONFORRESULT) {
             if (resultCode == RESULT_OK && data != null) {
                 tvSayReason.setText(data.getStringExtra("reason"));
+                reasonContent = data.getStringExtra("solution");
             }
         } else {
             String src = "file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data);

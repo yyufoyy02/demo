@@ -87,6 +87,10 @@ public class FaultApi extends BaseApi {
             mTempMap.putAll(map);
         put(context, "fault_eng.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
-
+    public void getLanguage(Context context, String fault_id, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+        mTempMap.clear();
+        mTempMap.put("fault_id", fault_id);
+        get(context, "language.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+    }
 
 }

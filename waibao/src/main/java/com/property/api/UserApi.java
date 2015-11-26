@@ -34,4 +34,10 @@ public class UserApi extends BaseApi {
         mTempMap.put("new_password2", new_password2);
         post(context, "password.json", mTempMap, mMyJsonHttpResponseCacheHandler);
     }
+
+    public void getMessages(Context context, JsonHttpResponseHandler mMyJsonHttpResponseCacheHandler) {
+        mTempMap.clear();
+        mTempMap.put("staff_id", UserDataUtil.getInstance().getStaff_id());
+        get(context, "messages.json", mTempMap, mMyJsonHttpResponseCacheHandler);
+    }
 }
