@@ -16,7 +16,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/dp30"
+            android:layout_height="@dimen/dp40"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/dp60"
             android:layout_marginTop="@dimen/dp60"
@@ -74,7 +74,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp95"
+                android:layout_height="@dimen/dp105"
                 android:layout_gravity="center_horizontal">
 
                 <TextView
@@ -88,7 +88,7 @@
                     android:gravity="center_vertical"
                     android:text="个人维保统计"
                     android:textColor="@color/text_color_999"
-                    android:textSize="@dimen/sp14" />
+                    android:textSize="@dimen/sp20" />
 
                 <TextView
                     android:id="@+id/textView3"
@@ -100,7 +100,7 @@
                     android:layout_marginRight="@dimen/dp45"
                     android:text="次"
                     android:textColor="@color/text_color_999"
-                    android:textSize="@dimen/sp13" />
+                    android:textSize="@dimen/sp18" />
 
                 <TextView
                     android:id="@+id/tv_statistics_maintenancecount"
@@ -112,7 +112,7 @@
                     android:layout_toStartOf="@+id/textView3"
                     android:text="0"
                     android:textColor="@android:color/holo_red_dark"
-                    android:textSize="@dimen/sp20" />
+                    android:textSize="@dimen/sp25" />
             </RelativeLayout>
 
             <TextView style="@style/line" />
@@ -124,13 +124,13 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_marginRight="@dimen/dp10"
-            android:layout_marginTop="@dimen/dp60"
+            android:layout_marginTop="@dimen/dp45"
             android:background="@android:color/white"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp95"
+                android:layout_height="@dimen/dp105"
                 android:layout_gravity="center_horizontal">
 
                 <TextView
@@ -144,7 +144,7 @@
                     android:gravity="center_vertical"
                     android:text="个人维修统计"
                     android:textColor="@color/text_color_999"
-                    android:textSize="@dimen/sp14" />
+                    android:textSize="@dimen/sp20" />
 
                 <TextView
                     android:id="@+id/textView8"
@@ -156,7 +156,7 @@
                     android:layout_marginRight="@dimen/dp45"
                     android:text="次"
                     android:textColor="@color/text_color_999"
-                    android:textSize="@dimen/sp13" />
+                    android:textSize="@dimen/sp18" />
 
                 <TextView
                     android:id="@+id/tv_statistics_faultcount"
@@ -168,7 +168,7 @@
                     android:layout_toStartOf="@+id/textView8"
                     android:text="0"
                     android:textColor="@android:color/holo_red_dark"
-                    android:textSize="@dimen/sp18" />
+                    android:textSize="@dimen/sp25" />
             </RelativeLayout>
 
             <TextView style="@style/line" />

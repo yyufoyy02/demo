@@ -47,40 +47,55 @@ public class StatisticsActivity extends BaseActivity {
         beginYear = Calendar.getInstance().get(Calendar.YEAR);
         beginMouth = Calendar.getInstance().get(Calendar.MONTH);
         beginDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        endYear = Calendar.getInstance().get(Calendar.YEAR);
-        endMouth = Calendar.getInstance().get(Calendar.MONTH);
-        endDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        endYear = beginYear;
+        endMouth = beginMouth;
+        endDay = beginDay;
+        int mouth = beginMouth + 1;
+        tvStatisticsBegintime.setText(beginYear + "-" + mouth + "-" + beginDay);
+        tvStatisticsEndtime.setText(endYear + "-" + mouth + "-" + endDay);
     }
 
     @OnClick({R.id.tv_statistics_begintime, R.id.tv_statistics_endtime, R.id.tv_statistics_timesubmit})
     void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_statistics_begintime:
+                mContext.setTheme(R.style.AppTheme);
                 datePickerDialog = new DatePickerDialog(mContext, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                         beginYear = i;
-                        beginMouth = i1+1;
+                        beginMouth = i1;
                         beginDay = i2;
-                        tvStatisticsBegintime.setText(beginYear + "-" + beginMouth + "-" + beginDay);
+                        int mouth = beginMouth + 1;
+                        tvStatisticsBegintime.setText(beginYear + "-" + mouth + "-" + beginDay);
+                        if (XSimpleTime.getTimestampFromString(tvStatisticsBegintime.getText().toString(), "yyyy-MM-dd") >
+                                (double) XSimpleTime.getTimestampFromString(tvStatisticsEndtime.getText().toString(), "yyyy-MM-dd")) {
+                            endYear = beginYear;
+                            endMouth = beginMouth;
+                            endDay = beginDay;
+                            tvStatisticsEndtime.setText(beginYear + "-" + mouth + "-" + beginDay);
+                        }
                     }
                 }, beginYear, beginMouth, beginDay);
                 datePickerDialog.show();
                 break;
             case R.id.tv_statistics_endtime:
-                if (endYear < beginYear)
-                    endYear = beginYear;
-                if (endMouth < beginMouth)
-                    endMouth = beginMouth;
-                if (endDay < beginDay)
-                    endDay = beginDay;
+                mContext.setTheme(R.style.AppTheme);
                 datePickerDialog = new DatePickerDialog(mContext, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                         endYear = i;
-                        endMouth = i1+1;
+                        endMouth = i1;
                         endDay = i2;
-                        tvStatisticsEndtime.setText(endYear + "-" + endMouth + "-" + endDay);
+                        int mouth = endMouth + 1;
+                        tvStatisticsEndtime.setText(endYear + "-" + mouth + "-" + endDay);
+                        if (XSimpleTime.getTimestampFromString(tvStatisticsBegintime.getText().toString(), "yyyy-MM-dd") >
+                                (double) XSimpleTime.getTimestampFromString(tvStatisticsEndtime.getText().toString(), "yyyy-MM-dd")) {
+                            endYear = beginYear;
+                            endMouth = beginMouth;
+                            endDay = beginDay;
+                            tvStatisticsEndtime.setText(beginYear + "-" + mouth + "-" + beginDay);
+                        }
                     }
                 }, endYear, endMouth, endDay);
                 datePickerDialog.show();
@@ -98,10 +113,18 @@ public class StatisticsActivity extends BaseActivity {
     }
 
     void getStatistics(double begin_time, double end_time) {
+        showProgressDialog();
+        StatisticsApi.getInstance().getStatistics(mContext, begin_time, end_time, new MyJsonDataResponseCacheHandler<CountModel>(CountModel.class,
+                begin_time == 0 && end_time == 0 ? true : false) {
+            @Override
+            public void onHttpComplete() {
+                super.onHttpComplete();
+                dismissProgressDialog();
+            }
 
-        StatisticsApi.getInstance().getStatistics(mContext, begin_time, end_time, new MyJsonDataResponseCacheHandler<CountModel>(CountModel.class, begin_time == 0 && end_time == 0 ? true : false) {
             @Override
             public void onJsonDataSuccess(CountModel object) {
+
                 initStatisticsView(object);
             }
 
