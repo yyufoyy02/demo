@@ -13,7 +13,9 @@ import com.property.base.BaseActivity;
 import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.model.MessageCountModel;
 import com.property.model.MessageModel;
+import com.property.popupwindow.MessagePopupWindow;
 import com.property.utils.UserDataUtil;
+import com.vk.simpleutil.library.XSimpleDensity;
 
 import butterknife.InjectView;
 import butterknife.annotation.event.OnClick;
@@ -26,7 +28,9 @@ public class IndexActivity extends BaseActivity {
     TextView tvIndexDesc;
     @InjectView(R.id.iv_index_message)
     ImageView ivMessage;
-
+    @InjectView(R.id.tv_index_count)
+    TextView tvCount;
+    MessagePopupWindow messagePopupWindow;
 
     @Override
     public int onCreateViewLayouId() {
@@ -37,7 +41,7 @@ public class IndexActivity extends BaseActivity {
     public void initAllData() {
         tvIndexUsername.setText(UserDataUtil.getInstance().getUserData().getName());
         tvIndexDesc.setText(UserDataUtil.getInstance().getUserData().getDepartment());
-
+        messagePopupWindow = new MessagePopupWindow(mContext, ivMessage);
     }
 
     @OnClick({R.id.iv_index_settring, R.id.iv_index_message, R.id.iv_index_maintenance, R.id.iv_index_repair, R.id.iv_index_statistics, R.id.iv_index_user})
@@ -47,9 +51,12 @@ public class IndexActivity extends BaseActivity {
                 startActivity(new Intent(mContext, SettingActivity.class));
                 break;
             case R.id.iv_index_message:
-//                MessagePopupWindow messagePopupWindow = new MessagePopupWindow(mContext);
-//                messagePopupWindow.showAtLocation(ivMessage, Gravity.BOTTOM,0,0);
-//                startActivity(new Intent(mContext, MessageActivity.class).putExtra("type", MessageType.all));
+
+                if (messagePopupWindow.isShowing()) {
+                    messagePopupWindow.dismiss();
+                } else {
+                    messagePopupWindow.showAsDropDown(ivMessage, -XSimpleDensity.dp2px(20), 0);
+                }
                 break;
             case R.id.iv_index_maintenance:
                 startActivity(new Intent(mContext, MaintenancePlanActivity.class));
@@ -69,6 +76,13 @@ public class IndexActivity extends BaseActivity {
     }
 
     void initMessageView(MessageCountModel messageCountModel) {
+        messagePopupWindow.setCount(messageCountModel.getMaintenance_count(), messageCountModel.getFault_count());
+        if (messageCountModel.getMaintenance_count() + messageCountModel.getFault_count() != 0) {
+            tvCount.setVisibility(View.VISIBLE);
+            tvCount.setText(messageCountModel.getMaintenance_count() + messageCountModel.getFault_count() + "");
+        } else {
+            tvCount.setVisibility(View.GONE);
+        }
 
     }
 

@@ -31,6 +31,20 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/btn_message" />
 
+    <TextView
+        android:id="@+id/tv_index_count"
+        android:layout_width="@dimen/dp15"
+        android:layout_height="@dimen/dp15"
+        android:layout_alignEnd="@+id/iv_index_message"
+        android:layout_alignRight="@+id/iv_index_message"
+        android:layout_alignTop="@+id/iv_index_message"
+        android:background="@drawable/icon_red_point"
+        android:gravity="center"
+        android:text="0"
+        android:visibility="gone"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp9" />
+
     <ImageView
         android:id="@+id/iv_index_avatar"
         android:layout_width="wrap_content"
@@ -46,9 +60,9 @@
         android:layout_below="@+id/iv_index_avatar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        tools:text="New Text"
         android:textColor="@color/text_color_333"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        tools:text="New Text" />
 
     <TextView
         android:id="@+id/tv_index_desc"
@@ -57,9 +71,9 @@
         android:layout_below="@+id/tv_index_username"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="2dp"
-        tools:text="New Text"
         android:textColor="@color/text_color_999"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        tools:text="New Text" />
 
     <LinearLayout
         android:id="@+id/linearlayout"
