@@ -10,4 +10,5 @@
     <color name="hint_color">#cccccc</color>
     <color name="title_color">#c9d7e6</color>
     <color name="bg_color">#eeeeec</color>
+    <color name="gray">#dbdbea</color>
 </resources>

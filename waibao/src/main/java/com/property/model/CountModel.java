@@ -2,7 +2,7 @@ package com.property.model;
 
 import com.property.base.BaseModel;
 
-public class MessageCountModel extends BaseModel {
+public class CountModel extends BaseModel {
     int fault_count;
     int maintenance_count;
 

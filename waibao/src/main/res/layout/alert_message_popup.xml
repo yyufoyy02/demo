@@ -23,6 +23,7 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/tv_index_maintenancetitle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp10"
@@ -53,7 +54,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <TextView
+                <TextView        android:id="@+id/tv_index_faulttitle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp10"

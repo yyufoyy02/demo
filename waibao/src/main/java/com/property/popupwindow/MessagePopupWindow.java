@@ -18,6 +18,8 @@ public class MessagePopupWindow extends PopupWindow {
     private View mMenuView;
     TextView tvMaintenancecount;
     TextView tvFaultcount;
+    TextView tvMaintenancetitle;
+    TextView tvFaulttitle;
 
     public MessagePopupWindow(final Context mContexts) {
         super(mContexts);
@@ -25,20 +27,22 @@ public class MessagePopupWindow extends PopupWindow {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.alert_message_popup, null);
         tvMaintenancecount = (TextView) mMenuView.findViewById(R.id.tv_index_maintenancecount);
         tvFaultcount = (TextView) mMenuView.findViewById(R.id.tv_index_faultcount);
+        tvMaintenancetitle = (TextView) mMenuView.findViewById(R.id.tv_index_maintenancetitle);
+        tvFaulttitle = (TextView) mMenuView.findViewById(R.id.tv_index_faulttitle);
         initPopup();
         initListenr(mContexts);
 
     }
 
     private void initListenr(final Context mContexts) {
-        tvFaultcount.setOnClickListener(new View.OnClickListener() {
+        tvFaulttitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mContexts.startActivity(new Intent(mContexts, FaultActivity.class));
                 dismiss();
             }
         });
-        tvMaintenancecount.setOnClickListener(new View.OnClickListener() {
+        tvMaintenancetitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mContexts.startActivity(new Intent(mContexts, MaintenancePlanActivity.class));

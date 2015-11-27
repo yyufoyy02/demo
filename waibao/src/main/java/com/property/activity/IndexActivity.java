@@ -11,7 +11,7 @@ import com.property.activity.maintenance.MaintenancePlanActivity;
 import com.property.api.UserApi;
 import com.property.base.BaseActivity;
 import com.property.http.MyJsonDataResponseCacheHandler;
-import com.property.model.MessageCountModel;
+import com.property.model.CountModel;
 import com.property.popupwindow.MessagePopupWindow;
 import com.property.utils.UserDataUtil;
 import com.vk.simpleutil.library.XSimpleDensity;
@@ -74,7 +74,7 @@ public class IndexActivity extends BaseActivity {
         }
     }
 
-    void initMessageView(MessageCountModel messageCountModel) {
+    void initMessageView(CountModel messageCountModel) {
         messagePopupWindow.setCount(messageCountModel.getMaintenance_count(), messageCountModel.getFault_count());
         if (messageCountModel.getMaintenance_count() + messageCountModel.getFault_count() != 0) {
             tvCount.setVisibility(View.VISIBLE);
@@ -86,9 +86,9 @@ public class IndexActivity extends BaseActivity {
     }
 
     void getMessage() {
-        UserApi.getInstance().getMessages(mContext, new MyJsonDataResponseCacheHandler<MessageCountModel>(MessageCountModel.class, false) {
+        UserApi.getInstance().getMessages(mContext, new MyJsonDataResponseCacheHandler<CountModel>(CountModel.class, false) {
             @Override
-            public void onJsonDataSuccess(MessageCountModel object) {
+            public void onJsonDataSuccess(CountModel object) {
                 initMessageView(object);
             }
 

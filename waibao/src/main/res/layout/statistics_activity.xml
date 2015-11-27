@@ -9,14 +9,169 @@
         android:id="@id/toolbar"
         layout="@layout/normal_title_layout" />
 
-    <com.vk.simpleutil.view.PullToRefreshRecyclerView
-        android:id="@+id/list"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:cacheColorHint="#00000000"
-        android:divider="@null"
-        android:listSelector="#00000000"
-        android:scrollbars="none"
-        android:scrollingCache="true" />
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp30"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/dp60"
+            android:layout_marginTop="@dimen/dp60"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_statistics_begintime"
+                android:layout_width="@dimen/dp95"
+                android:layout_height="match_parent"
+                android:background="@drawable/corners_white_ring_graybg"
+                android:gravity="center"
+                android:text="2015-11-21"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp5"
+                android:text="到"
+                android:textColor="@color/text_color_555"
+                android:textSize="@dimen/sp14" />
+
+            <TextView
+                android:id="@+id/tv_statistics_endtime"
+                android:layout_width="@dimen/dp95"
+                android:layout_height="match_parent"
+                android:background="@drawable/corners_white_ring_graybg"
+                android:gravity="center"
+                android:text="2015-11-21"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp14" />
+
+            <TextView
+                android:id="@+id/tv_statistics_timesubmit"
+                android:layout_width="@dimen/dp70"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp10"
+                android:background="@drawable/corners_blue_radius6"
+                android:gravity="center"
+                android:text="统计"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp14" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp120"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp95"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp80"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:drawableLeft="@drawable/icon_book"
+                    android:gravity="center_vertical"
+                    android:text="个人维保统计"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp14" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp45"
+                    android:text="次"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp13" />
+
+                <TextView
+                    android:id="@+id/tv_statistics_maintenancecount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_toLeftOf="@+id/textView3"
+                    android:layout_toStartOf="@+id/textView3"
+                    android:text="0"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="@dimen/sp20" />
+            </RelativeLayout>
+
+            <TextView style="@style/line" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp120"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp60"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp95"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp80"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:drawableLeft="@drawable/icon_setting"
+                    android:gravity="center_vertical"
+                    android:text="个人维修统计"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp14" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp45"
+                    android:text="次"
+                    android:textColor="@color/text_color_999"
+                    android:textSize="@dimen/sp13" />
+
+                <TextView
+                    android:id="@+id/tv_statistics_faultcount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_toLeftOf="@+id/textView8"
+                    android:layout_toStartOf="@+id/textView8"
+                    android:text="0"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="@dimen/sp18" />
+            </RelativeLayout>
+
+            <TextView style="@style/line" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
