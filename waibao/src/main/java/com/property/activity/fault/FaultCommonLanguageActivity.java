@@ -81,11 +81,12 @@ public class FaultCommonLanguageActivity extends BaseActivity {
 
     void check(int check) {
         for (int i = 0; i < llMain.getChildCount(); i++) {
-            postion = i;
             if (check == i) {
-                llMain.getChildAt(i).findViewById(R.id.ib_reason_content).setSelected(true);
+                postion = i;
+                llMain.getChildAt(i).findViewById(R.id.ib_reason_check).setSelected(true);
+                ibReasonCheck5.setSelected(false);
             } else {
-                llMain.getChildAt(i).findViewById(R.id.ib_reason_content).setSelected(false);
+                llMain.getChildAt(i).findViewById(R.id.ib_reason_check).setSelected(false);
             }
         }
     }
@@ -98,13 +99,13 @@ public class FaultCommonLanguageActivity extends BaseActivity {
             ((TextView) v.findViewById(R.id.ib_reason_text)).setText(languageModel.getShortname());
             ((TextView) v.findViewById(R.id.ib_reason_content)).setText(languageModel.getSolution());
             final int finalI = i;
-            v.findViewById(R.id.ib_reason_content).setOnClickListener(new View.OnClickListener() {
+            v.findViewById(R.id.ib_reason_check).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     check(finalI);
                 }
             });
-            llMain.addView(llMain);
+            llMain.addView(v);
         }
     }
 

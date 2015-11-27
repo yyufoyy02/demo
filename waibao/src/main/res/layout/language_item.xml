@@ -15,7 +15,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:gravity="center"
-            android:src="@drawable/btn_gou_normal"
+            android:src="@drawable/btn_gou"
             android:textColor="@color/text_color_999" />
 
         <TextView

@@ -12,7 +12,7 @@ public class RepairModel extends BaseModel {
     List<String> b_img;
     List<String> e_img;
     String fault_describe;
-    boolean fault_parts;
+    int fault_parts;
     String fault_parts_name;
     String fault_cost;
     double etime;
@@ -69,10 +69,10 @@ public class RepairModel extends BaseModel {
      * 是否更换配件
      */
     public boolean isFault_parts() {
-        return fault_parts;
+        return fault_parts == 1 ? true : false;
     }
 
-    public void setFault_parts(boolean fault_parts) {
+    public void setFault_parts(int fault_parts) {
         this.fault_parts = fault_parts;
     }
 

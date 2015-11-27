@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/gas/BaseApplication.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/gas/conf/Config.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/gas/connector/ConnectorManage.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/gas/utils/ImageViewUtil.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/gas/utils/LightTimer.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/gas/utils/Utils.java" charset="UTF-8" />
+  <component name="Encoding">
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.property.utils.AppRoute;
 import com.vk.simpleutil.library.XSimpleLogger;
+import com.vk.simpleutil.library.XSimpleText;
 
 import org.json.JSONObject;
 
@@ -79,16 +80,22 @@ public class MyJPushReceiver extends BroadcastReceiver {
 
     private void openNotification(Context context, Bundle bundle) {
         String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
+
         String myValue = "";
         try {
 
             JSONObject extrasJson = new JSONObject(extras);
+            XSimpleLogger.Log().e(extrasJson.toString());
             myValue = extrasJson.optString("app_route");
+            if (XSimpleText.isEmpty(myValue))
+                myValue = extrasJson.optString("txt");
         } catch (Exception e) {
             XSimpleLogger.Log().e("Unexpected: extras is not a valid json", e);
             return;
         }
+
         AppRoute.setActivityNewTask(true);
         AppRoute.goActivity(context, myValue);
     }
+
 }

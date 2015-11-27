@@ -124,8 +124,8 @@ public class DetailActivity extends BaseActivity {
         };
         if (messageType == MessageType.repair) {
             FaultApi.getInstance().scan(mContext, id, code, myJsonDataResponseCacheHandler);
-            edtDetailLasttime.setVisibility(View.GONE);
-            edtDetailThistime.setVisibility(View.GONE);
+            rlThistime.setVisibility(View.GONE);
+            rlLasttime.setVisibility(View.GONE);
         } else if (messageType == MessageType.maintenance) {
             MaintenanceApi.getInstance().scan(mContext, id, code, myJsonDataResponseCacheHandler);
             tvReason.setVisibility(View.GONE);
