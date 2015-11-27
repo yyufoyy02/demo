@@ -1,6 +1,8 @@
 package com.property.popupwindow;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,23 +10,42 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.property.activity.R;
+import com.property.activity.fault.FaultActivity;
+import com.property.activity.maintenance.MaintenancePlanActivity;
 
 public class MessagePopupWindow extends PopupWindow {
 
     private View mMenuView;
-    Context context;
     TextView tvMaintenancecount;
     TextView tvFaultcount;
 
-    public MessagePopupWindow(Context mContexts, View v) {
-        super(v, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        context = mContexts;
+    public MessagePopupWindow(final Context mContexts) {
+        super(mContexts);
         mMenuView = ((LayoutInflater) mContexts
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.alert_message_popup, null);
         tvMaintenancecount = (TextView) mMenuView.findViewById(R.id.tv_index_maintenancecount);
         tvFaultcount = (TextView) mMenuView.findViewById(R.id.tv_index_faultcount);
         initPopup();
+        initListenr(mContexts);
 
+    }
+
+    private void initListenr(final Context mContexts) {
+        tvFaultcount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContexts.startActivity(new Intent(mContexts, FaultActivity.class));
+                dismiss();
+            }
+        });
+        tvMaintenancecount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContexts.startActivity(new Intent(mContexts, MaintenancePlanActivity.class));
+                dismiss();
+
+            }
+        });
     }
 
     public void setCount(int maintenancecount, int faultcount) {
@@ -48,14 +69,14 @@ public class MessagePopupWindow extends PopupWindow {
         // 设置SelectPicPopupWindow弹出窗体的高
         this.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         // 设置点击窗口外边窗口不消失
-        this.setOutsideTouchable(true);
+        this.setOutsideTouchable(false);
         // 设置SelectPicPopupWindow弹出窗体可点击
         this.setFocusable(true);
         // 实例化一个ColorDrawable颜色为半透明
 //        this.setAnimationStyle(R.style.AnimFade);
-//        ColorDrawable dw = new ColorDrawable(0x7F000000);
-        // 设置SelectPicPopupWindow弹出窗体的背景
-//        this.setBackgroundDrawable(dw);
+        ColorDrawable dw = new ColorDrawable(0x00000000);
+//         设置SelectPicPopupWindow弹出窗体的背景
+        this.setBackgroundDrawable(dw);
     }
 }
 

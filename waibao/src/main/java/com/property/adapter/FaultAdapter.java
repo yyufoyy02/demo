@@ -44,8 +44,8 @@ public class FaultAdapter extends XSimpleRecyclerAdapter<FaultModel> {
 
         address.setText("地址：" + item.getAddress());
         XSimpleImage.getInstance().displayImage("drawable://" + R.drawable.icon_setting, icon);
-        name.setText("市政府电梯" + item.getElevetor_number() + "号维保");
-        time.setText(XSimpleTime.getFormatTimeFromTimestamp(1444492800, "yyyy-MM-dd"));
+        name.setText(item.getCustomer() + "维修");
+        time.setText(XSimpleTime.getFormatTimeFromTimestamp((long) item.getOn_time(), "yyyy-MM-dd"));
         if (item.getStatus() == 4) {
             status.setText("已完成");
             timeTitle.setText("完成时间");

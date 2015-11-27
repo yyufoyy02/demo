@@ -12,7 +12,6 @@ import com.property.api.UserApi;
 import com.property.base.BaseActivity;
 import com.property.http.MyJsonDataResponseCacheHandler;
 import com.property.model.MessageCountModel;
-import com.property.model.MessageModel;
 import com.property.popupwindow.MessagePopupWindow;
 import com.property.utils.UserDataUtil;
 import com.vk.simpleutil.library.XSimpleDensity;
@@ -41,7 +40,7 @@ public class IndexActivity extends BaseActivity {
     public void initAllData() {
         tvIndexUsername.setText(UserDataUtil.getInstance().getUserData().getName());
         tvIndexDesc.setText(UserDataUtil.getInstance().getUserData().getDepartment());
-        messagePopupWindow = new MessagePopupWindow(mContext, ivMessage);
+        messagePopupWindow = new MessagePopupWindow(mContext);
     }
 
     @OnClick({R.id.iv_index_settring, R.id.iv_index_message, R.id.iv_index_maintenance, R.id.iv_index_repair, R.id.iv_index_statistics, R.id.iv_index_user})
@@ -51,11 +50,11 @@ public class IndexActivity extends BaseActivity {
                 startActivity(new Intent(mContext, SettingActivity.class));
                 break;
             case R.id.iv_index_message:
-
+                getMessage();
                 if (messagePopupWindow.isShowing()) {
                     messagePopupWindow.dismiss();
                 } else {
-                    messagePopupWindow.showAsDropDown(ivMessage, -XSimpleDensity.dp2px(20), 0);
+                    messagePopupWindow.showAsDropDown(ivMessage, -XSimpleDensity.dp2px(35), 0);
                 }
                 break;
             case R.id.iv_index_maintenance:
@@ -87,7 +86,7 @@ public class IndexActivity extends BaseActivity {
     }
 
     void getMessage() {
-        UserApi.getInstance().getMessages(mContext, new MyJsonDataResponseCacheHandler<MessageCountModel>(MessageModel.class, false) {
+        UserApi.getInstance().getMessages(mContext, new MyJsonDataResponseCacheHandler<MessageCountModel>(MessageCountModel.class, false) {
             @Override
             public void onJsonDataSuccess(MessageCountModel object) {
                 initMessageView(object);

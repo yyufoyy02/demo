@@ -15,6 +15,24 @@ public class FaultModel extends BaseModel {
     String elevetor_number;
     String reg_code;
     int status;
+    double on_time;
+    String customer;
+
+    public double getOn_time() {
+        return on_time;
+    }
+
+    public void setOn_time(double on_time) {
+        this.on_time = on_time;
+    }
+
+    public String getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
 
     public String getId() {
         return XSimpleText.isEmpty(id, "");
