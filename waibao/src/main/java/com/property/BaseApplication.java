@@ -37,7 +37,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         sInstance = this;
         mContext = getApplicationContext();
-        DebugMode(true);
+        DebugMode(false);
         DataInit();
     }
 

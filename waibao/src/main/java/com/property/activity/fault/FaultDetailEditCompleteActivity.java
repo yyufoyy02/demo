@@ -228,6 +228,14 @@ public class FaultDetailEditCompleteActivity extends BaseActivity implements Ima
     @Override
     public void imageUploadFail(int statusFail, String error, int tag) {
         XSimpleToast.showToast("图片上传失败");
+        if (tag < 3) {
+            if (tag < list1.size())
+                list1.remove(tag);
+        } else {
+            tag = tag - 3;
+            if (tag < list2.size())
+                list2.remove(tag);
+        }
         if (tag == 0) {
             ivDetaileditFaultImageView1.setImageDrawable(null);
         } else if (tag == 1) {
