@@ -48,7 +48,8 @@ public class FaultDetailCompleteActivity extends BaseActivity {
     ImageView ivArrow;
     @InjectView(R.id.tv_detail_say_reason)
     TextView tvSayReason;
-
+    @InjectView(R.id.edt_detailedit_complete_other)
+    EditText edtDetaileditOther;
 
     @Override
     public int onCreateViewLayouId() {
@@ -67,6 +68,8 @@ public class FaultDetailCompleteActivity extends BaseActivity {
         edtCompleteName.setEnabled(false);
         edtCompletePrice.setFocusable(false);
         edtCompletePrice.setEnabled(false);
+        edtDetaileditOther.setFocusable(false);
+        edtDetaileditOther.setEnabled(false);
         getDetail();
     }
 
@@ -104,6 +107,7 @@ public class FaultDetailCompleteActivity extends BaseActivity {
         }
         edtCompleteName.setText(repairModel.getFault_parts_name());
         edtCompletePrice.setText(repairModel.getFault_cost());
+        edtDetaileditOther.setText(repairModel.getRemarks());
     }
 
     void getDetail() {

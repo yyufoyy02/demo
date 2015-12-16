@@ -36,20 +36,13 @@ public class LoginActivity extends BaseActivity {
     public void initAllData() {
         ivLoginBg.setImageBitmap(XSimpleImage.getResourceToBitmap(R.drawable.login_bg));
         UserDataUtil.getInstance().loginOut();
+        edtLoginUsername.setText("15918727922");
+        edtLoginPassword.setText("111111");
     }
 
     @OnClick(R.id.iv_login_login)
     void login(View v) {
-//        UserModel userModel=new UserModel();
-//        userModel.setDepartment("惠州维保公司");
-//        userModel.setCompany("惠州维保公司");
-//        userModel.setSex(0);
-//        userModel.setJob("高级维护员");
-//        userModel.setName("张三");
-//        userModel.setStaff_id("1");
-//        userModel.setPhone("13380123456");
-//        UserDataUtil.getInstance().login(userModel);
-//        startActivity(new Intent(mContext, IndexActivity.class));
+
         login();
     }
 

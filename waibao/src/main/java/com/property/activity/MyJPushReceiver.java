@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.property.BaseApplication;
 import com.property.utils.AppRoute;
 import com.vk.simpleutil.library.XSimpleLogger;
 import com.vk.simpleutil.library.XSimpleText;
@@ -31,7 +32,7 @@ public class MyJPushReceiver extends BroadcastReceiver {
 
         if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
             XSimpleLogger.Log().e("JPush用户注册成功");
-
+            XSimpleLogger.Log().e("JPushID:"+JPushInterface.getRegistrationID(BaseApplication.mContext));
 
         } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent
                 .getAction())) {

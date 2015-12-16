@@ -56,6 +56,8 @@ public class FaultDetailEditCompleteActivity extends BaseActivity implements Ima
     ImageView ivDetaileditCompleteImageView3;
     @InjectView(R.id.tv_detail_say_reason)
     TextView tvSayReason;
+    @InjectView(R.id.edt_detailedit_complete_other)
+    EditText edtDetaileditOther;
     String reasonContent;
     List<String> list1 = new ArrayList<>();
     List<String> list2 = new ArrayList<>();
@@ -76,6 +78,7 @@ public class FaultDetailEditCompleteActivity extends BaseActivity implements Ima
         setTitle("确认完成");
         id = getIntent().getStringExtra("id");
         tvCompleteNo.setSelected(true);
+
     }
 
     @Override
@@ -110,6 +113,7 @@ public class FaultDetailEditCompleteActivity extends BaseActivity implements Ima
             map.put("e_img[" + i + "]", codeList2.get(i));
         map.put("shortname", tvSayReason.getText().toString());
         map.put("solution", reasonContent);
+        map.put("remarks", edtDetaileditOther.getText().toString());
         FaultApi.getInstance().putDeal(mContext, id, edtDetailSay.getText().toString(), fault_parts,
                 edtCompleteName.getText().toString(), edtCompletePrice.getText().toString(), map, mySimpleJsonDataResponseCacheHandler);
     }
@@ -223,7 +227,20 @@ public class FaultDetailEditCompleteActivity extends BaseActivity implements Ima
 
     @Override
     public void imageUploadFail(int statusFail, String error, int tag) {
-        XSimpleToast.showToast("上传失败");
+        XSimpleToast.showToast("图片上传失败");
+        if (tag == 0) {
+            ivDetaileditFaultImageView1.setImageDrawable(null);
+        } else if (tag == 1) {
+            ivDetaileditFaultImageView2.setImageDrawable(null);
+        } else if (tag == 2) {
+            ivDetaileditFaultImageView3.setImageDrawable(null);
+        } else if (tag == 3) {
+            ivDetaileditCompleteImageView1.setImageDrawable(null);
+        } else if (tag == 4) {
+            ivDetaileditCompleteImageView2.setImageDrawable(null);
+        } else if (tag == 5) {
+            ivDetaileditCompleteImageView3.setImageDrawable(null);
+        }
     }
 
     @Override

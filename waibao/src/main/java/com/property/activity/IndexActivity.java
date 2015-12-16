@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.property.ActivityForResult;
 import com.property.activity.fault.FaultActivity;
 import com.property.activity.maintenance.MaintenancePlanActivity;
 import com.property.api.UserApi;
@@ -47,7 +48,7 @@ public class IndexActivity extends BaseActivity {
     void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_index_settring:
-                startActivity(new Intent(mContext, SettingActivity.class));
+                startActivityForResult(new Intent(mContext, SettingActivity.class), ActivityForResult.SETTING_LOGINOUT);
                 break;
             case R.id.iv_index_message:
                 getMessage();
@@ -97,6 +98,13 @@ public class IndexActivity extends BaseActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ActivityForResult.SETTING_LOGINOUT && resultCode == RESULT_OK)
+            finish();
     }
 
     @Override

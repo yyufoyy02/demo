@@ -40,6 +40,8 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
     Map<Integer, String> codeMap = new ArrayMap<>();
     List<String> ruleList = new ArrayList<>();
     SignModel signModel;
+    @InjectView(R.id.iv_maintenancepolicy_upload)
+    ImageView ivMaintenancepolicyUpload;
     @InjectView(R.id.iv_maintenancepolicy_bottom)
     ImageView ivMaintenancepolicyBottom;
     @InjectView(R.id.iv_maintenancepolicy_top)
@@ -75,9 +77,11 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
             submit.setVisibility(View.GONE);
             edtOther.setFocusable(false);
             edtOther.setEnabled(false);
+            ivMaintenancepolicyUpload.setVisibility(View.GONE);
         } else {
             signModel = getIntent().getParcelableExtra("signModel");
             initRuleData(signModel);
+            ivMaintenancepolicyUpload.setVisibility(View.VISIBLE);
             BaiDuMapUtilInit.getInstance().startBaiDuMapReceiveLocation(new BaiDuMapUtilInit.LocationCallback() {
                 @Override
                 public void getLocation(BDLocation location) {
@@ -121,6 +125,7 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
                                 , (Serializable) signModel.getW_rule()));
                     }
                 });
+
         }
     }
 
@@ -250,7 +255,8 @@ public class MaintenancePolicyActivity extends BaseActivity implements ImageUplo
                 ruleIDs = (List<String>) data.getSerializableExtra("ruleIDs");
             }
         } else if (requestCode == ActivityForResult.POLICY_REQUEST_CODE_SCANLE) {
-            scanConfirm(data.getStringExtra("code"));
+            if (resultCode == RESULT_OK && data != null)
+                scanConfirm(data.getStringExtra("code"));
         } else {
             String src = "file://" + XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data);
             if (XSimpleText.isEmpty(XSimplePhotoChoose.onActivityResult(mActivity, requestCode, resultCode, data)))

@@ -75,7 +75,8 @@ public class MaintenancePlanActivity extends BaseActivity implements IXListViewL
                 showProgressDialog();
             id = null;
         } else {
-            id = planModellist.get(planModellist.size() - 1).getId();
+            if (!planModellist.isEmpty())
+                id = planModellist.get(planModellist.size() - 1).getId();
         }
         MaintenanceApi.getInstance().getPlanList(mContext, id, new MyJsonDataResponseCacheHandler<List<PlanModel>>(PlanModel.class, planModellist.isEmpty()) {
             @Override

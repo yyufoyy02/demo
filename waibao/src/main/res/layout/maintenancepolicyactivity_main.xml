@@ -136,7 +136,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dp70"
                     android:layout_marginRight="@dimen/dp70"
-                    android:text="底部"
+                    android:text="维保单"
                     android:textColor="@color/text_color_999"
                     android:textSize="@dimen/sp16" />
 

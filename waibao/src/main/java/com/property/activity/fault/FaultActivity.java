@@ -70,7 +70,8 @@ public class FaultActivity extends BaseActivity implements IXListViewListener {
                 showProgressDialog();
             id = null;
         } else {
-            id = list.get(list.size() - 1).getId();
+            if (!list.isEmpty())
+                id = list.get(list.size() - 1).getId();
         }
         FaultApi.getInstance().getList(mContext, id, new MyJsonDataResponseCacheHandler<List<FaultModel>>(FaultModel.class, list.isEmpty()) {
             @Override

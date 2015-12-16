@@ -115,7 +115,8 @@ public class MaintenancePlanDetailActivity extends BaseActivity implements IXLis
                 showProgressDialog();
             id = null;
         } else {
-            id = list.get(list.size() - 1).getId();
+            if (!list.isEmpty())
+                id = list.get(list.size() - 1).getId();
         }
         MaintenanceApi.getInstance().getList(mContext, id, planModel.getId(),
                 new MyJsonDataResponseCacheHandler<List<MaintenanceModel>>(MaintenanceModel.class, list.isEmpty()) {

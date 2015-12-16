@@ -16,6 +16,16 @@ public class RepairModel extends BaseModel {
     String fault_parts_name;
     String fault_cost;
     double etime;
+    String remarks;
+
+    public String getRemarks() {
+        return XSimpleText.isEmpty(remarks, "");
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
 
     /**
      * 故障单号

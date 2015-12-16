@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.property.base.BaseActivity;
+import com.property.utils.UserDataUtil;
 
 import butterknife.annotation.event.OnClick;
 
@@ -17,6 +18,11 @@ public class SettingActivity extends BaseActivity {
 
     @OnClick(R.id.tv_setting_submit)
     void submit(View v) {
+        UserDataUtil.getInstance().loginOut();
+        Intent intent = new Intent(mContext, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        setResult(RESULT_OK);
         finish();
     }
 
