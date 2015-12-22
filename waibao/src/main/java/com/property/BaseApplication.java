@@ -32,12 +32,12 @@ public class BaseApplication extends Application {
     private static BaseApplication sInstance;
     public boolean isPad;
     public boolean debug;
-
+    public static int soundId;
     public void onCreate() {
         super.onCreate();
         sInstance = this;
         mContext = getApplicationContext();
-        DebugMode(false);
+        DebugMode(true);
         DataInit();
     }
 

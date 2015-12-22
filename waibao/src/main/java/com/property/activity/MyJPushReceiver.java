@@ -19,6 +19,7 @@ public class MyJPushReceiver extends BroadcastReceiver {
 
     private NotificationManager nm;
 
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if (null == nm) {
@@ -29,10 +30,10 @@ public class MyJPushReceiver extends BroadcastReceiver {
         Bundle bundle = intent.getExtras();
         // Log.d(TAG, "onReceive - " + intent.getAction() + ", extras: "
         // + AndroidUtil.printBundle(bundle));
-
+        XSimpleLogger.Log().e("JPushID:" + JPushInterface.getRegistrationID(BaseApplication.mContext));
         if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
             XSimpleLogger.Log().e("JPush用户注册成功");
-            XSimpleLogger.Log().e("JPushID:"+JPushInterface.getRegistrationID(BaseApplication.mContext));
+            XSimpleLogger.Log().e("JPushID:" + JPushInterface.getRegistrationID(BaseApplication.mContext));
 
         } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent
                 .getAction())) {
