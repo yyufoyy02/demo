@@ -1,9 +1,12 @@
 package com.property.activity;
 
+import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.property.BaseApplication;
@@ -17,19 +20,15 @@ import cn.jpush.android.api.JPushInterface;
 
 public class MyJPushReceiver extends BroadcastReceiver {
 
-    private NotificationManager nm;
+    private NotificationManager manager;
 
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (null == nm) {
-            nm = (NotificationManager) context
+        if (null == manager)
+            manager = (NotificationManager) context
                     .getSystemService(Context.NOTIFICATION_SERVICE);
-        }
-
         Bundle bundle = intent.getExtras();
-        // Log.d(TAG, "onReceive - " + intent.getAction() + ", extras: "
-        // + AndroidUtil.printBundle(bundle));
         XSimpleLogger.Log().e("JPushID:" + JPushInterface.getRegistrationID(BaseApplication.mContext));
         if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
             XSimpleLogger.Log().e("JPush用户注册成功");
@@ -38,11 +37,13 @@ public class MyJPushReceiver extends BroadcastReceiver {
         } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent
                 .getAction())) {
             XSimpleLogger.Log().e("接受到推送下来的自定义消息");
-//            receivingMessage(context, bundle);
+
         } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent
                 .getAction())) {
             XSimpleLogger.Log().e("接受到推送下来的通知");
-
+            if (BaseApplication.soundPool != null)
+                BaseApplication.soundPool.play(1, 1, 1, 0, 0, 1);
+//            addNotification(context, intent);
         } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent
                 .getAction())) {
             XSimpleLogger.Log().e("用户点击打开了通知");
@@ -54,31 +55,21 @@ public class MyJPushReceiver extends BroadcastReceiver {
         }
     }
 
-//    private void receivingMessage(Context context, Bundle bundle) {
-//        // TODO Auto-generated method stub
-//        String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
-//        XSimpleLogger.Log().e("message : " + message);
-//        String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
-//        XSimpleLogger.Log().e("extras : " + extras);
-//        if (!MyTextUtil.isEmpty(message) && message.equals("event")) {
-//            String myValue;
-////            int count;
-//            try {
-//                JSONObject extrasJson = new JSONObject(extras);
-//                myValue = extrasJson.optString("event");
-////                JSONObject parameters = extrasJson.optJSONObject("parameters");
-////                count = parameters.optInt("count");
-//            } catch (Exception e) {
-//                XSimpleLogger.Log().e("Unexpected: extras is not a valid json",
-//                        e);
-//                return;
-//            }
-//            if (!MyTextUtil.isEmpty(myValue)) {
-//                MessageFactory.getInstance().updataCount(myValue);
-//
-//            }
-//        }
-//    }
+
+    private void addNotification(Context mContext, Intent intent) {
+
+        if (intent == null || intent.getExtras() == null)
+            return;
+        Notification notification = new Notification();
+        notification.icon = R.mipmap.icon_lt;
+        notification.audioStreamType = android.media.AudioManager.ADJUST_LOWER;
+        notification.flags |= Notification.FLAG_AUTO_CANCEL;
+        notification.sound = Uri.parse("android.resource://" + mContext.getPackageName() + "/" + R.raw.sound);
+        PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        notification.setLatestEventInfo(mContext, intent.getExtras().getString(JPushInterface.EXTRA_TITLE), intent.getExtras().getString(JPushInterface.EXTRA_MESSAGE), pendingIntent);
+        manager.cancel(0);
+        manager.notify(0, notification);
+    }
 
     private void openNotification(Context context, Bundle bundle) {
         String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
