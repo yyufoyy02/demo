@@ -36,8 +36,8 @@ public class LoginActivity extends BaseActivity {
     public void initAllData() {
         ivLoginBg.setImageBitmap(XSimpleImage.getResourceToBitmap(R.drawable.login_bg));
         UserDataUtil.getInstance().loginOut();
-        edtLoginUsername.setText("15918727922");
-        edtLoginPassword.setText("111111");
+        edtLoginUsername.setText("");
+        edtLoginPassword.setText("");
     }
 
     @OnClick(R.id.iv_login_login)
