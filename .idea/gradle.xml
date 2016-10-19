@@ -14,15 +14,7 @@
             <option value="$PROJECT_DIR$/xSimpleUtil" />
           </set>
         </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/lib" />
-            <option value="$PROJECT_DIR$/pullToRefreshLibrary" />
-            <option value="$PROJECT_DIR$/waibao" />
-            <option value="$PROJECT_DIR$/xSimpleUtil" />
-          </set>
-        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

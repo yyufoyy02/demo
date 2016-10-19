@@ -24,12 +24,12 @@ android {
 
     }
     signingConfigs {
-        debug {
-            storeFile file("D:\\外包\\mykey.jks")
-            storePassword 'asd843'
-            keyAlias 'asd843'
-            keyPassword 'asd843'
-        }
+//        debug {
+//            storeFile file("D:\\外包\\mykey.jks")
+//            storePassword 'asd843'
+//            keyAlias 'asd843'
+//            keyPassword 'asd843'
+//        }
     }
     lintOptions {
         checkReleaseBuilds false
